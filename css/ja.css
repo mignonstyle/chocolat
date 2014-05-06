@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* ====================================
+japanese style
+==================================== */
+
+body {
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Lucida Grande", "segoe UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div.globalnav,
+#copyright,
+section .more-link a,
+.prevnext-page,
+#pagetop {
+	font-family: "Century Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Lucida Grande", "segoe UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Verdana, sans-serif;
+	font-weight: normal;
+}

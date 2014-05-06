@@ -1,0 +1,366 @@
+@charset "UTF-8";
+
+/* ====================================
+smart phone only
+==================================== */
+
+/* ------------------------------------
+base style
+------------------------------------ */
+
+body {
+	line-height: 1.4;
+}
+
+/* ------------------------------------
+hedding Base Style
+------------------------------------ */
+
+h1,
+h2 {
+	font-size: 1.2em;
+}
+
+h3,
+h4,
+h5 {
+	font-size: 1.1em;
+}
+
+section .post-content h2 {
+	padding-left: 10px;
+}
+
+/* ------------------------------------
+Text level
+------------------------------------ */
+
+pre {
+	padding: 20px 10px;
+}
+
+blockquote {
+	background-size: 35px 30px;
+	padding: 30px 10px;
+}
+
+/* ------------------------------------
+img
+------------------------------------ */
+
+/* Images */
+img.alignleft,
+.wp-caption.alignleft,
+img.alignright,
+.wp-caption.alignright {
+	margin: 10px 0;
+}
+
+img.alignleft {
+	margin-right: 10px;
+}
+
+img.alignright {
+	margin-left: 10px;
+}
+
+.aligncenter,
+.alignnone {
+	margin: 10px auto;
+}
+
+.wp-caption.alignleft .wp-caption-text {
+	margin-right: 0;
+}
+
+.wp-caption.alignright .wp-caption-text {
+	margin-left: 0;
+}
+
+/* ------------------------------------
+3.3 - pagination
+------------------------------------ */
+
+.pagination,
+.post-pagination {
+	margin: 20px 0;
+}
+
+/* ------------------------------------
+3.4.2 contactlink-top
+------------------------------------ */
+
+.header-links {
+	margin-top: 5px;
+}
+
+/* ------------------------------------
+3.4.3 contactlink-side
+------------------------------------ */
+
+/* contactlink-side-center */
+.contactlink-side-center li {
+	margin-right: 5px;
+}
+
+.contactlink-side-center li:nth-child(6n) {
+	margin-right: 0;
+}
+
+/* ------------------------------------
+4.1.1 - header base style
+------------------------------------ */
+
+#header #site-title {
+	font-size: 1.7em;
+}
+
+#header #site-description {
+	margin: 0.5em;
+}
+
+/* ------------------------------------
+4.1.3 - custom header image
+------------------------------------ */
+
+#header-image {
+	margin: 0 auto 10px;
+}
+
+/* ------------------------------------
+4.3 - breadcrumb
+------------------------------------ */
+
+.breadcrumb {
+	margin: 10px 0 0;
+}
+
+/* ------------------------------------
+5.0 - Content Style
+------------------------------------ */
+
+#contents {
+	margin: 10px auto 0;
+}
+
+#content-inner section,
+#content-header,
+.widget {
+	margin-bottom: 20px;
+}
+
+.common-contents,
+.comment-respond {
+	margin: 20px 0;
+	padding: 10px;
+}
+
+/* ------------------------------------
+5.1 - content-header
+------------------------------------ */
+
+#content-header {
+	padding: 20px 10px 0;
+}
+
+#content-header h1.page-title {
+	margin-bottom: 10px;
+}
+
+#content-header .search-str,
+#content-header p {
+	font-size: 1em;
+}
+
+#content-header #content-center {
+	text-align: left;
+}
+
+/* ------------------------------------
+5.2 - section
+------------------------------------ */
+
+/* section */
+section .section-top {
+	margin: 20px 0;
+}
+
+#content-inner .content-header,
+section .section-top,
+section .section-center,
+section .section-bottom .entry_meta {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* ------------------------------------
+5.2.1 - section-top
+------------------------------------ */
+
+section .entry-dates a,
+section .entry-dates a span.ro-off,
+section .entry-dates a span.ro-on,
+.single section .entry-dates {
+	background-size: 120px;
+}
+
+section .entry-dates a,
+.single section .entry-dates {
+	height: 60px;
+	width: 60px;
+}
+
+section .entry-dates a span.ro-on {
+	background-position: -60px 0;
+}
+
+section .entry-dates .entry-sticky:before {
+	font-size: 28px;
+}
+
+section .entry-dates .entry-date {
+	padding-top: 14px;
+}
+
+section .entry-dates .entry-date span.entry-year {
+	font-size: 12px;
+}
+
+section .entry-dates .entry-date span.entry-month {
+	font-size: 14px;
+}
+
+/* entry-title */
+section .entry-title {
+	margin-left: 65px;
+}
+
+.page section .entry-title {
+	margin-left: 0;
+}
+
+section .entry-title a,
+.single section .entry-title .post-title {
+	font-size: 1em;
+	height: 60px;
+}
+
+/* ------------------------------------
+5.2.2 - section-center
+------------------------------------ */
+
+/* entry-thumbnail */
+/* entry-content */
+section .entry-thumbnail,
+section .entry-content {
+	margin: 10px 0;
+}
+
+/* last-update */
+section .last-update {
+	font-size: 0.9em;
+}
+
+/* more-link */
+section .more-link {
+	font-size: 0.9em;
+	height: 50px;
+	line-height: 1.1;
+	margin-bottom: 0;
+	width: 50px;
+}
+
+section .more-link a,
+section .more-link a span.ro-off,
+section .more-link a span.ro-on {
+	background-size: 100px;
+	padding-top: 12px;
+}
+
+section .more-link a {
+	height: 50px;
+	width: 50px;
+}
+
+section .more-link a span.ro-on {
+	background-position: -50px 0;
+}
+
+/* ------------------------------------
+5.2.3 - section-bottom
+------------------------------------ */
+
+section .entry_meta {
+	font-size: 0.9em;
+}
+
+/* section-bottom entry_meta */
+section .section-bottom {
+	margin-top: 10px;
+}
+
+/* ------------------------------------
+5.5.  - Audio
+------------------------------------ */
+
+/* Audio */
+.format-audio .wp-audio-shortcode {
+	max-width: 100% !important; /* Override mediaelement.js style */
+}
+
+/* ------------------------------------
+5.12.3 - comment form
+------------------------------------ */
+
+.common-title,
+.comment-reply-title {
+	font-size: 1.2em;
+}
+
+/* ------------------------------------
+5.13 - paging
+------------------------------------ */
+
+.paging {
+	font-size: 0.9em;
+	padding: 20px 10px;
+}
+
+.paging .page-prev,
+.paging .page-new {
+	margin: 0;
+}
+
+/* ------------------------------------
+6.0 - Sidebar Style
+------------------------------------ */
+
+#sidebar {
+	padding: 20px 10px 1px;
+}
+
+/* ------------------------------------
+6.2 - widget-Adsense
+------------------------------------ */
+
+.content-adsense-bottom .widget {
+	background: #e5ceb1 url(../img/base/bg-footer-w.png) repeat;
+	margin: 0;
+}
+
+.content-adsense-bottom .widget,
+#widget-ad-large {
+	padding-bottom: 20px;
+}
+
+.inactive-sidebar #widget-ad-large {
+	padding-top: 20px;
+}
+
+/* ------------------------------------
+6.3 - widget-footer
+------------------------------------ */
+
+#widget-footer {
+	padding-bottom: 1px;
+}

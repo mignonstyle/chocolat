@@ -1,0 +1,614 @@
+@charset "UTF-8";
+
+/* ====================================
+smart phone style max-width: 640px
+==================================== */
+
+@media only screen and (max-width: 640px) {
+
+/* ------------------------------------
+3.4.2 contactlink-top
+4.1.2 - header searchform
+4.2 - globalnav
+------------------------------------ */
+
+.header-links .search-box label,
+#nav-control {
+	border-radius: 15px; /* 50% */
+	cursor: pointer;
+	font-size: 17px;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	width: 30px;
+}
+
+.header-links .search-box label:hover,
+#nav-control:hover {
+	transition:         0.5s;
+	-webkit-transition: 0.5s;
+	-moz-transition:    0.5s;
+}
+
+.header-links .search-box {
+	z-index: 1;
+}
+
+.contactlink-top,
+#nav-control {
+	z-index: 100;
+}
+
+/* ------------------------------------
+3.4.2 contactlink-top
+------------------------------------ */
+
+.header-links {
+	margin-top: 10px;
+}
+
+.contactlink-top ul li,
+.contactlink-bottom ul li {
+	margin-right: 8px;
+}
+
+.contactlink-top ul li:last-of-type,
+.contactlink-bottom ul li:last-of-type {
+	margin-right: 0;
+}
+
+/* ------------------------------------
+4.1.1 - header base style
+------------------------------------ */
+
+#header #site-title {
+	margin-right: 75px;
+}
+
+#header #site-title img.logo {
+	max-width: 215px;
+}
+
+/* ------------------------------------
+4.1.2 - header searchform
+------------------------------------ */
+
+.header-links .search-box {
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.header-links .search-box label {
+	background: #e5ceb1;
+	color: #41250c;
+	display: block;
+	overflow: hidden;
+	right: 40px;
+}
+
+.header-links .search-box label:hover {
+	background: #ba8d65;
+	color: #fff;
+}
+
+.header-links .search-box label span:before {
+	margin: 0 100px 0 7px;
+}
+
+.header-links .search-box .search-field {
+	display: block;
+	height: 45px;
+	line-height: 45px;
+	padding: 0;
+	text-indent: 0.5em;
+	top: 40px;
+	width: 100%;
+}
+
+/* ------------------------------------
+4.1.3 - custom header image
+------------------------------------ */
+
+#header-image {
+	margin-top: 5px;
+}
+
+/* ------------------------------------
+4.2 - globalnav
+------------------------------------ */
+
+#nav-control {
+	background: #895628;
+	color: #fff;
+	right: 10px;
+	top: 45px;
+	text-align: center;
+}
+
+#nav-control:hover {
+	background: #ba8d65;
+}
+
+div.globalnav {
+	background: #fff;
+	font-size: 1em;
+	position: absolute;
+	right: 0;
+	top: 85px;
+	width: 100%;
+	z-index: 100;
+}
+
+div.globalnav ul {
+	border-top: 1px solid #ba8d65;
+}
+
+div.globalnav,
+div.globalnav ul li {
+	border-bottom: 1px solid #ba8d65;
+}
+
+div.globalnav ul li:last-child {
+	border-bottom: none;
+} 
+
+div.globalnav ul li a {
+	height: 45px;
+	line-height: 45px;
+}
+
+div.globalnav ul li a:hover {
+	background: #603c21;
+	color: #fff;
+}
+
+div.globalnav ul li {
+	text-indent: 1em;
+}
+
+div.globalnav ul li li {
+	text-indent: 2em;
+}
+
+div.globalnav ul li li li {
+	text-indent: 3em;
+}
+
+div.globalnav ul li li li li {
+	text-indent: 4em;
+}
+
+/* ------------------------------------
+5.3 - related entry, new entry
+------------------------------------ */
+
+.related-contents li,
+.new-contents li {
+	margin-right: 1.6666%;
+	width: 49.1666%;
+}
+
+.related-contents li:nth-child(2n),
+.new-contents li:nth-child(2n) {
+	margin-right: 0;
+}
+
+.common-post-title {
+	font-size: 0.9em;
+}
+
+/* ------------------------------------
+5.4 - Galleries
+------------------------------------ */
+
+.gallery-item {
+	margin: 5px 2.58064% 5px 0; /* 16px */
+	width: 31.6129%; /* 196px */
+}
+
+.gallery-item:nth-of-type(3n) {
+	margin-right: 0;
+}
+
+.gallery-item img {
+	padding: 3px;
+}
+
+/* ------------------------------------
+7.1 - pagetop
+------------------------------------ */
+
+#pagetop {
+	right: 20px;
+}
+}
+
+/* ====================================
+PC style min-width: 641px
+==================================== */
+
+@media only screen and (min-width: 641px) {
+
+/* ------------------------------------
+3.4.2 contactlink-top
+------------------------------------ */
+
+.contactlink-top {
+	position: absolute;
+	right: 235px;
+}
+
+/* ------------------------------------
+4.1.1 - header base style
+------------------------------------ */
+
+#header #site-title img.logo {
+	max-width: 350px;
+}
+
+/* ------------------------------------
+4.1.2 - header search-form
+------------------------------------ */
+
+.header-links .search-box {
+	right: 0;
+}
+
+.header-links .search-box .search-field {
+	background: #fff url(../img/common/search-button.png) no-repeat right center;
+	border-radius: 20px;
+	padding: 0 35px 0 10px;
+	width: 170px;
+}
+
+/* ------------------------------------
+4.2 - globalnav
+------------------------------------ */
+
+#nav-control{
+	display: none;
+}
+
+div.globalnav {
+	font-size: 0.9em;
+	line-height: 1.3;
+}
+
+div.globalnav > ul {
+	margin-top: 20px;
+}
+
+div.globalnav ul li {
+	float: left;
+}
+
+div.globalnav > ul > li {
+	border-right: solid 1px #ba8d65;
+	margin-bottom: 5px;
+	white-space: nowrap;
+}
+
+div.globalnav > ul > li:first-child {
+	border-left: solid 1px #ba8d65;
+	-webkit-box-shadow: 1px 0 0 #fefdfb inset;
+	box-shadow:         1px 0 0 #fefdfb inset;
+}
+
+div.globalnav > ul > li > a {
+	height: 36px;
+	line-height: 36px;
+	padding: 0 20px;
+}
+
+div.globalnav li:hover > a,
+div.globalnav li a:hover,
+div.globalnav ul ul li {
+	background: rgba(96, 60, 33, 0.9); /* #603c21 */
+	color: #fff;
+}
+
+/* child list */
+div.globalnav ul ul li a {
+	line-height: 1.2;
+	max-width: 250px;
+	min-width: 130px;
+	padding: 11px 20px;
+	white-space: normal;
+}
+
+div.globalnav ul ul {
+	display: none;
+	margin-left: -1px;
+	position: absolute;
+	z-index: 10;
+}
+
+div.globalnav li li {
+	border-top: solid 1px #e5ceb1;
+	float: none;
+	position:relative;
+	left: 0;
+	width: 100%;
+}
+
+div.globalnav li li a {
+	color: #fff;
+}
+
+div.globalnav ul ul li a:hover {
+	background: #e5ceb1;
+	color: #41250c;
+}
+
+div.globalnav ul li:hover > ul {
+	display: block;
+}
+
+/* grandson list */
+div.globalnav ul ul ul {
+	top: 0;
+	left: 100%;
+}
+
+div.globalnav ul ul ul:before {
+	border-bottom: 4px solid transparent;
+	border-right: 8px solid rgba(96, 60, 33, 0.9); /* #603c21 */
+	border-top: 4px solid transparent;
+	content: '';
+	position: absolute;
+	left: -8px;
+	top: 14px;
+}
+
+div.globalnav li li li:first-child {
+	border-top: none;
+}
+
+div.globalnav > ul > .current_page_item > a,
+div.globalnav > ul > .current_page_ancestor > a,
+div.globalnav > ul > .current-menu-item > a,
+div.globalnav > ul > .current-menu-ancestor > a {
+	background: #f4e7d7;
+	color: #41250c;
+}
+
+div.globalnav > ul > .current_page_item > a:hover,
+div.globalnav > ul > .current_page_ancestor > a:hover,
+div.globalnav > ul > .current-menu-item > a:hover,
+div.globalnav > ul > .current-menu-ancestor > a:hover {
+	background: rgba(96, 60, 33, 0.9); /* #603c21 */
+	color: #fff;
+}
+
+/* ------------------------------------
+4.3 - breadcrumb
+------------------------------------ */
+
+.breadcrumb {
+	margin-top: 15px;
+}
+
+/* ------------------------------------
+5.3 - related entry, new entry
+------------------------------------ */
+
+.related-contents li,
+.new-contents li {
+	margin-right: 1.6666%;
+	width: 18.6666%;
+}
+
+.related-contents li:nth-child(5n),
+.new-contents li:nth-child(5n) {
+	margin-right: 0;
+}
+
+.common-post-title {
+	font-size: 0.8em;
+}
+
+/* ------------------------------------
+5.4 - Galleries
+------------------------------------ */
+
+.gallery-item {
+	margin: 7px 2.419% 8px 0; /* 15px */
+	width: 18.064%; /* 112px */
+}
+
+.gallery-item:nth-of-type(5n) {
+	margin-right: 0;
+}
+
+.gallery-item img {
+	padding: 4px;
+}
+
+/* ------------------------------------
+7.1 - pagetop
+------------------------------------ */
+
+#pagetop {
+	right: 30px;
+}
+}
+
+/* ====================================
+PC style min-width: 641px max-width: 879px
+==================================== */
+
+@media only screen and (min-width: 641px) and (max-width: 879px) {
+
+/* ------------------------------------
+3.4.2 contactlink-top
+------------------------------------ */
+
+.contactlink-top {
+	right: 225px;
+	top: 5px;
+}
+
+.contactlink-top ul li,
+.contactlink-bottom ul li {
+	margin-right: 8px;
+}
+
+/* ------------------------------------
+4.1.2 - header search-form
+------------------------------------ */
+
+.header-links .search-box {
+	top: 0;
+}
+
+/* ------------------------------------
+4.1.1 - header base style
+------------------------------------ */
+
+#header #site-title {
+	margin-right: 340px;
+}
+}
+
+/* ====================================
+PC style min-width: 880px
+==================================== */
+
+@media only screen and (min-width: 880px) {
+
+/* ------------------------------------
+3.4.2 contactlink-top
+------------------------------------ */
+
+.contactlink-top {
+	bottom: -6px;
+}
+
+/* ------------------------------------
+4.1.2 - header search-form
+------------------------------------ */
+
+.header-links .search-box {
+	bottom: 0;
+}
+
+/* ------------------------------------
+4.1.1 - header base style
+------------------------------------ */
+
+#header .header-title {
+	margin-right: 360px;
+}
+}
+
+/* ====================================
+PC style max-width: 999px
+==================================== */
+
+@media only screen and (max-width: 999px) {
+
+/* ------------------------------------
+5.13 - paging
+------------------------------------ */
+
+.prevnext-page.prevnext-footer {
+	display: none;
+}
+
+/* ------------------------------------
+6.0 - Sidebar Style
+------------------------------------ */
+
+.active-sidebar #sidebar,
+#widget-ad-large {
+	background: #e5ceb1 url(../img/base/bg-footer-w.png) repeat;
+}
+
+#sidebar {
+	padding: 30px 10px 1px;
+}
+
+/* ------------------------------------
+6.2 - widget-Adsense
+------------------------------------ */
+
+#widget-ad-large {
+	padding-bottom: 30px;
+}
+
+.inactive-sidebar #widget-ad-large {
+	padding-top: 30px;
+}
+
+#widget-ad-large .widget:last-child {
+	margin-bottom: 0;
+}
+
+/* ------------------------------------
+7.0 - Footer Style
+------------------------------------ */
+
+#footer.no-widget-footer:before {
+	height: 140px;
+}
+
+.active-sidebar #footer.no-widget-footer:before {
+	height: 40px;
+}
+}
+
+/* ====================================
+PC style 1000以上
+==================================== */
+
+/* min-width: 1000px */
+@media only screen and (min-width: 1000px) {
+
+/* ------------------------------------
+5.0 - Content Style
+------------------------------------ */
+
+/* sidebar */
+.active-sidebar #contents #main-content {
+	width: 665px;
+}
+
+.active-sidebar #sidebar {
+	width: 320px;
+}
+
+/* right sidebar */
+.right-sidebar #contents #main-content {
+	float: left;
+}
+
+.right-sidebar #sidebar {
+	float: right;
+}
+
+/* left sidebar */
+.left-sidebar #contents #main-content {
+	float: right;
+}
+
+.left-sidebar #sidebar {
+	float: left;
+}
+
+/* ------------------------------------
+5.13 - paging
+------------------------------------ */
+
+#main-content .prevnext-page {
+	display: none;
+}
+
+/* ------------------------------------
+6.3 - widget-footer
+------------------------------------ */
+
+#widget-footer {
+	padding-top: 30px
+}
+}

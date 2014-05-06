@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/* ====================================
+PC and tablet only
+==================================== */
+
+/* ------------------------------------
+5.2.1 - section-top
+------------------------------------ */
+
+/* entry-title */
+section .entry-title {
+	margin-left: 95px;
+}
+
+.page section .entry-title {
+	margin-bottom: 50px;
+	margin-left: 0;
+}
+
+section .entry-title a,
+.single section .entry-title .post-title {
+	height: 85px;
+}
+
+/* ------------------------------------
+6.1 - Widgets
+------------------------------------ */
+
+.widget-common:not(.widget_search) {
+	font-size: 0.85em;
+}
+
+/* ------------------------------------
+7.0 - Footer Style
+------------------------------------ */
+
+#footer #footer-inner {
+	padding-right: 110px
+}
+
+/* ====================================
+PC and tablet only style max 800
+==================================== */
+
+@media only screen and (max-width: 800px) {
+
+/* ------------------------------------
+6.1 - Widgets
+------------------------------------ */
+
+/* widget base */
+.widget-inner .contactlink-side,
+.widget-inner .widget-common {
+	float: left;
+	margin-right: 1.5625%;
+	width: 49.21875%;
+}
+
+.widget-inner .contactlink-side:nth-of-type(2n),
+.widget-inner .widget-common:nth-of-type(2n) {
+	margin-right: 0;
+}
+
+#sidebar .sidebar-widget.widget-masonry,
+#widget-footer .footer-widget.widget-masonry {
+	float: none;
+	margin-right: 0;
+}
+}
+
+/* ====================================
+PC style min-width: 801px max-width: 999px
+==================================== */
+
+@media only screen and (min-width: 801px) and (max-width: 999px) {
+
+/* ------------------------------------
+6.1 - Widgets
+------------------------------------ */
+
+/* widget base */
+.widget-inner .contactlink-side,
+.widget-inner .widget-common {
+	float: left;
+	margin-right: 1.5015%;
+	width: 32.3323%;
+}
+
+.widget-inner .contactlink-side:nth-of-type(3n),
+.widget-inner .widget-common:nth-of-type(3n) {
+	margin-right: 0;
+}
+
+#sidebar .sidebar-widget.widget-masonry,
+#widget-footer .footer-widget.widget-masonry {
+	float: none;
+	margin-right: 0;
+}
+}
+
+/* ====================================
+PC style min-width: 1000px
+==================================== */
+
+@media only screen and (min-width: 1000px) {
+
+/* ------------------------------------
+6.1 - Widgets
+------------------------------------ */
+
+/* widget base */
+.widget {
+	width: 300px;
+}
+
+/*#widget-footer .footer-widget {*/
+#widget-footer .widget-common {
+	float: left;
+	margin-right: 40px;
+}
+
+#widget-footer .footer-widget:nth-of-type(3n) {
+	margin-right: 0;
+}
+
+#widget-footer .footer-widget.widget-masonry {
+	float: none;
+	margin-right: 0;
+}
+}
