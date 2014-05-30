@@ -83,7 +83,7 @@ function chocolat_setup() {
 	load_theme_textdomain( 'chocolat', get_template_directory() . '/languages' );
 
 	// 2.1.0.2 - Theme Options file
-	require_once( get_stylesheet_directory() . '/admin/theme-options.php' );
+	require_once( get_template_directory() . '/admin/theme-options.php' );
 
 	// 2.1.1 - post-thumbnails
 	add_theme_support( 'post-thumbnails' );
@@ -753,25 +753,29 @@ function chocolat_sp_icon() {
 
 function chocolat_enqueue_styles() {
 	if ( !is_admin() ) {
-		wp_enqueue_style( 'chocolat_style', get_stylesheet_uri() );
-		wp_enqueue_style( 'chocolat_common', get_stylesheet_directory_uri().'/css/common.css' );
+		wp_enqueue_style( 'chocolat_style', get_template_directory_uri().'/style.css' );
+		wp_enqueue_style( 'chocolat_common', get_template_directory_uri().'/css/common.css' );
 
 		if( mb_ereg( 'MSIE', getenv( 'HTTP_USER_AGENT' ) ) ) {
-			wp_enqueue_style( 'chocolat_ie', get_stylesheet_directory_uri().'/css/ie.css' );
+			wp_enqueue_style( 'chocolat_ie', get_template_directory_uri().'/css/ie.css' );
 		}
 
 		wp_enqueue_style( 'chocolat_quicksand', '//fonts.googleapis.com/css?family=Quicksand' );
-		wp_enqueue_style( 'chocolat_font', get_stylesheet_directory_uri().'/css/font.css' );
-		wp_enqueue_style( 'chocolat_boxer', get_stylesheet_directory_uri().'/plugin/boxer/jquery.fs.boxer.css' );
+		wp_enqueue_style( 'chocolat_font', get_template_directory_uri().'/css/font.css' );
+		wp_enqueue_style( 'chocolat_boxer', get_template_directory_uri().'/plugin/boxer/jquery.fs.boxer.css' );
 
 		if ( chocolat_is_mobile() ) {
-			wp_enqueue_style( 'chocolat_smart', get_stylesheet_directory_uri().'/css/smart.css' );
+			wp_enqueue_style( 'chocolat_smart', get_template_directory_uri().'/css/smart.css' );
 		} else {
-			wp_enqueue_style( 'chocolat_pc', get_stylesheet_directory_uri().'/css/pc.css' );
+			wp_enqueue_style( 'chocolat_pc', get_template_directory_uri().'/css/pc.css' );
 		}
 
 		if ( strtoupper( get_locale() ) == 'JA' ) {
-			wp_enqueue_style( 'chocolat_ja', get_stylesheet_directory_uri().'/css/ja.css' );
+			wp_enqueue_style( 'chocolat_ja', get_template_directory_uri().'/css/ja.css' );
+		}
+
+		if ( is_child_theme() ) {
+			wp_enqueue_style( 'chocolat_child_style', get_stylesheet_uri() );
 		}
 	}
 }

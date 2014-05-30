@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: chocolat 1.0.10\n"
-"POT-Creation-Date: 2014-05-06 22:01+0900\n"
-"PO-Revision-Date: 2014-05-06 22:01+0900\n"
+"Project-Id-Version: chocolat 1.1.0\n"
+"POT-Creation-Date: 2014-05-30 21:27+0900\n"
+"PO-Revision-Date: 2014-05-30 21:27+0900\n"
 "Last-Translator: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: Japanese\n"
@@ -28,11 +28,11 @@ msgstr "%d 件のコメント"
 msgid "TrackBack URL"
 msgstr "トラックバックURL"
 
-#: ../content-none.php:19 ../functions.php:570 ../functions.php:1246
+#: ../content-none.php:19 ../functions.php:570 ../functions.php:1250
 msgid "404 Not found"
 msgstr "ページが見つかりません"
 
-#: ../content-none.php:21 ../functions.php:1308
+#: ../content-none.php:21 ../functions.php:1312
 msgid "Nothing Found"
 msgstr "見つかりません"
 
@@ -86,8 +86,8 @@ msgstr "カテゴリー「 %s 」の記事"
 msgid "Tag : %s"
 msgstr "タグ「 %s 」の記事"
 
-#: ../content-top.php:18 ../functions.php:563 ../functions.php:1270
-#: ../functions.php:1273
+#: ../content-top.php:18 ../functions.php:563 ../functions.php:1274
+#: ../functions.php:1277
 msgid "Y"
 msgstr "Y年"
 
@@ -108,7 +108,7 @@ msgstr "%s の記事"
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: ../content-top.php:30 ../functions.php:1243
+#: ../content-top.php:30 ../functions.php:1247
 #, php-format
 msgid "%d posts"
 msgstr "%d 件"
@@ -233,134 +233,134 @@ msgstr "READ%sMORE"
 msgid "READ%sPOST"
 msgstr "READ%sPOST"
 
-#: ../functions.php:560 ../functions.php:1243
+#: ../functions.php:560 ../functions.php:1247
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr "「 %s 」の検索結果"
 
-#: ../functions.php:586 ../functions.php:1315
+#: ../functions.php:586 ../functions.php:1319
 #, php-format
 msgid "Page %d"
 msgstr "%d ページ"
 
-#: ../functions.php:848
+#: ../functions.php:852
 #, php-format
 msgid "Chocolat theme by %1$sMignon Style%2$s."
 msgstr "Chocolat theme by %1$sMignon Style%2$s."
 
-#: ../functions.php:848
+#: ../functions.php:852
 #, php-format
 msgid "Powered by %1$sWordPress%2$s."
 msgstr "Powered by %1$sWordPress%2$s."
 
-#: ../functions.php:887
+#: ../functions.php:891
 #, php-format
 msgid "Copyright &copy; %1$s %2$s All Rights Reserved."
 msgstr "Copyright &copy; %1$s %2$s All Rights Reserved."
 
-#: ../functions.php:937
+#: ../functions.php:941
 msgid "Last updated"
 msgstr "更新日"
 
-#: ../functions.php:954
+#: ../functions.php:958
 msgid "Attention"
 msgstr "Attention"
 
-#: ../functions.php:1035 ../functions.php:1137 ../admin/theme-options.php:686
+#: ../functions.php:1039 ../functions.php:1141 ../admin/theme-options.php:686
 msgid "RSS"
 msgstr "RSS"
 
-#: ../functions.php:1042 ../functions.php:1146
+#: ../functions.php:1046 ../functions.php:1150
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../functions.php:1065 ../functions.php:1155 ../admin/theme-options.php:661
+#: ../functions.php:1069 ../functions.php:1159 ../admin/theme-options.php:661
 msgid "Contact"
 msgstr "お問い合わせ"
 
-#: ../functions.php:1107 ../admin/theme-options.php:652
+#: ../functions.php:1111 ../admin/theme-options.php:652
 msgid "Information"
 msgstr "インフォメーション"
 
-#: ../functions.php:1277 ../functions.php:1280
+#: ../functions.php:1281 ../functions.php:1284
 msgid "F"
 msgstr "n月"
 
-#: ../functions.php:1282
+#: ../functions.php:1286
 msgid "j"
 msgstr "j日"
 
-#: ../functions.php:1359 ../functions.php:1651 ../functions.php:1676
+#: ../functions.php:1363 ../functions.php:1655 ../functions.php:1680
 #: ../admin/theme-options.php:584
 msgid "New Entry"
 msgstr "新着記事"
 
-#: ../functions.php:1365 ../functions.php:1771 ../functions.php:1798
+#: ../functions.php:1369 ../functions.php:1775 ../functions.php:1802
 #: ../admin/theme-options.php:547
 msgid "Related Entry"
 msgstr "関連記事"
 
-#: ../functions.php:1650 ../functions.php:1770 ../functions.php:1881
+#: ../functions.php:1654 ../functions.php:1774 ../functions.php:1885
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr "%s テーマ用のウィジェット。"
 
-#: ../functions.php:1650
+#: ../functions.php:1654
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr "最近の投稿をサムネイル付きで表示します。"
 
-#: ../functions.php:1651
+#: ../functions.php:1655
 msgid "(with thumbnails)"
 msgstr "（サムネイル付き）"
 
-#: ../functions.php:1747 ../functions.php:1861 ../functions.php:1938
+#: ../functions.php:1751 ../functions.php:1865 ../functions.php:1942
 #: ../admin/theme-options.php:553 ../admin/theme-options.php:591
 #: ../admin/theme-options.php:630
 msgid "Title:"
 msgstr "タイトル:"
 
-#: ../functions.php:1750 ../functions.php:1864 ../admin/theme-options.php:556
+#: ../functions.php:1754 ../functions.php:1868 ../admin/theme-options.php:556
 #: ../admin/theme-options.php:594
 msgid "Number of posts to show:"
 msgstr "表示する投稿数:"
 
-#: ../functions.php:1754 ../functions.php:1868
+#: ../functions.php:1758 ../functions.php:1872
 msgid "Display post date?"
 msgstr "投稿日を表示しますか ?"
 
-#: ../functions.php:1757
+#: ../functions.php:1761
 msgid "Do not want to display the top page of the Web site."
 msgstr "Webサイトのトップページには表示しない。"
 
-#: ../functions.php:1770
+#: ../functions.php:1774
 msgid "In the single page, and view the latest posts in the same category."
 msgstr "投稿ページで、同じカテゴリーの新着記事を表示します。"
 
-#: ../functions.php:1881
+#: ../functions.php:1885
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr "親子ページのある固定ページにナビゲーションメニューを表示します。"
 
-#: ../functions.php:1882
+#: ../functions.php:1886
 msgid "Fixed Page Menu"
 msgstr "固定ページ メニュー"
 
-#: ../functions.php:1889
+#: ../functions.php:1893
 msgid "Page Navi"
 msgstr "ページナビ"
 
-#: ../functions.php:1940
+#: ../functions.php:1944
 msgid "Sort by:"
 msgstr "並び順:"
 
-#: ../functions.php:1942
+#: ../functions.php:1946
 msgid "Page title"
 msgstr "ページタイトル"
 
-#: ../functions.php:1943
+#: ../functions.php:1947
 msgid "Page order"
 msgstr "ページ順序"
 
-#: ../functions.php:1944
+#: ../functions.php:1948
 msgid "Page ID"
 msgstr "ページ ID"
 

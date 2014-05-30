@@ -11,7 +11,7 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: brown, tan, white, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, fluid-layout, custom-background, custom-header, custom-menu, sticky-post, theme-options, threaded-comments, translation-ready
 Text Domain: chocolat
-Version: 1.0.10
+Version: 1.1.0
 
 /* ------------------------------------
 Installation
@@ -143,6 +143,10 @@ License: MIT License
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.0
+* Fixed a bug when a child theme is used
+* Css fixes
 
 v1.0.10
 * Fix based on the theme review

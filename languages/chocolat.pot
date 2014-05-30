@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: chocolat 1.0.10\n"
-"POT-Creation-Date: 2014-05-06 22:01+0900\n"
-"PO-Revision-Date: 2014-05-06 22:01+0900\n"
+"Project-Id-Version: chocolat 1.1.0\n"
+"POT-Creation-Date: 2014-05-30 21:26+0900\n"
+"PO-Revision-Date: 2014-05-30 21:26+0900\n"
 "Last-Translator: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,11 +26,11 @@ msgstr ""
 msgid "TrackBack URL"
 msgstr ""
 
-#: ../content-none.php:19 ../functions.php:570 ../functions.php:1246
+#: ../content-none.php:19 ../functions.php:570 ../functions.php:1250
 msgid "404 Not found"
 msgstr ""
 
-#: ../content-none.php:21 ../functions.php:1308
+#: ../content-none.php:21 ../functions.php:1312
 msgid "Nothing Found"
 msgstr ""
 
@@ -82,8 +82,8 @@ msgstr ""
 msgid "Tag : %s"
 msgstr ""
 
-#: ../content-top.php:18 ../functions.php:563 ../functions.php:1270
-#: ../functions.php:1273
+#: ../content-top.php:18 ../functions.php:563 ../functions.php:1274
+#: ../functions.php:1277
 msgid "Y"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Archives"
 msgstr ""
 
-#: ../content-top.php:30 ../functions.php:1243
+#: ../content-top.php:30 ../functions.php:1247
 #, php-format
 msgid "%d posts"
 msgstr ""
@@ -223,134 +223,134 @@ msgstr ""
 msgid "READ%sPOST"
 msgstr ""
 
-#: ../functions.php:560 ../functions.php:1243
+#: ../functions.php:560 ../functions.php:1247
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr ""
 
-#: ../functions.php:586 ../functions.php:1315
+#: ../functions.php:586 ../functions.php:1319
 #, php-format
 msgid "Page %d"
 msgstr ""
 
-#: ../functions.php:848
+#: ../functions.php:852
 #, php-format
 msgid "Chocolat theme by %1$sMignon Style%2$s."
 msgstr ""
 
-#: ../functions.php:848
+#: ../functions.php:852
 #, php-format
 msgid "Powered by %1$sWordPress%2$s."
 msgstr ""
 
-#: ../functions.php:887
+#: ../functions.php:891
 #, php-format
 msgid "Copyright &copy; %1$s %2$s All Rights Reserved."
 msgstr ""
 
-#: ../functions.php:937
+#: ../functions.php:941
 msgid "Last updated"
 msgstr ""
 
-#: ../functions.php:954
+#: ../functions.php:958
 msgid "Attention"
 msgstr ""
 
-#: ../functions.php:1035 ../functions.php:1137 ../admin/theme-options.php:686
+#: ../functions.php:1039 ../functions.php:1141 ../admin/theme-options.php:686
 msgid "RSS"
 msgstr ""
 
-#: ../functions.php:1042 ../functions.php:1146
+#: ../functions.php:1046 ../functions.php:1150
 msgid "Feedly"
 msgstr ""
 
-#: ../functions.php:1065 ../functions.php:1155 ../admin/theme-options.php:661
+#: ../functions.php:1069 ../functions.php:1159 ../admin/theme-options.php:661
 msgid "Contact"
 msgstr ""
 
-#: ../functions.php:1107 ../admin/theme-options.php:652
+#: ../functions.php:1111 ../admin/theme-options.php:652
 msgid "Information"
 msgstr ""
 
-#: ../functions.php:1277 ../functions.php:1280
+#: ../functions.php:1281 ../functions.php:1284
 msgid "F"
 msgstr ""
 
-#: ../functions.php:1282
+#: ../functions.php:1286
 msgid "j"
 msgstr ""
 
-#: ../functions.php:1359 ../functions.php:1651 ../functions.php:1676
+#: ../functions.php:1363 ../functions.php:1655 ../functions.php:1680
 #: ../admin/theme-options.php:584
 msgid "New Entry"
 msgstr ""
 
-#: ../functions.php:1365 ../functions.php:1771 ../functions.php:1798
+#: ../functions.php:1369 ../functions.php:1775 ../functions.php:1802
 #: ../admin/theme-options.php:547
 msgid "Related Entry"
 msgstr ""
 
-#: ../functions.php:1650 ../functions.php:1770 ../functions.php:1881
+#: ../functions.php:1654 ../functions.php:1774 ../functions.php:1885
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr ""
 
-#: ../functions.php:1650
+#: ../functions.php:1654
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr ""
 
-#: ../functions.php:1651
+#: ../functions.php:1655
 msgid "(with thumbnails)"
 msgstr ""
 
-#: ../functions.php:1747 ../functions.php:1861 ../functions.php:1938
+#: ../functions.php:1751 ../functions.php:1865 ../functions.php:1942
 #: ../admin/theme-options.php:553 ../admin/theme-options.php:591
 #: ../admin/theme-options.php:630
 msgid "Title:"
 msgstr ""
 
-#: ../functions.php:1750 ../functions.php:1864 ../admin/theme-options.php:556
+#: ../functions.php:1754 ../functions.php:1868 ../admin/theme-options.php:556
 #: ../admin/theme-options.php:594
 msgid "Number of posts to show:"
 msgstr ""
 
-#: ../functions.php:1754 ../functions.php:1868
+#: ../functions.php:1758 ../functions.php:1872
 msgid "Display post date?"
 msgstr ""
 
-#: ../functions.php:1757
+#: ../functions.php:1761
 msgid "Do not want to display the top page of the Web site."
 msgstr ""
 
-#: ../functions.php:1770
+#: ../functions.php:1774
 msgid "In the single page, and view the latest posts in the same category."
 msgstr ""
 
-#: ../functions.php:1881
+#: ../functions.php:1885
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr ""
 
-#: ../functions.php:1882
+#: ../functions.php:1886
 msgid "Fixed Page Menu"
 msgstr ""
 
-#: ../functions.php:1889
+#: ../functions.php:1893
 msgid "Page Navi"
 msgstr ""
 
-#: ../functions.php:1940
+#: ../functions.php:1944
 msgid "Sort by:"
 msgstr ""
 
-#: ../functions.php:1942
+#: ../functions.php:1946
 msgid "Page title"
 msgstr ""
 
-#: ../functions.php:1943
+#: ../functions.php:1947
 msgid "Page order"
 msgstr ""
 
-#: ../functions.php:1944
+#: ../functions.php:1948
 msgid "Page ID"
 msgstr ""
 

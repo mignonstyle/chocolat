@@ -21,7 +21,7 @@ function chocolat_admin_enqueue_style( $hook ) {
 	if ( 'appearance_page_theme_options' != $hook ) {
 		return;
 	}
-	wp_enqueue_style( 'chocolat_themeoptions_css', get_stylesheet_directory_uri().'/admin/css/theme-options.css' );
+	wp_enqueue_style( 'chocolat_themeoptions_css', get_template_directory_uri().'/admin/css/theme-options.css' );
 }
 add_action( 'admin_enqueue_scripts', 'chocolat_admin_enqueue_style' );
 
