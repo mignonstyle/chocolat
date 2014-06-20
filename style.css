@@ -6,10 +6,10 @@ Author: Mignon Style
 Author URI: http://mignonstyle.com
 Description: Chocolat is a simple WordPress theme for the blog. Use the Responsive layout of CSS media queries, and automatically respond to tablets and smartphones. Equipped with its own widget, it is also possible to display ads easily in the widget. By theme options, display related posts, new articles you can easily.
 License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 Tags: brown, tan, white, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, fluid-layout, custom-background, custom-header, custom-menu, sticky-post, theme-options, threaded-comments, translation-ready
 Text Domain: chocolat
-Version: 1.1.0
+Version: 1.1.1
 ------------------------------------ */
 
 /* ------------------------------------
@@ -802,7 +802,6 @@ selection
 	margin-right: 50px;
 }
 
-/* links link colors */
 .links-aicon ul li.rss a {
 	background: #e99d59;
 }
@@ -834,8 +833,105 @@ selection
 	background: #bf9065;
 }
 
+/* social links */
+.links-aicon li a[href*="twitter.com"] {
+	background: #72cdf3;
+}
+
+.links-aicon li a[href*="twitter.com"]:hover {
+	background: #aee4fa;
+}
+
+.links-aicon li a[href*="facebook.com"] {
+	background: #4e7abf;
+}
+
+.links-aicon li a[href*="facebook.com"]:hover {
+	background: #7da0d6;
+}
+
+.links-aicon li a[href*="plus.google.com"] {
+	background: #d73d00;
+}
+
+.links-aicon li a[href*="plus.google.com"]:hover {
+	background: #eb7546;
+}
+
+.links-aicon li a[href*="tumblr.com"] {
+	background: #3a547a;
+}
+
+.links-aicon li a[href*="tumblr.com"]:hover {
+	background: #6e89af;
+}
+
+.links-aicon li a[href*="pinterest.com"] {
+	background: #b63125;
+}
+
+.links-aicon li a[href*="pinterest.com"]:hover {
+	background: #e26e63;
+}
+
+.links-aicon li a[href*="instagram.com"] {
+	background: #666;
+}
+
+.links-aicon li a[href*="instagram.com"]:hover {
+	background: #b9b9b9;
+}
+
+.links-aicon li a[href*="linkedin.com"] {
+	background: #1e81ba;
+}
+
+.links-aicon li a[href*="linkedin.com"]:hover {
+	background: #5db2e3;
+}
+
+.links-aicon li a[href*="flickr.com"] {
+	background: #b8b8b8;
+}
+
+.links-aicon li a[href*="flickr.com"]:hover {
+	background: #ddd;
+}
+
+.links-aicon li a[href*="dribbble.com"] {
+	background: #000;
+}
+
+.links-aicon li a[href*="dribbble.com"]:hover {
+	background: #6f6e6e;
+}
+
+.links-aicon li a[href*="youtube.com"] {
+	background: #f03c3d;
+}
+
+.links-aicon li a[href*="youtube.com"]:hover {
+	background: #f57f82;
+}
+
+.links-aicon li a[href*="vimeo.com"] {
+	background: #229acc;
+}
+
+.links-aicon li a[href*="vimeo.com"]:hover {
+	background: #6bc7ed;
+}
+
+.links-aicon li a[href*="github.com"] {
+	background: #000;
+}
+
+.links-aicon li a[href*="github.com"]:hover {
+	background: #6f6e6e;
+}
+
 /* ------------------------------------
-3.4.2 linkslink-top contactlink-bottom
+3.4.2 contactlink-top contactlink-bottom
 ------------------------------------ */
 
 .contactlink-top,
@@ -884,6 +980,27 @@ selection
 	line-height: 28px;
 }
 
+/* social links */
+.contactlink-top ul li a[href*="facebook.com"] span,
+.contactlink-bottom ul li a[href*="facebook.com"] span {
+	margin-left: 12px;
+}
+
+.contactlink-top ul li a[href*="tumblr.com"] span,
+.contactlink-bottom ul li a[href*="tumblr.com"] span {
+	margin-left: 10px;
+}
+
+.contactlink-top ul li a[href*="youtube.com"] span,
+.contactlink-bottom ul li a[href*="youtube.com"] span {
+	margin-left: 7px;
+}
+
+.contactlink-top ul li a[href*="vimeo.com"] span,
+.contactlink-bottom ul li a[href*="vimeo.com"] span {
+	margin-left: 6px;
+}
+
 /* ------------------------------------
 3.4.3 contactlink-side
 ------------------------------------ */
@@ -927,6 +1044,23 @@ selection
 .contactlink-side-center li.feedly a span img {
 	padding-bottom: 6px;
 	width: 25px;
+}
+
+/* social links */
+.contactlink-side-center ul li a[href*="facebook.com"] span {
+	margin-left: 14px;
+}
+
+.contactlink-side-center ul li a[href*="tumblr.com"] span {
+	margin-left: 12px;
+}
+
+.contactlink-side-center ul li a[href*="youtube.com"] span {
+	margin-left: 9px;
+}
+
+.contactlink-side-center ul li a[href*="vimeo.com"] span {
+	margin-left: 6px;
 }
 
 /* ------------------------------------

@@ -92,7 +92,8 @@ function chocolat_setup() {
 
 	// 2.1.2 - menus (custom menu)
 	register_nav_menus( array(
-		'globalnav' => __( 'Global Navigation', 'chocolat' ),
+		'globalnav'   => __( 'Global Navigation', 'chocolat' ),
+		'sociallinks' => __( 'Social Links', 'chocolat' ),
 	) );
 
 	// 2.1.3 - editor-style
@@ -195,27 +196,6 @@ function chocolat_post_thumbnail() {
  * 2.1.2 - menus (custom menu)
  * --------------------------------------------*/
 
-// Change the id name of the li elements of custom menu
-function chocolat_nav_menu_item_id( $id, $item ) {
-	if ( 'page' == $item -> object ) {
-		$page = get_page_by_title( $item -> title );
-		if ( $page ) {
-			$id = $page -> post_name;
-		} else {
-			$id = '';
-		}
-	} elseif ( 'category' == $item -> object ) {
-		$cat = get_category( get_cat_ID( $item -> title ) );
-		$id = $cat -> slug;
-	} else {
-		$id = strtolower( $item -> title );
-	}
-	$id = esc_attr( 'menu-'.$id );
-	return $id;
-}
-add_filter( 'nav_menu_item_id', 'chocolat_nav_menu_item_id', 10, 2 );
-
-//-----------------------------------------------
 // When the navigation is not registered,
 // it displays a menu on the top page
 function chocolat_page_menu_args( $args ) {
@@ -805,6 +785,7 @@ function chocolat_enqueue_scripts() {
 
 		if ( ! chocolat_is_mobile() ) {
 			wp_enqueue_script( 'chocolat_tooltips', get_template_directory_uri().'/js/tooltips.js', array( 'jquery', 'jquery-ui-tooltip' ), null, true );
+			wp_enqueue_script( 'chocolat_linkpos', get_template_directory_uri().'/js/linkposition.js', array( 'jquery' ), null, true );
 
 			if ( ! empty( $options['show_widget_masonry'] ) && ( chocolat_sidebar() || is_active_sidebar( 'footer_widget' ) ) ) {
 				wp_enqueue_script( 'jquery-masonry' );
@@ -1080,11 +1061,19 @@ function chocolat_contactlink( $link_pos ) {
 	$contactlink_class ='';
 
 	if ( ! empty( $options['show_links_top'] ) && $link_pos == 'contactlink-top' ) {
+		if ( chocolat_is_mobile() ) {
+			return false;
+		}
 		$show_links = $options['show_links_top'];
 		$contactlink_class = 'contactlink-top';
-	} elseif ( ! empty( $options['show_links_bottom'] ) && $link_pos == 'contactlink-bottom' ) {
-		$show_links = $options['show_links_bottom'];
-		$contactlink_class = 'contactlink-bottom';
+	} elseif ( $link_pos == 'contactlink-bottom' ) {
+		if ( ! empty( $options['show_links_bottom'] ) ) {
+			$show_links = $options['show_links_bottom'];
+			$contactlink_class = 'contactlink-bottom';
+		} elseif ( chocolat_is_mobile() && ! empty( $options['show_links_top'] ) ) {
+			$show_links = $options['show_links_top'];
+			$contactlink_class = 'contactlink-bottom';
+		}
 	} else {
 		return false;
 	}
@@ -1133,7 +1122,7 @@ function chocolat_contactlink_side() {
 function chocolat_contactlink_ul( $link_pos = '' ) {
 	$options = chocolat_get_option();
 
-	echo '<ul class="clearfix">'."\n";
+	echo '<ul class="social-links clearfix">'."\n";
 	// rss
 	if ( ! empty( $options['show_rss'] ) ) {
 		$class_text = '';
@@ -1151,6 +1140,16 @@ function chocolat_contactlink_ul( $link_pos = '' ) {
 		}
 		echo '<li class="feedly'.$class_text.'">'.chocolat_feedly_link().'</li>'."\n";
 	}
+
+	// social links
+	wp_nav_menu( array(
+		'theme_location'  => 'sociallinks',
+		'container'       =>  false,
+		'items_wrap'      => '%3$s',
+		'fallback_cb'     => '',
+		'link_before'     => '<span class="icon-social"></span>',
+		'depth'           => 1,
+	) );
 
 	// contact
 	if ( ! empty( $options['show_contact'] ) ) {
@@ -1329,6 +1328,20 @@ function chocolat_breadcrumb() {
  * 5.8 - post data list
  * --------------------------------------------*/
 
+function chocolat_post_list_number( $show_num = '' ) {
+	$num_class = 'five-column';
+
+	switch ( $show_num ){
+		case '4':
+			$num_class = 'four-column';
+			break;
+		case '3':
+			$num_class = 'three-column';
+			break;
+	}
+	return $num_class;
+}
+
 /* ----------------------------------------------
  * 5.8.1 - Show Post List
  * --------------------------------------------*/
@@ -1358,17 +1371,27 @@ function chocolat_new_post_list( $show_tag ) {
 
 function chocolat_post_list( $show_tag ) {
 	$options = chocolat_get_option();
+	// If the value is 0, use the value of the default
+	$show_num = 10; 
+	$num_class = 'five-column';
 
 	if ( $show_tag == 'new' ) {
 		$my_title = $options['new_posts_title'] ? $options['new_posts_title'] : __( 'New Entry', 'chocolat' );
-		// If the value is 0, use the value of the default
-		$show_num = ( ! empty( $options['new_posts_number'] ) ) ? absint( $options['new_posts_number'] ) : 10;
+
+		if ( ! empty( $options['new_posts_number'] ) ) {
+			$show_num = absint( $options['new_posts_number'] );
+			$num_class = chocolat_post_list_number( $show_num );
+		}
+
 		$order = 'DESC';
 		$order_by = '';
 	} elseif ( $show_tag == 'related' ) {
 		$my_title = $options['related_title'] ? esc_attr( $options['related_title'] ) : __( 'Related Entry', 'chocolat' );
-		// If the value is 0, use the value of the default
-		$show_num = ( ! empty( $options['related_number'] ) ) ? absint( $options['related_number'] ) : 10;
+
+		if ( ! empty( $options['related_number'] ) ) {
+			$show_num = absint( $options['related_number'] );
+			$num_class = chocolat_post_list_number( $show_num );
+		}
 
 		if ( ! empty( $options['related_order_select'] ) ) {
 			$order = 'DESC';
@@ -1395,7 +1418,7 @@ function chocolat_post_list( $show_tag ) {
 	if ( $my_query -> have_posts() ) : ?>
 	<div class="<?php echo $show_tag; ?>-contents common-contents clearfix">
 		<h3 id="<?php echo $show_tag; ?>-title" class="common-title"><?php echo esc_attr( $my_title ); ?></h3>
-		<ul class="clearfix">
+		<ul class="<?php echo $num_class; ?> clearfix">
 		<?php while ( $my_query -> have_posts() ) : $my_query -> the_post(); ?>
 			<li class="<?php echo $show_tag; ?>-thumbnail">
 			<span class="thumbnail"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php chocolat_post_thumbnail(); ?></a></span>

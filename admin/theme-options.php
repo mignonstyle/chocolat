@@ -620,7 +620,7 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'Position to display', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<p><label><input id="chocolat_theme_options[show_links_top]" name="chocolat_theme_options[show_links_top]" type="checkbox" value="1" <?php checked( $options['show_links_top'], 1 ); ?> />
-								<?php _e( 'Display in the header', 'chocolat' ); ?></label></p>
+								<?php _e( 'Display in the header', 'chocolat' ); ?></label><br /><span class="description"><?php _e( 'In a smartphone, it is displayed at the position of the footer.', 'chocolat' ); ?></span></p><br />
 
 								<div id="option-links-sidebar" class="option-check">
 									<p><label><input id="chocolat_theme_options[show_links_side]" name="chocolat_theme_options[show_links_side]" type="checkbox" value="1" <?php checked( $options['show_links_side'], 1 ); ?> />

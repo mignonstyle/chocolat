@@ -90,10 +90,12 @@ Icon Font fontello
 	content: '\65';
 } /* 'e' */
 
+.links-aicon li a[href*="facebook.com"] .icon-social:before,
 .icon-facebook:before {
 	content: '\66';
 } /* 'f' */
 
+.links-aicon li a[href*="plus.google.com"] .icon-social:before,
 .icon-gplus:before {
 	content: '\67';
 } /* 'g' */
@@ -122,6 +124,7 @@ Icon Font fontello
 	content: '\6d';
 } /* 'm' */
 
+.links-aicon li a[href*="tumblr.com"] .icon-social:before,
 .icon-tumblr:before {
 	content: '\6e';
 } /* 'n' */
@@ -146,6 +149,7 @@ Icon Font fontello
 	content: '\73';
 } /* 's' */
 
+.links-aicon li a[href*="twitter.com"] .icon-social:before,
 .icon-twitter:before {
 	content: '\74';
 } /* 't' */
@@ -154,10 +158,54 @@ Icon Font fontello
 	content: '\75';
 } /* 'u' */
 
+.links-aicon li a[href*="pinterest.com"] .icon-social:before,
 .icon-pinterest:before {
 	content: '\76';
 } /* 'v' */
 
+.icon-calendar:before {
+	content: '\77';
+} /* 'w' */
 
-/* 'w' */
-/* 'x' */
+.icon-box:before {
+	content: '\78';
+} /* 'x' */
+
+.links-aicon li a[href*="instagram.com"] .icon-social:before,
+.icon-instagramm:before {
+	content: '\79';
+} /* 'y' */
+
+.links-aicon li a[href*="linkedin.com"] .icon-social:before,
+.icon-linkedin:before {
+	content: '\7a';
+} /* 'z' */
+
+.links-aicon li a[href*="flickr.com"] .icon-social:before,
+.icon-flickr:before {
+	content: '\41';
+} /* 'A' */
+
+.links-aicon li a[href*="dribbble.com"] .icon-social:before,
+.icon-dribbble:before {
+	content: '\42';
+} /* 'B' */
+
+.links-aicon li a[href*="youtube.com"] .icon-social:before,
+.icon-youtube:before {
+	content: '\43';
+} /* 'C' */
+
+.links-aicon li a[href*="vimeo.com"] .icon-social:before,
+.icon-vimeo:before {
+	content: '\44';
+} /* 'D' */
+
+.links-aicon li a[href*="github.com"] .icon-social:before,
+.icon-github:before {
+	content: '\45';
+} /* 'E' */
+
+
+/* next content 'F' */
+/* 'F' */

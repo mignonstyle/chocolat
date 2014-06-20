@@ -62,11 +62,7 @@ smart phone style max-width: 640px
 ------------------------------------ */
 
 #header #site-title {
-	margin-right: 75px;
-}
-
-#header #site-title img.logo {
-	max-width: 215px;
+	margin-right: 90px;
 }
 
 /* ------------------------------------
@@ -236,6 +232,7 @@ PC style min-width: 641px
 
 .contactlink-top {
 	position: absolute;
+	bottom: -6px;
 	right: 235px;
 }
 
@@ -243,8 +240,9 @@ PC style min-width: 641px
 4.1.1 - header base style
 ------------------------------------ */
 
-#header #site-title img.logo {
-	max-width: 350px;
+#header #site-title,
+#header #site-description {
+	display: table;
 }
 
 /* ------------------------------------
@@ -252,6 +250,7 @@ PC style min-width: 641px
 ------------------------------------ */
 
 .header-links .search-box {
+	bottom: 0;
 	right: 0;
 }
 
@@ -396,11 +395,38 @@ div.globalnav > ul > .current-menu-ancestor > a:hover {
 .related-contents li,
 .new-contents li {
 	margin-right: 1.6666%;
+}
+
+/* Default five-column */
+.related-contents .five-column li,
+.new-contents .five-column li {
 	width: 18.6666%;
 }
 
-.related-contents li:nth-child(5n),
-.new-contents li:nth-child(5n) {
+.related-contents .five-column li:nth-child(5n),
+.new-contents .five-column li:nth-child(5n) {
+	margin-right: 0;
+}
+
+/* four-column */
+.related-contents .four-column li,
+.new-contents .four-column li {
+	width: 23.73%;
+}
+
+.related-contents .four-column li:nth-child(4n),
+.new-contents .four-column li:nth-child(4n) {
+	margin-right: 0;
+}
+
+/* three-column */
+.related-contents .three-column li,
+.new-contents .three-column li {
+	width: 32.1%;
+}
+
+.related-contents .three-column li:nth-child(3n),
+.new-contents .three-column li:nth-child(3n) {
 	margin-right: 0;
 }
 
@@ -431,74 +457,6 @@ div.globalnav > ul > .current-menu-ancestor > a:hover {
 
 #pagetop {
 	right: 30px;
-}
-}
-
-/* ====================================
-PC style min-width: 641px max-width: 879px
-==================================== */
-
-@media only screen and (min-width: 641px) and (max-width: 879px) {
-
-/* ------------------------------------
-3.4.2 contactlink-top
------------------------------------- */
-
-.contactlink-top {
-	right: 225px;
-	top: 5px;
-}
-
-.contactlink-top ul li,
-.contactlink-bottom ul li {
-	margin-right: 8px;
-}
-
-/* ------------------------------------
-4.1.2 - header search-form
------------------------------------- */
-
-.header-links .search-box {
-	top: 0;
-}
-
-/* ------------------------------------
-4.1.1 - header base style
------------------------------------- */
-
-#header #site-title {
-	margin-right: 340px;
-}
-}
-
-/* ====================================
-PC style min-width: 880px
-==================================== */
-
-@media only screen and (min-width: 880px) {
-
-/* ------------------------------------
-3.4.2 contactlink-top
------------------------------------- */
-
-.contactlink-top {
-	bottom: -6px;
-}
-
-/* ------------------------------------
-4.1.2 - header search-form
------------------------------------- */
-
-.header-links .search-box {
-	bottom: 0;
-}
-
-/* ------------------------------------
-4.1.1 - header base style
------------------------------------- */
-
-#header .header-title {
-	margin-right: 360px;
 }
 }
 

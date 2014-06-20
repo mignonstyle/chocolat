@@ -88,10 +88,66 @@ img.alignright {
 
 /* ------------------------------------
 3.4.2 contactlink-top
+4.1.2 - header searchform
+4.2 - globalnav
 ------------------------------------ */
 
 .header-links {
 	margin-top: 5px;
+}
+
+.header-links .search-box label,
+#nav-control,
+.contactlink-bottom {
+	font-size: 20px;
+}
+
+.contactlink-bottom ul li {
+	margin-right: 11px;
+}
+
+.contactlink-bottom ul li:nth-of-type(6n) {
+	margin-right: 0;
+}
+
+.header-links .search-box label,
+#nav-control,
+.contactlink-bottom ul li a {
+	border-radius: 20px; /* 50% */
+	height: 40px;
+	line-height: 40px;
+	width: 40px;
+}
+
+.contactlink-bottom ul li a span {
+	margin-left: 12px;
+}
+
+.contactlink-bottom ul li.feedly a span img {
+	padding-bottom: 6px;
+	width: 28px;
+}
+
+.contactlink-bottom ul li.mail a {
+	font-size: 17px;
+	line-height: 40px;
+}
+
+/* social links */
+.contactlink-bottom ul li a[href*="facebook.com"] span {
+	margin-left: 15px;
+}
+
+.contactlink-bottom ul li a[href*="tumblr.com"] span {
+	margin-left: 13px;
+}
+
+.contactlink-bottom ul li a[href*="vimeo.com"] span {
+	margin-left: 7px;
+}
+
+.contactlink-bottom ul li a[href*="github.com"] span {
+	margin-left: 11px;
 }
 
 /* ------------------------------------
@@ -119,12 +175,40 @@ img.alignright {
 	margin: 0.5em;
 }
 
+#header #site-title img.logo {
+	max-width: 200px;
+}
+
+/* ------------------------------------
+4.1.2 - header searchform
+------------------------------------ */
+
+.header-links .search-box label {
+	right: 50px;
+}
+
+.header-links .search-box label span:before {
+	margin-left: 10px;
+}
+
+.header-links .search-box .search-field {
+	top: 50px;
+}
+
 /* ------------------------------------
 4.1.3 - custom header image
 ------------------------------------ */
 
 #header-image {
 	margin: 0 auto 10px;
+}
+
+/* ------------------------------------
+4.2 - globalnav
+------------------------------------ */
+
+div.globalnav {
+	top: 95px;
 }
 
 /* ------------------------------------

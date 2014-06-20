@@ -39,6 +39,6 @@ jQuery(function($){
 			if($('>ul', this).size()){
 				$('>ul', this).slideUp('fast');
 			}
-		})
+		});
 	}
 });

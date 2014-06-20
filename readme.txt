@@ -8,10 +8,10 @@ Author: Mignon Style
 Author URI: http://mignonstyle.com
 Description: Chocolat is a simple WordPress theme for the blog. Use the Responsive layout of CSS media queries, and automatically respond to tablets and smartphones. Equipped with its own widget, it is also possible to display ads easily in the widget. By theme options, display related posts, new articles you can easily.
 License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 Tags: brown, tan, white, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, fluid-layout, custom-background, custom-header, custom-menu, sticky-post, theme-options, threaded-comments, translation-ready
 Text Domain: chocolat
-Version: 1.1.0
+Version: 1.1.1
 
 /* ------------------------------------
 Installation
@@ -86,6 +86,22 @@ Check "Do not want to display the top page of the Web site.", does not appear on
 === Global navigation menu ===
 Global navigation menu is displayed in the header.
 
+=== Social Link menu ===
+Social link menu is displayed on header, footer and sidebar.
+
+The position to display is set up
+Appearance > "Chocolat Settings" page > "Links Setting" tab > Position to display
+
+How to use:
+1. Click Appearance > Menus > "Edit Menus" tab
+   URL: url of the social link
+   Link Text: name of the social link
+2. Click "Add to Menu" button.
+
+A corresponding social link:
+twitter, facebook, google-plus, tumblr, pinterest, instagram,
+linkedin, flickr, dribbble, youtube, vimeo, github
+
 /* ------------------------------------
 Translations
 ------------------------------------ */
@@ -108,7 +124,7 @@ scripts: Except html5.js and jquery.cookie.js, all scripts in "/js" and "/admin/
 
 images: All images in "/img" and "/admin/img" folder
 
-For more information about licensing, please refer to the http://www.gnu.org/licenses/gpl-2.0.html
+For more information about licensing, please refer to the http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
 The exception to this license, do the following:
 
@@ -143,6 +159,14 @@ License: MIT License
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.1
+* Corresponding css to the number of related posts and new posts of theme options
+* Delete function chocolat_nav_menu_item_id()
+* Add Social Links
+* Change screenshot
+* Text fixes
+* Css fixes
 
 v1.1.0
 * Fixed a bug when a child theme is used
