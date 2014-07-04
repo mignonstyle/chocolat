@@ -2,16 +2,50 @@
 Chocolat
 ------------------------------------ */
 
-Theme Name: Chocolat
-Theme URI: https://github.com/mignonstyle/chocolat
-Author: Mignon Style
-Author URI: http://mignonstyle.com
-Description: Chocolat is a simple WordPress theme for the blog. Use the Responsive layout of CSS media queries, and automatically respond to tablets and smartphones. Equipped with its own widget, it is also possible to display ads easily in the widget. By theme options, display related posts, new articles you can easily.
-License: GNU General Public License v2.0
+Chocolat WordPress Theme
+https://github.com/mignonstyle/chocolat
+
+/* ------------------------------------
+License
+------------------------------------ */
+
+Copyright 2014 Mignon Style
+
+Unless otherwise specified, all the theme files, scripts and images are licensed under the GNU General Public License v2.0.
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
-Tags: brown, tan, white, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, fluid-layout, custom-background, custom-header, custom-menu, sticky-post, theme-options, threaded-comments, translation-ready
-Text Domain: chocolat
-Version: 1.1.1
+
+scripts: Except html5.js and jquery.cookie.js, all scripts in "/js" and "/admin/js" folder
+images: All images in "/img" and "/admin/img" folder
+
+The exception to this license, do the following:
+
+/* -- JS License -- */
+
+html5.js
+https://github.com/aFarkas/html5shiv
+License: MIT/GPL2 License
+
+jquery.cookie.js
+https://github.com/carhartl/jquery-cookie
+License: MIT License
+
+/* -- Font License -- */
+
+Google Fonts: Quicksand
+http://www.google.com/fonts
+License: SIL Open Font License, 1.1
+
+fontello: Fontelico, Font Awesome, Modern Pictograms, Zocial
+all files in the "/ font" folder is a thing of the fontello.
+http://fontello.com/
+License: SIL Open Font License, MIT License
+
+/* -- Plugins License -- */
+
+boxer
+included in "/plugin/boxer" folder, all files, image and script is a thing of the boxer.
+http://formstone.it/components/boxer
+License: MIT License
 
 /* ------------------------------------
 Installation
@@ -109,56 +143,25 @@ Translations
 Currently the following translations are available:
 
 Japanese (by Mignon Style)
+Spanish (ES, MX) (by Raxa Kau)
 
 If you are translating this theme to your language,
 Please send the translation to mignonxstyle@gmail.com
 
-/* ------------------------------------
-License
------------------------------------- */
-
-Chocolat WordPress Theme, Copyright 2014 Mignon Style
-Unless otherwise specified, all the theme files, scripts and images are licensed under the GNU General Public License v2.0.
-
-scripts: Except html5.js and jquery.cookie.js, all scripts in "/js" and "/admin/js" folder
-
-images: All images in "/img" and "/admin/img" folder
-
-For more information about licensing, please refer to the http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
-
-The exception to this license, do the following:
-
-/* -- JS License -- */
-
-html5.js
-https://github.com/aFarkas/html5shiv
-License: MIT/GPL2 License
-
-jquery.cookie.js
-https://github.com/carhartl/jquery-cookie
-License: MIT License
-
-/* -- Font License -- */
-
-Google Fonts: Quicksand
-http://www.google.com/fonts
-License: SIL Open Font License, 1.1
-
-fontello: Fontelico, Font Awesome, Modern Pictograms, Zocial
-all files in the "/ font" folder is a thing of the fontello.
-http://fontello.com/
-License: SIL Open Font License, MIT License
-
-/* -- Plugins License -- */
-
-boxer
-included in "/plugin/boxer" folder, all files, image and script is a thing of the boxer.
-http://formstone.it/components/boxer
-License: MIT License
+Please write your name in the Last-Translator.
+I will write your name in the translator name in reaeme.txt.
 
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.2
+* Add options of the display of the number of comments in the index page
+* Add option to not display when closed the comments
+* Add the languages file (Spanish)
+* Text fixes
+* Css fixes
+* Bug fixes
 
 v1.1.1
 * Corresponding css to the number of related posts and new posts of theme options

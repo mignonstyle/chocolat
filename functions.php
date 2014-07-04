@@ -450,11 +450,14 @@ function chocolat_theme_ping() {
  * --------------------------------------------*/
 
 function chocolat_no_comment() {
+	$options = chocolat_get_option();
+	if ( ! empty( $options['show_no_comment'] ) ) {
 ?>
 	<div class="no-comments common-contents clearfix">
 		<p><?php _e( 'Comments are closed.', 'chocolat' ); ?></p>
 	</div>
 <?php
+	}
 }
 
 /* ----------------------------------------------
@@ -956,6 +959,7 @@ function chocolat_entry_dates() {
 
 function chocolat_entry_meta() {
 	if ( ! is_page() ) {
+		$options = chocolat_get_option();
 		echo '<div class="entry_meta clearfix">'."\n";
 		// Categorys
 		$categories_list = get_the_category_list( ' | ' );
@@ -967,8 +971,13 @@ function chocolat_entry_meta() {
 		if ( $tag_list ) {
 			echo '<p class="entry-tags icon-tag clearfix">'.$tag_list.'</p>'."\n";
 		}
+		// show index page comments number
+		if ( ! is_singular() &&  ! empty( $options['show_index_comments'] ) ) {
+			echo '<p class="comments-number">';
+			comments_popup_link( __( 'No Comments', 'chocolat' ), __( '1 Comment', 'chocolat' ), __( '% Comments', 'chocolat' ), 'icon-comment', __( 'Comments Off', 'chocolat' ) );
+			echo '</p>';
+		}
 		// Post author
-		$options = chocolat_get_option();
 		if ( ! empty( $options['show_author'] ) && ( 'post' == get_post_type() ) ) {
 			echo '<p class="entry-author"><a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'" rel="author" class="icon-pencil">'.get_the_author().'</a></p>'."\n";
 		}

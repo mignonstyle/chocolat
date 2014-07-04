@@ -105,6 +105,8 @@ function chocolat_theme_default_options() {
 		'show_site_desc'      => 1,
 		'show_author'         => 1,
 		'show_breadcrumb'     => 1,
+		'show_no_comment'     => 1,
+		'show_index_comments' => 0,
 		'show_last_date'      => 0,
 		'show_image_lightbox' => 1,
 		'show_lightbox'       => 1,
@@ -176,6 +178,14 @@ function chocolat_settings_options() {
 			'id'   => 'show_breadcrumb',
 			'text' => __( 'Show breadcrumbs', 'chocolat' ),
 		),
+		'show_no_comment' => array(
+			'id'   => 'show_no_comment',
+			'text' => __( 'Show the message when you have closed the comment', 'chocolat' ),
+		),
+		'show_index_comments' => array(
+			'id'   => 'show_index_comments',
+			'text' => __( 'Shows the number of comments in the posts home page', 'chocolat' ),
+		),
 		'show_last_date' => array(
 			'id'   => 'show_last_date',
 			'text' => __( 'View Last updated post page', 'chocolat' ),
@@ -221,7 +231,6 @@ function chocolat_upload_image_options() {
 			'size'  => __( 'apple-touch-icon.png (width 144px x height 144px)', 'chocolat' ),
 			'name'  => 'sp_icon_url',
 		),
-		
 		'site_logo_url' => array(
 			'id'    => 'site-logo',
 			'title' => __( 'Logo Settings', 'chocolat' ),
@@ -456,8 +465,8 @@ function chocolat_theme_options_do_page() {
 								foreach ( chocolat_settings_options() as $option ) :
 									$option_id = $option['id'];
 							?>
-							<p><label><input id="chocolat_theme_options[<?php echo $option_id; ?>]" name="chocolat_theme_options[<?php echo $option_id; ?>]" type="checkbox" value="1" <?php checked( $options[$option_id], 1 ); ?> />
-								<?php echo $option['text']; ?></label></p>
+							<p><label><input id="chocolat_theme_options[<?php echo $option_id; ?>]" name="chocolat_theme_options[<?php echo $option_id; ?>]" type="checkbox" value="1" <?php if ( ! empty( $options[$option_id] ) ) checked( $options[$option_id], 1 ); ?> />
+							<?php echo $option['text']; ?></label></p>
 							<?php endforeach; endif; ?>
 							</fieldset></td>
 						</tr>
@@ -547,7 +556,7 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'Related Entry', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<p><?php _e( 'Displays a list of related articles, under the article of a single post page if you check.', 'chocolat' ); ?></p>
-								<p><label><input id="chocolat_theme_options[show_related]" name="chocolat_theme_options[show_related]" type="checkbox" value="1" <?php checked( $options['show_related'], 1 ); ?> />
+								<p><label><input id="chocolat_theme_options[show_related]" name="chocolat_theme_options[show_related]" type="checkbox" value="1" <?php if ( ! empty( $options['show_related'] ) ) checked( $options['show_related'], 1 ); ?> />
 								<?php _e( 'View Related Posts after the content', 'chocolat' ); ?></label></p>
 								<div class="theme-left-space hidebox">
 									<p><label><?php _e( 'Title:', 'chocolat' ); ?><br />
@@ -584,7 +593,7 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'New Entry', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<p><?php _e( 'Displays a list of new articles, under the article of a single post page if you check.', 'chocolat' ); ?></p>
-								<p><label><input id="chocolat_theme_options[show_new_posts]" name="chocolat_theme_options[show_new_posts]" type="checkbox" value="1" <?php checked( $options['show_new_posts'], 1 ); ?> />
+								<p><label><input id="chocolat_theme_options[show_new_posts]" name="chocolat_theme_options[show_new_posts]" type="checkbox" value="1" <?php if ( ! empty( $options['show_new_posts'] ) ) checked( $options['show_new_posts'], 1 ); ?> />
 								<?php _e( 'View New Posts after the content', 'chocolat' ); ?></label></p>
 
 								<div class="theme-left-space hidebox">
@@ -756,6 +765,14 @@ function chocolat_theme_options_validate( $input ) {
 		if ( ! isset( $input['show_breadcrumb'] ) )
 			$input['show_breadcrumb'] = null;
 		$input['show_breadcrumb'] = ( $input['show_breadcrumb'] == 1 ? 1 : 0 );
+
+		if ( ! isset( $input['show_no_comment'] ) )
+			$input['show_no_comment'] = null;
+		$input['show_no_comment'] = ( $input['show_no_comment'] == 1 ? 1 : 0 );
+
+		if ( ! isset( $input['show_index_comments'] ) )
+			$input['show_index_comments'] = null;
+		$input['show_index_comments'] = ( $input['show_index_comments'] == 1 ? 1 : 0 );
 
 		if ( ! isset( $input['show_last_date'] ) )
 			$input['show_last_date'] = null;
