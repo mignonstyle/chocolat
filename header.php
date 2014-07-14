@@ -50,11 +50,7 @@
 	</div><!-- /header-top -->
 
 	<div id="header-center" class="clearfix">
-		<?php if ( get_header_image() ) : ?>
-		<div id="header-image" class="thumbnail">
-			<img src="<?php header_image(); ?>" height="<?php echo get_custom_header() -> height; ?>" width="<?php echo get_custom_header() -> width; ?>" alt="" />
-		</div><!-- /header-image -->
-		<?php endif; ?>
+		<?php chocolat_header_image(); ?>
 
 		<!-- globalnav -->
 		<div id="nav-control" class="close">

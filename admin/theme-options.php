@@ -153,6 +153,27 @@ function chocolat_theme_default_options() {
 		'show_copyright' => 1,
 		'copyright_text' => '',
 		'credit_link_radio' => 'credit_disable',
+
+		'show_slider' => 0,
+		'slider_color' => 'slider_light',
+
+		'slider_image01_url' => '',
+		'slider_image02_url' => '',
+		'slider_image03_url' => '',
+		'slider_image04_url' => '',
+		'slider_image05_url' => '',
+
+		'slider_image01_caption' => '',
+		'slider_image02_caption' => '',
+		'slider_image03_caption' => '',
+		'slider_image04_caption' => '',
+		'slider_image05_caption' => '',
+
+		'slider_image01_link' => '',
+		'slider_image02_link' => '',
+		'slider_image03_link' => '',
+		'slider_image04_link' => '',
+		'slider_image05_link' => '',
 	);
 	return $theme_default_options;
 }
@@ -412,6 +433,62 @@ function chocolat_credit_link_options() {
 
 /**
  * ------------------------------------------------------------
+ * 3.10 - Create an array of theme options
+ *       slider_color
+ * ------------------------------------------------------------
+ */
+
+function chocolat_slider_color_options() {
+	$slider_color_options = array(
+		'slider_light' => array(
+			'value' => 'slider_light',
+			'img'   => 'slider-light.png',
+			'label'  => __( 'Light Color', 'chocolat' ),
+		),
+		'slider_dark' => array(
+			'value' => 'slider_dark',
+			'img'   => 'slider-dark.png',
+			'label'  => __( 'Dark Color', 'chocolat' ),
+		),
+	);
+	return $slider_color_options;
+}
+
+/**
+ * ------------------------------------------------------------
+ * 3.11 - Create an array of theme options
+ *       slider images (media-uploader)
+ * ------------------------------------------------------------
+ */
+
+function chocolat_upload_slider_image_options() {
+	$upload_slider_image_options = array(
+		'slider_image01' => array(
+			'id'    => 'slider_image01',
+			'title' => __( 'Slider Image 1', 'chocolat' ),
+		),
+		'slider_image02' => array(
+			'id'    => 'slider_image02',
+			'title' => __( 'Slider Image 2', 'chocolat' ),
+		),
+		'slider_image03' => array(
+			'id'    => 'slider_image03',
+			'title' => __( 'Slider Image 3', 'chocolat' ),
+		),
+		'slider_image04' => array(
+			'id'    => 'slider_image04',
+			'title' => __( 'Slider Image 4', 'chocolat' ),
+		),
+		'slider_image05' => array(
+			'id'    => 'slider_image05',
+			'title' => __( 'Slider Image 5', 'chocolat' ),
+		),
+	);
+	return $upload_slider_image_options;
+}
+
+/**
+ * ------------------------------------------------------------
  * 4.0 - Get the value of theme options 
  * ------------------------------------------------------------
  */
@@ -446,11 +523,13 @@ function chocolat_theme_options_do_page() {
 				$options = chocolat_get_option();
 				$settings_title = __( 'Display settings for each item', 'chocolat' );
 				$links_title = __( 'Links Setting', 'chocolat' );
+				$slider_title = __( 'Slider Setting', 'chocolat' );
 			?>
 			<div id="tabset">
 				<ul class="tabs clearfix">
 					<li><h3 class="title"><a href="#panel-settings" id="tab-settings"><?php echo $settings_title ?></a></h3></li>
 					<li><h3 class="title"><a href="#panel-links" id="tab-links"><?php echo $links_title ?></a></h3></li>
+					<li><h3 class="title"><a href="#panel-slider" id="tab-slider"><?php echo $slider_title ?></a></h3></li>
 				</ul>
 
 				<div id="panel-settings" class="panel">
@@ -606,7 +685,7 @@ function chocolat_theme_options_do_page() {
 						</tr>
 
 						<!-- Sidebar settings -->
-						<tr id="option-sidebar">
+						<tr id="option-sidebar" class="radio-image">
 							<th scope="row"><?php _e( 'Sidebar settings', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<?php if ( is_array( chocolat_sidebar_options() ) ) :
@@ -729,6 +808,77 @@ function chocolat_theme_options_do_page() {
 							</fieldset></td>
 						</tr>
 					</table>
+				</div><!-- /panel -->
+
+				<!-- Slider -->
+				<div id="panel-slider" class="panel">
+					<h3 class="title"><?php echo $slider_title ?></h3>
+				<p class="panel-caption"><?php _e( 'Setting an image to be displayed the slider.', 'chocolat' ); ?><br /><?php _e( 'Please use the image of the same size.', 'chocolat' ); ?><?php printf( __( 'Recommended files %s', 'chocolat' ), __( '.png and .jpg (width 980px)', 'chocolat') ); ?></p>
+
+				<?php if ( function_exists( 'wp_enqueue_media' ) ) : ?>
+				<table class="form-table">
+					<tr id="option-slider">
+						<th scope="row"><?php _e( 'Slider Setting', 'chocolat' ); ?></th>
+						<td><p><label><input id="chocolat_theme_options[show_slider]" name="chocolat_theme_options[show_slider]" type="checkbox" value="1" <?php checked( $options['show_slider'], 1 ); ?> />
+						<?php _e( 'Use the slider to the header image', 'chocolat' ); ?></label></p></td>
+					</tr>
+
+					<tr id="option-slider-color" class="radio-image slider-parent">
+						<th scope="row"><?php _e( 'The color of the slider', 'chocolat' ); ?></th>
+						<td><fieldset>
+						<?php if ( is_array( chocolat_slider_color_options() ) ) :
+							foreach ( chocolat_slider_color_options() as $option ) : ?>
+							<label><input type="radio" name="chocolat_theme_options[slider_color]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php checked( $options['slider_color'], $option['value'] ); ?> /><img src="<?php echo get_template_directory_uri(); ?>/admin/img/<?php echo $option['img']; ?>" alt=""><br /><?php echo $option['label'] ; ?></label>
+							<?php endforeach; endif; ?>
+						</fieldset></td>
+					</tr>
+<?php
+					// Make sure that it will work with the media uploader
+					if ( is_array( chocolat_upload_slider_image_options() ) ) :
+						foreach ( chocolat_upload_slider_image_options() as $option ) :
+							$upload_remove_class = 'upload-open';
+							$option_id = $option['id'];
+							$option_url = $option_id.'_url';
+							$option_caption = $option_id.'_caption';
+							$option_link = $option_id.'_link';
+
+							if ( ! empty( $options[$option_url] ) ) {
+								$upload_remove_class = 'remove-open';
+							}
+?>
+					<tr id="option-<?php echo $option_id; ?>" class="media-upload slider-parent">
+						<th scope="row"><?php echo $option['title']; ?></th>
+						<td><fieldset>
+							<div class="upload-remove <?php echo $upload_remove_class; ?>">
+								<input id="chocolat_theme_options[<?php echo $option_url; ?>]" class="regular-text" type="hidden" name="chocolat_theme_options[<?php echo $option_url; ?>]" value="<?php if ( ! empty( $options[$option_url] ) ) echo esc_url( $options[$option_url] ); ?>" />
+								<table><tr>
+									<td class="upload-button"><input id="option-upload-<?php echo $option_id; ?>" class="button option-upload-button" value="<?php _e( 'Select Image', 'chocolat' ); ?>" type="button"></td>
+									<?php
+									if ( ! empty( $options[$option_url] ) ) {
+										$image_src = esc_url( $options[$option_url] );
+										if( preg_match( '/(^.*\.jpg|jpeg|png|gif*)/i', $image_src ) ) {
+											echo '<td class="upload-preview"><img src="'.$image_src.'" alt="" /></td>';
+										}
+									} ?>
+									<td class="remove-button"><input id="option-remove-<?php echo $option_id; ?>" class="button option-remove-button" value="<?php _e( 'Delete Image', 'chocolat' ); ?>" type="button"></td>
+								</tr></table>
+							</div>
+
+							<table class="table-no-space"><tr>
+								<td><?php _e( 'Caption', 'chocolat' ); ?>:</td>
+								<td><input id="chocolat_theme_options[<?php echo $option_caption; ?>]" class="regular-text" type="text" name="chocolat_theme_options[<?php echo $option_caption; ?>]" value="<?php if ( ! empty( $options[$option_caption] ) ) echo esc_attr( $options[$option_caption] ); ?>" /></td>
+							</tr>
+							<tr>
+								<td><?php _e( 'Link URL', 'chocolat' ); ?>:</td>
+								<td><input id="chocolat_theme_options[<?php echo $option_link; ?>]" class="regular-text" type="text" name="chocolat_theme_options[<?php echo $option_link; ?>]" value="<?php if ( ! empty( $options[$option_link] ) ) echo esc_url( $options[$option_link] ); ?>" /></td>
+							</tr></table>
+						</fieldset></td>
+					</tr>
+					<?php endforeach; endif; ?>
+				</table>
+				<?php else : ?>
+				<p><?php _e( 'Sorry, WordPress you are using is not supported. Upgrade your version of WordPress.', 'chocolat' ); ?></p>
+				<?php endif; ?>
 				</div><!-- /panel -->
 			</div><!-- /#tabset -->
 			<div id="submit-button">
@@ -895,6 +1045,34 @@ function chocolat_theme_options_validate( $input ) {
 		$input['sp_icon_url'] = esc_url_raw( $input['sp_icon_url'] );
 		$input['site_logo_url'] = esc_url_raw( $input['site_logo_url'] );
 		$input['no_image_url'] = esc_url_raw( $input['no_image_url'] );
+
+		// slider
+		if ( ! isset( $input['show_slider'] ) )
+			$input['show_slider'] = null;
+		$input['show_slider'] = ( $input['show_slider'] == 1 ? 1 : 0 );
+
+		if ( ! isset( $input['slider_color'] ) )
+			$input['slider_color'] = null;
+		if ( ! array_key_exists( $input['slider_color'], chocolat_slider_color_options() ) )
+			$input['slider_color'] = null;
+
+		$input['slider_image01_url'] = esc_url_raw( $input['slider_image01_url'] );
+		$input['slider_image02_url'] = esc_url_raw( $input['slider_image02_url'] );
+		$input['slider_image03_url'] = esc_url_raw( $input['slider_image03_url'] );
+		$input['slider_image04_url'] = esc_url_raw( $input['slider_image04_url'] );
+		$input['slider_image05_url'] = esc_url_raw( $input['slider_image05_url'] );
+
+		$input['slider_image01_caption'] = sanitize_text_field( $input['slider_image01_caption'] );
+		$input['slider_image02_caption'] = sanitize_text_field( $input['slider_image02_caption'] );
+		$input['slider_image03_caption'] = sanitize_text_field( $input['slider_image03_caption'] );
+		$input['slider_image04_caption'] = sanitize_text_field( $input['slider_image04_caption'] );
+		$input['slider_image05_caption'] = sanitize_text_field( $input['slider_image05_caption'] );
+
+		$input['slider_image01_link'] = esc_url_raw( $input['slider_image01_link'] );
+		$input['slider_image02_link'] = esc_url_raw( $input['slider_image02_link'] );
+		$input['slider_image03_link'] = esc_url_raw( $input['slider_image03_link'] );
+		$input['slider_image04_link'] = esc_url_raw( $input['slider_image04_link'] );
+		$input['slider_image05_link'] = esc_url_raw( $input['slider_image05_link'] );
 	}
 	return $input;
 }

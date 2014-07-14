@@ -43,27 +43,27 @@ form
 	margin-top: 1em;
 }
 
-/* #option-sidebar */
-.appearance_page_theme_options #option-sidebar label {
+/* #option-sidebar #option-slider-color */
+.appearance_page_theme_options .radio-image label {
 	text-align: center;
 }
 
-.appearance_page_theme_options #option-sidebar input[type="radio"] {
+.appearance_page_theme_options .radio-image input[type="radio"] {
 	display: none;
 }
 
-.appearance_page_theme_options #option-sidebar img {
+.appearance_page_theme_options .radio-image img {
 	background: #ccc;
 	border: solid 2px #fff;
 	padding: 1px;
 }
 
-.appearance_page_theme_options #option-sidebar input[type="radio"]:checked + img {
+.appearance_page_theme_options .radio-image input[type="radio"]:checked + img {
 	border-color: #ccc;
 }
 
 @media (max-width: 640px) {
-	.appearance_page_theme_options #option-sidebar img {
+	.appearance_page_theme_options .radio-image img {
 		height: auto;
 		margin: 5px 5px;
 		width: 84px;
@@ -71,17 +71,22 @@ form
 }
 
 @media (min-width: 641px) {
-	.appearance_page_theme_options #option-sidebar img {
+	.appearance_page_theme_options .radio-image img {
 		margin: 5px 10px;
 	}
 }
 
-.appearance_page_theme_options #option-sidebar label:first-child img {
+.appearance_page_theme_options .radio-image label:first-child img {
 	margin-left: 0;
 }
 
-.appearance_page_theme_options #option-sidebar label:last-child img {
+.appearance_page_theme_options .radio-image label:last-child img {
 	margin-right: 0;
+}
+
+/* #option-slider-color */
+#panel-slider .media-upload th {
+	padding-top: 30px;
 }
 
 /* submit-button */
@@ -128,6 +133,11 @@ table
 	.appearance_page_theme_options #option-no-image td>img {
 		max-width: 300px;
 	}
+}
+
+/* table-no-space */
+.table-no-space td {
+	padding: 5px 10px;
 }
 
 /* ------------------------------------

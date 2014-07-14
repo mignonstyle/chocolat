@@ -78,6 +78,7 @@ function chocolat_is_mobile() {
  * 2.1.0 - Set up
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_setup' ) ) :
 function chocolat_setup() {
 	// 2.1.0.1 - Reading of the language file
 	load_theme_textdomain( 'chocolat', get_template_directory() . '/languages' );
@@ -161,6 +162,7 @@ function chocolat_setup() {
 	// 2.1.9 - This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
+endif;
 add_action( 'after_setup_theme', 'chocolat_setup' );
 
 /* ----------------------------------------------
@@ -468,6 +470,7 @@ function chocolat_no_comment() {
  * 2.4.1 - add more link p class
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_content_more_link' ) ) :
 function chocolat_content_more_link( $output, $more_link_text ) {
 	global $post;
 
@@ -477,6 +480,7 @@ function chocolat_content_more_link( $output, $more_link_text ) {
 
 	return '<p class="more-link rollover"><a href="'.get_permalink().'#more-'.$post->ID.'" class="more-link">'.$more_link_text.'</a></p>';
 }
+endif;
 add_filter( 'the_content_more_link', 'chocolat_content_more_link', 10, 2 );
 
 /* ----------------------------------------------
@@ -501,9 +505,11 @@ if ( strtoupper( get_locale() ) == 'JA' ) {
  *         the excerpt [...]
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_excerpt_more' ) ) :
 function chocolat_excerpt_more( $more ) {
 	return '&nbsp;&hellip;';
 }
+endif;
 add_filter( 'excerpt_more', 'chocolat_excerpt_more' );
 
 /* ----------------------------------------------
@@ -736,6 +742,7 @@ function chocolat_sp_icon() {
 
 function chocolat_enqueue_styles() {
 	if ( !is_admin() ) {
+		$options = chocolat_get_option();
 		wp_enqueue_style( 'chocolat_style', get_template_directory_uri().'/style.css' );
 		wp_enqueue_style( 'chocolat_common', get_template_directory_uri().'/css/common.css' );
 
@@ -781,9 +788,14 @@ function chocolat_enqueue_scripts() {
 		wp_enqueue_script( 'chocolat_rollover', get_template_directory_uri().'/js/rollover.js', array( 'jquery' ), null, true );
 		wp_enqueue_script( 'chocolat_thumbnail_image', get_template_directory_uri().'/js/thumbnail-image.js', array( 'jquery' ), null, true );
 
-		if ( ! empty( $options['show_lightbox'] ) ) {
+		if ( ! empty( $options['show_lightbox'] ) || ! empty( $options['show_image_lightbox'] )) {
 			wp_enqueue_script( 'chocolat_boxer_min', get_template_directory_uri().'/plugin/boxer/jquery.fs.boxer.min.js', array( 'jquery' ), null, true );
 			wp_enqueue_script( 'chocolat_boxer', get_template_directory_uri().'/js/boxer.js', array( 'jquery', 'chocolat_boxer_min' ), null, true );
+		}
+
+		if ( ! empty( $options['show_slider'] ) && ! empty( $options['slider_image01_url'] ) && ! empty( $options['slider_image02_url'] ) ) {
+			wp_enqueue_script( 'chocolat_flexslider_js', get_template_directory_uri().'/plugin/flexslider/jquery.flexslider-min.js', array( 'jquery' ), null, true );
+			wp_enqueue_script( 'chocolat_slider_js', get_template_directory_uri().'/js/slider.js', array( 'jquery', 'chocolat_flexslider_js' ), null, true );
 		}
 
 		if ( ! chocolat_is_mobile() ) {
@@ -912,6 +924,51 @@ function chocolat_footer_description() {
 	if ( ! empty( $options['show_site_desc'] ) ) {
 	echo '<h4 class="footer-description"><a href="'.esc_url( home_url( '/' ) ).'">'.get_bloginfo( 'description' ).'</a></h4>'."\n";
 	}
+}
+
+/* ----------------------------------------------
+ * 5.1.3 - main image
+ * --------------------------------------------*/
+
+function chocolat_header_image() {
+	$main_visual = '';
+	$header_image_class = '';
+	$options = chocolat_get_option();
+
+	// 1. slider
+	if ( ! empty( $options['show_slider'] ) && ! empty( $options['slider_image01_url'] ) && ! empty( $options['slider_image02_url'] ) ) {
+		$slider_color = ( ! empty( $options['slider_color'] ) && $options['slider_color'] == 'slider_dark' ? ' slider-dark' : '' );
+		$header_image_class = ' flexslider clearfix'.$slider_color;
+		$main_visual .= '<ul class="slides clearfix">'."\n";
+
+		for ( $count = 1; $count <= 5; $count++ ) {
+			$slider_image = 'slider_image0'.$count;
+			$slider_caption = $slider_image.'_caption';
+			$slider_url = $slider_image.'_url';
+			$slider_link = $slider_image.'_link';
+
+			if ( ! empty( $options[$slider_url] ) ) {
+				$image_caption = ( ! empty( $options[$slider_caption] ) ) ? $options[$slider_caption] : '';
+				$main_visual .= '<li>';
+				$main_visual .= ( ! empty( $options[$slider_link] ) ) ? '<span><a href="'.esc_url( $options[$slider_link] ).'">' : '';
+				$main_visual .= '<img src="'.$options[$slider_url].'" width="'.get_custom_header() -> width.'" alt="'.esc_attr( $image_caption ).'">';
+				$main_visual .= ( ! empty( $options[$slider_link] ) ) ? '</a></span>' : '';
+				$main_visual .= ( ! empty( $options[$slider_caption] ) ) ? '<p class="slider-caption">'.esc_attr( $options[$slider_caption] ).'</p>' : '<p class="slider-caption no-caption"></p>';
+				$main_visual .= '</li>'."\n";
+			}
+		}
+		$main_visual .= '</ul>';
+
+		echo '<div id="header-image" class="thumbnail'.$header_image_class.'">'."\n";
+		echo $main_visual."\n";
+		echo '</div>'."\n";
+	}
+	// 2. custom_header
+	elseif ( get_header_image() ) { ?>
+		<div id="header-image" class="thumbnail">
+		<img src="<?php header_image(); ?>" height="<?php echo get_custom_header() -> height; ?>" width="<?php echo get_custom_header() -> width; ?>" alt="" />
+		</div>
+	<?php }
 }
 
 /* ----------------------------------------------
@@ -1545,6 +1602,9 @@ function chocolat_boxer_wp_get_attachment_link( $output, $id ) {
  * --------------------------------------------*/
 
 function chocolat_post_gallery( $output, $attr ) {
+	$options = chocolat_get_option();
+
+	if ( ! empty( $options['show_lightbox'] ) ) :
 	global $post, $wp_locale;
 
 	static $instance = 0;
@@ -1668,6 +1728,7 @@ function chocolat_post_gallery( $output, $attr ) {
 		$output .= "</{$itemtag}>\n";
 	}
 	$output .= "</ul></div>\n<p>";
+	endif;
 	return $output;
 }
 add_filter( 'post_gallery', 'chocolat_post_gallery', 10, 2 );

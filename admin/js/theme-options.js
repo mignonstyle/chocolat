@@ -7,6 +7,7 @@ jQuery(function($){
 	chocolat_options_checkbox();
 	chocolat_contact_radio();
 	chocolat_readmore_radio();
+	chocolat_slider_checkbox();
 
 	// input change
 	$('.option-check input:checkbox').change(function(){
@@ -37,6 +38,19 @@ jQuery(function($){
 			$(parent_id+'div.hidebox').show();
 		}else{
 			$(parent_id+'div.hidebox').hide();
+		}
+	}
+
+	// slider checkbox
+	$('#option-slider input:checkbox').change(function(){
+		chocolat_slider_checkbox();
+	});
+
+	function chocolat_slider_checkbox(){
+		if($('#option-slider input:checkbox').prop('checked')){
+			$('.slider-parent').show();
+		}else{
+			$('.slider-parent').hide();
 		}
 	}
 

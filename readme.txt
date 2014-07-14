@@ -1,51 +1,56 @@
 /* ------------------------------------
-Chocolat
------------------------------------- */
-
-Chocolat WordPress Theme
-https://github.com/mignonstyle/chocolat
-
-/* ------------------------------------
 License
 ------------------------------------ */
 
-Copyright 2014 Mignon Style
+Chocolat WordPress Theme, Copyright 2014 Mignon Style
+Chocolat is distributed under the terms of the GNU GPL, Version 2 (or later)
 
-Unless otherwise specified, all the theme files, scripts and images are licensed under the GNU General Public License v2.0.
+This program is free software:
+You can redistribute it and/or modify it under the terms of GNU General Public License version 2 (or later).
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
+Without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
-scripts: Except html5.js and jquery.cookie.js, all scripts in "/js" and "/admin/js" folder
-images: All images in "/img" and "/admin/img" folder
+Unless otherwise specified, all the theme files, scripts and images are licensed under the terms of the GNU GPL, Version 2 (or later).
 
-The exception to this license, do the following:
+Scripts and Image was created by Mignon Style, Copyright 2014 Mignon Style
+All scripts in "/js" and "/admin/js" folder (Except html5.js and jquery.cookie.js)
+All images in "/img" and "/admin/img" folder
 
-/* -- JS License -- */
+/* ------------------------------------
+Chocolat WordPress Theme bundles 
+the following third-party resources
+------------------------------------ */
 
-html5.js
-https://github.com/aFarkas/html5shiv
+html5.js jQuery library
 License: MIT/GPL2 License
+Source:  https://github.com/aFarkas/html5shiv
 
-jquery.cookie.js
-https://github.com/carhartl/jquery-cookie
+jquery.cookie.js jQuery library, Copyright 2013 Klaus Hartl
 License: MIT License
+Source:  https://github.com/carhartl/jquery-cookie
 
-/* -- Font License -- */
-
-Google Fonts: Quicksand
-http://www.google.com/fonts
+Google Fonts:
 License: SIL Open Font License, 1.1
+Source:  http://www.google.com/fonts
 
-fontello: Fontelico, Font Awesome, Modern Pictograms, Zocial
-all files in the "/ font" folder is a thing of the fontello.
-http://fontello.com/
+fontello icon font: Fontelico, Font Awesome, Modern Pictograms, Zocial, Brandico
+All files in the "/ font" folder is a thing of the fontello.
 License: SIL Open Font License, MIT License
+Source:  http://fontello.com/
 
-/* -- Plugins License -- */
-
-boxer
-included in "/plugin/boxer" folder, all files, image and script is a thing of the boxer.
-http://formstone.it/components/boxer
+Boxer jQuery plugin Copyright 2014 Ben Plum
+Included in "/plugin/boxer" folder, all files, image and script is a thing of the boxer.
 License: MIT License
+Source:  http://formstone.it/components/boxer
+
+FlexSlider jQuery plugin Copyright 2012 WooThemes
+Included in "/plugin/flexslider" folder, all files, script is a thing of the FlexSlider.
+License: GPLv2 license
+Source:  http://www.woothemes.com/flexslider/
 
 /* ------------------------------------
 Installation
@@ -83,6 +88,17 @@ smartphone icon: width 144px, height 144px (png)
 No-Image: width 300px, height 300px (png, jpg or gif)
 
 Logo or No-Image image is display the reduced by depending on the size of the browser.
+
+=== The display in the header image slider ===
+The display in the slider the image set in the header.
+
+How to use:
+1. Check "Use the slider to the header image" check box.
+2. Select Light Color or Dark Color from the color of the slider.
+3. Set an image from the Slider Image 1.
+   It is displayed as a slider if you set the image to Slider Image 1 and Slider Image 2.
+   Caption and Link URL is optional.
+4. Click "Save Changes" button.
 
 === Widgets Areas ===
 The Theme has customizable sidebar and footer.
@@ -154,6 +170,12 @@ I will write your name in the translator name in reaeme.txt.
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.3
+* Add function of the header image slider
+* Corresponds to override the child theme
+* Text fixes
+* Bug fixes
 
 v1.1.2
 * Add options of the display of the number of comments in the index page
