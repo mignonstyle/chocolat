@@ -171,6 +171,10 @@ I will write your name in the translator name in reaeme.txt.
 Changelog
 ------------------------------------ */
 
+v1.1.4
+* Text fixes
+* Bug fixes
+
 v1.1.3
 * Add function of the header image slider
 * Corresponds to override the child theme
