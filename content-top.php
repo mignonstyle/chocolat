@@ -8,7 +8,16 @@
 	<div id="content-top">
 		<h1 class="page-title">
 		<?php
-		if ( is_search() ) {
+		$cpt = get_post_type_object( get_post_type() );
+		$taxonomy_names = get_post_taxonomies();
+		$taxonomy_names = ( ! empty( $taxonomy_names ) ) ? $taxonomy_names[0] : '';
+
+		if ( ! empty( $cpt ) && is_post_type_archive( $cpt ) ) {
+			printf( __( 'Post Type : %s', 'chocolat' ), esc_html( $cpt -> label ) );
+		} elseif ( ! empty( $taxonomy_names ) && is_tax( $taxonomy_names ) ) {
+			$query_tax = get_queried_object();
+			printf( __( 'Category : %s', 'chocolat' ), esc_html( $query_tax -> name ) );
+		} elseif ( is_search() ) {
 			printf( __( 'Search Results of "%s"', 'chocolat' ), '<span class="search-str">' . get_search_query() . '</span>' );
 		} elseif ( is_category() ) {
 			printf( __( 'Category : %s', 'chocolat' ), single_cat_title( '' , false ) );

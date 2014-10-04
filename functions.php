@@ -1015,12 +1015,20 @@ function chocolat_entry_dates() {
 
 function chocolat_entry_meta() {
 	if ( ! is_page() ) {
+		global $wp_query, $post;
 		$options = chocolat_get_option();
+		$taxonomy_names = '';
+
 		echo '<div class="entry_meta clearfix">'."\n";
-		// Categorys
-		$categories_list = get_the_category_list( ' | ' );
-		if ( $categories_list ) {
-			echo '<p class="entry-category icon-folder-open clearfix">'.$categories_list.'</p>'."\n";
+		// Categorys or Custom taxonomy
+		if ( get_post_type() == 'post' ) {
+			$taxonomy_names = 'category';
+		} else {
+			$taxonomy_names = get_post_taxonomies( $post->ID );
+		}
+		if ( ! empty( $taxonomy_names ) ) {
+			$taxonomy_names = is_array( $taxonomy_names ) ? $taxonomy_names[0] : $taxonomy_names;
+			the_terms( $post->ID, $taxonomy_names, '<p class="entry-category icon-folder-open clearfix">', ' | ', '</p>' );
 		}
 		// Tags
 		$tag_list = get_the_tag_list( '', ', ' );
@@ -1034,7 +1042,7 @@ function chocolat_entry_meta() {
 			echo '</p>';
 		}
 		// Post author
-		if ( ! empty( $options['show_author'] ) && ( 'post' == get_post_type() ) ) {
+		if ( ! empty( $options['show_author'] ) && ( ! in_array( get_post_type(), array( 'page', 'attachment' ) ) ) ) {
 			echo '<p class="entry-author"><a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'" rel="author" class="icon-pencil">'.get_the_author().'</a></p>'."\n";
 		}
 		echo '</div>'."\n";
@@ -1288,19 +1296,85 @@ function chocolat_prevnext( $prevnext_area = '' ) {
 
 function chocolat_breadcrumb() {
 	$options = chocolat_get_option();
-	$itemtype_url = 'http://data-vocabulary.org/Breadcrumb';
-	$itemtype = 'itemscope itemtype="'.esc_url( $itemtype_url ).'"';
 
 	if ( ! empty( $options['show_breadcrumb'] ) ) {
 		global $wp_query, $post, $page, $paged;
+
+		$itemtype_url = 'http://data-vocabulary.org/Breadcrumb';
+		$itemtype = 'itemscope itemtype="'.esc_url( $itemtype_url ).'"';
+
+		$taxonomy_slug = get_query_var( 'taxonomy' );
+		$cpt = get_query_var( 'post_type' );
 
 		if ( !is_front_page() && !is_home() && !is_admin() ) : ?>
 			<div class="breadcrumb" <?php echo $itemtype; ?>>
 				<ol>
 				<li <?php echo $itemtype; ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><span itemprop="title" class="icon-home"><span class="bread-home"><?php bloginfo( 'name' ); ?></span></span></a></li><li class="breadmark">&gt;</li>
 
-			<?php if ( is_page() ) : ?>
-			<?php $ancestors = get_post_ancestors( $post->ID ); ?>
+			<?php if ( $taxonomy_slug && is_tax( $taxonomy_slug ) ) :
+				$query_tax = get_queried_object();
+				$query_tax_parent = $query_tax -> parent;
+				$post_types = get_taxonomy( $taxonomy_slug ) -> object_type;
+				$cpt = $post_types[0];
+			?>
+			<li <?php echo $itemtype; ?>><a href="<?php echo get_post_type_archive_link( $cpt ); ?>" itemprop="url"><span itemprop="title"><?php echo esc_html( get_post_type_object( $cpt ) -> label ); ?></span></a></li>
+			<li class="breadmark">&gt;</li>
+			<?php if ( ! empty( $query_tax_parent ) ) :
+				$ancestors = array_reverse( get_ancestors( $query_tax -> term_id, $query_tax -> taxonomy ) );
+				foreach( $ancestors as $ancestor ) : ?>
+					<li <?php echo $itemtype; ?>><a href="<?php echo get_term_link( $ancestor, $query_tax -> taxonomy ); ?>" itemprop="url"><span itemprop="title"><?php echo esc_html( get_term( $ancestor, $query_tax -> taxonomy ) -> name ); ?></span></a></li>
+					<li class="breadmark">&gt;</li>
+				<?php endforeach; endif; ?>
+			<li><?php echo esc_html( $query_tax -> name ); ?>
+
+			<?php elseif ( $cpt && is_singular( $cpt ) ) :
+				$cpt_taxes = get_object_taxonomies( $cpt );
+
+				if ( ! empty( $cpt_taxes ) ) :
+					$taxonomy_name = $cpt_taxes[0];
+					?>
+					<li <?php echo $itemtype; ?>><a href="<?php echo get_post_type_archive_link( $cpt ); ?>" itemprop="url"><span itemprop="title"><?php echo esc_html( get_post_type_object( $cpt ) -> label ); ?></span></a></li>
+					<li class="breadmark">&gt;</li>
+					<?php
+					$taxes = get_the_terms( $post -> ID, $taxonomy_name );
+					$count = 0;
+
+					if ( ! empty( $taxes ) ) {
+						foreach( $taxes as $tax ) {
+							$children = get_term_children( $tax -> term_id, $taxonomy_name ); 
+
+							if ( $children ) {
+								if ( $count < count( $children ) ) {
+									$count = count( $children );
+									$lot_children = $children;
+									foreach( $lot_children as $child ) {
+										if( is_object_in_term( $post -> ID, $taxonomy_name ) ) {
+											$child_tax = get_term( $child, $taxonomy_name );
+										}
+									}
+								}
+							} else {
+								$child_tax = $tax;
+							}
+						}
+					}
+
+					if( ! empty( $child_tax -> parent ) ) :
+						$ancestors = array_reverse( get_ancestors( $child_tax -> term_id, $taxonomy_name ) );
+
+						foreach( $ancestors as $ancestor ) : ?>
+							<li <?php echo $itemtype; ?>><a href="<?php echo get_term_link( $ancestor, $taxonomy_name ); ?>" itemprop="url"><span itemprop="title"><?php echo esc_html( get_term( $ancestor, $taxonomy_name ) -> name ); ?></span></a></li>
+							<li class="breadmark">&gt;</li>
+						<?php endforeach; ?>
+
+						<li <?php echo $itemtype; ?>><a href="<?php echo get_term_link( $child_tax, $taxonomy_name ); ?>" itemprop="url"><span itemprop="title"><?php echo esc_html( $child_tax -> name ); ?></span></a></li>
+						<li class="breadmark">&gt;</li>
+					<?php endif; ?>
+				<?php endif; ?>
+			<li><?php the_title_attribute(); ?>
+
+			<?php elseif ( is_page() ) : ?>
+			<?php $ancestors = get_post_ancestors( $post -> ID ); ?>
 			<?php foreach ( array_reverse( $ancestors ) as $ancestor ) : ?>
 			<li <?php echo $itemtype; ?>><a href="<?php echo get_page_link( $ancestor ); ?>" itemprop="url"><span itemprop="title"><?php echo get_the_title( $ancestor ); ?></span></a></li>
 			<li class="breadmark">&gt;</li>
@@ -1308,7 +1382,7 @@ function chocolat_breadcrumb() {
 			<li><?php the_title_attribute(); ?>
 
 			<?php elseif ( is_search() ) : ?>
-			<li><?php printf( __( 'Search Results of " %s "', 'chocolat' ), get_search_query() ); ?>&nbsp;(&nbsp;<?php printf( __( '%d posts', 'chocolat' ), $wp_query->found_posts ); ?>&nbsp;)
+			<li><?php printf( __( 'Search Results of " %s "', 'chocolat' ), get_search_query() ); ?>&nbsp;(&nbsp;<?php printf( __( '%d posts', 'chocolat' ), esc_html( $wp_query -> found_posts ) ); ?>&nbsp;)
 
 			<?php elseif ( is_404() ) : ?>
 			<li><?php _e( '404 Not found', 'chocolat' ); ?>
@@ -1322,7 +1396,8 @@ function chocolat_breadcrumb() {
 
 			<?php elseif ( is_single() ) : ?>
 			<?php
-				$cat = get_the_category();
+			$cat = get_the_category();
+			if ( ! empty( $cat ) ) {
 				$cat = $cat[count( $cat )-1];
 
 				$breadcrumbs = '<li>'.get_category_parents( $cat, true, '</li><li class="breadmark">&gt;</li><li>' ).'</li>';
@@ -1331,7 +1406,8 @@ function chocolat_breadcrumb() {
 				$breadcrumbs = preg_replace( '/<a href="([^>]+)">/i', '<a href="\\1" itemprop="url"><span itemprop="title">', $breadcrumbs );
 				$breadcrumbs = str_replace( '<li>', '<li '.$itemtype.'>', $breadcrumbs );
 				$breadcrumbs = str_replace( '</a>', '</span></a>', $breadcrumbs );
-				echo $breadcrumbs; ?>
+				echo $breadcrumbs;
+			} ?>
 			<li><?php the_title_attribute(); ?>
 
 			<?php elseif ( is_year() ) : ?>

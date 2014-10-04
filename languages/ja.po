@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2014-08-27 02:46+0900\n"
-"PO-Revision-Date: 2014-08-27 02:46+0900\n"
+"POT-Creation-Date: 2014-10-04 19:15+0900\n"
+"PO-Revision-Date: 2014-10-04 19:15+0900\n"
 "Last-Translator: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: Japanese\n"
@@ -28,11 +28,11 @@ msgstr "%d 件のコメント"
 msgid "TrackBack URL"
 msgstr "トラックバックURL"
 
-#: ../content-none.php:19 ../functions.php:559 ../functions.php:1314
+#: ../content-none.php:19 ../functions.php:559 ../functions.php:1388
 msgid "404 Not found"
 msgstr "ページが見つかりません"
 
-#: ../content-none.php:21 ../functions.php:1376
+#: ../content-none.php:21 ../functions.php:1452
 msgid "Nothing Found"
 msgstr "見つかりません"
 
@@ -71,44 +71,49 @@ msgstr "別のキーワードを試すか、%s へ戻って該当のページを
 msgid "Edit"
 msgstr "編集"
 
-#: ../content-top.php:12
+#: ../content-top.php:16
 #, php-format
-msgid "Search Results of \"%s\""
-msgstr "「 %s 」の検索結果"
+msgid "Post Type : %s"
+msgstr "「 %s 」の記事"
 
-#: ../content-top.php:14
+#: ../content-top.php:19 ../content-top.php:23
 #, php-format
 msgid "Category : %s"
 msgstr "カテゴリー「 %s 」の記事"
 
-#: ../content-top.php:16
+#: ../content-top.php:21
+#, php-format
+msgid "Search Results of \"%s\""
+msgstr "「 %s 」の検索結果"
+
+#: ../content-top.php:25
 #, php-format
 msgid "Tag : %s"
 msgstr "タグ「 %s 」の記事"
 
-#: ../content-top.php:18 ../functions.php:552 ../functions.php:1338
-#: ../functions.php:1341
+#: ../content-top.php:27 ../functions.php:552 ../functions.php:1414
+#: ../functions.php:1417
 msgid "Y"
 msgstr "Y年"
 
-#: ../content-top.php:20 ../functions.php:554
+#: ../content-top.php:29 ../functions.php:554
 msgid "F Y"
 msgstr "Y年n月"
 
-#: ../content-top.php:22 ../functions.php:556
+#: ../content-top.php:31 ../functions.php:556
 msgid "F j, Y"
 msgstr "Y年n月j日"
 
-#: ../content-top.php:24
+#: ../content-top.php:33
 #, php-format
 msgid "Author : %s"
 msgstr "%s の記事"
 
-#: ../content-top.php:26
+#: ../content-top.php:35
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: ../content-top.php:30 ../functions.php:1311
+#: ../content-top.php:39 ../functions.php:1385
 #, php-format
 msgid "%d posts"
 msgstr "%d 件"
@@ -237,12 +242,12 @@ msgstr "READ%sMORE"
 msgid "READ%sPOST"
 msgstr "READ%sPOST"
 
-#: ../functions.php:549 ../functions.php:1311
+#: ../functions.php:549 ../functions.php:1385
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr "「 %s 」の検索結果"
 
-#: ../functions.php:575 ../functions.php:1383
+#: ../functions.php:575 ../functions.php:1459
 #, php-format
 msgid "Page %d"
 msgstr "%d ページ"
@@ -270,117 +275,117 @@ msgstr "更新日"
 msgid "Attention"
 msgstr "Attention"
 
-#: ../functions.php:1033
+#: ../functions.php:1041
 msgid "No Comments"
 msgstr "0件"
 
-#: ../functions.php:1033
+#: ../functions.php:1041
 msgid "1 Comment"
 msgstr "1件"
 
-#: ../functions.php:1033
+#: ../functions.php:1041
 msgid "% Comments"
 msgstr "%件"
 
-#: ../functions.php:1033
+#: ../functions.php:1041
 msgid "Comments Off"
 msgstr "OFF"
 
-#: ../functions.php:1085 ../functions.php:1195 ../admin/theme-options.php:774
+#: ../functions.php:1093 ../functions.php:1203 ../admin/theme-options.php:774
 msgid "RSS"
 msgstr "RSS"
 
-#: ../functions.php:1092 ../functions.php:1204
+#: ../functions.php:1100 ../functions.php:1212
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../functions.php:1115 ../functions.php:1223 ../admin/theme-options.php:749
+#: ../functions.php:1123 ../functions.php:1231 ../admin/theme-options.php:749
 msgid "Contact"
 msgstr "お問い合わせ"
 
-#: ../functions.php:1165 ../admin/theme-options.php:740
+#: ../functions.php:1173 ../admin/theme-options.php:740
 msgid "Information"
 msgstr "インフォメーション"
 
-#: ../functions.php:1345 ../functions.php:1348
+#: ../functions.php:1421 ../functions.php:1424
 msgid "F"
 msgstr "n月"
 
-#: ../functions.php:1350
+#: ../functions.php:1426
 msgid "j"
 msgstr "j日"
 
-#: ../functions.php:1444 ../functions.php:1747 ../functions.php:1772
+#: ../functions.php:1520 ../functions.php:1823 ../functions.php:1848
 #: ../admin/theme-options.php:672
 msgid "New Entry"
 msgstr "新着記事"
 
-#: ../functions.php:1454 ../functions.php:1867 ../functions.php:1894
+#: ../functions.php:1530 ../functions.php:1943 ../functions.php:1970
 #: ../admin/theme-options.php:635
 msgid "Related Entry"
 msgstr "関連記事"
 
-#: ../functions.php:1746 ../functions.php:1866 ../functions.php:1977
+#: ../functions.php:1822 ../functions.php:1942 ../functions.php:2053
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr "%s テーマ用のウィジェット。"
 
-#: ../functions.php:1746
+#: ../functions.php:1822
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr "最近の投稿をサムネイル付きで表示します。"
 
-#: ../functions.php:1747
+#: ../functions.php:1823
 msgid "(with thumbnails)"
 msgstr "（サムネイル付き）"
 
-#: ../functions.php:1843 ../functions.php:1957 ../functions.php:2034
+#: ../functions.php:1919 ../functions.php:2033 ../functions.php:2110
 #: ../admin/theme-options.php:641 ../admin/theme-options.php:679
 #: ../admin/theme-options.php:718
 msgid "Title:"
 msgstr "タイトル:"
 
-#: ../functions.php:1846 ../functions.php:1960 ../admin/theme-options.php:644
+#: ../functions.php:1922 ../functions.php:2036 ../admin/theme-options.php:644
 #: ../admin/theme-options.php:682
 msgid "Number of posts to show:"
 msgstr "表示する投稿数:"
 
-#: ../functions.php:1850 ../functions.php:1964
+#: ../functions.php:1926 ../functions.php:2040
 msgid "Display post date?"
 msgstr "投稿日を表示しますか ?"
 
-#: ../functions.php:1853
+#: ../functions.php:1929
 msgid "Do not want to display the top page of the Web site."
 msgstr "Webサイトのトップページには表示しない。"
 
-#: ../functions.php:1866
+#: ../functions.php:1942
 msgid "In the single page, and view the latest posts in the same category."
 msgstr "投稿ページで、同じカテゴリーの新着記事を表示します。"
 
-#: ../functions.php:1977
+#: ../functions.php:2053
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr "親子ページのある固定ページにナビゲーションメニューを表示します。"
 
-#: ../functions.php:1978
+#: ../functions.php:2054
 msgid "Fixed Page Menu"
 msgstr "固定ページ メニュー"
 
-#: ../functions.php:1985
+#: ../functions.php:2061
 msgid "Page Navi"
 msgstr "ページナビ"
 
-#: ../functions.php:2036
+#: ../functions.php:2112
 msgid "Sort by:"
 msgstr "並び順:"
 
-#: ../functions.php:2038
+#: ../functions.php:2114
 msgid "Page title"
 msgstr "ページタイトル"
 
-#: ../functions.php:2039
+#: ../functions.php:2115
 msgid "Page order"
 msgstr "ページ順序"
 
-#: ../functions.php:2040
+#: ../functions.php:2116
 msgid "Page ID"
 msgstr "ページ ID"
 

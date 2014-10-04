@@ -171,6 +171,9 @@ I will write your name in the translator name in reaeme.txt.
 Changelog
 ------------------------------------ */
 
+v1.1.5
+* Fixed a bug when using a custom post type or custom taxonomy
+
 v1.1.4
 * Text fixes
 * Bug fixes
