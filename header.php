@@ -1,6 +1,10 @@
 <?php
 /**
  * The Header template
+ * @package   Chocolat
+ * @copyright Copyright (c) 2014 Mignon Style
+ * @license   GNU General Public License v2.0
+ * @since     Chocolat 1.0
  */
 ?>
 <!DOCTYPE html>
@@ -16,7 +20,7 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width">
-<title><?php chocolat_page_title(); ?></title>
+<title><?php wp_title( '|', true, 'right' ); ?></title>
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />

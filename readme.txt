@@ -38,7 +38,7 @@ License: SIL Open Font License, 1.1
 Source:  http://www.google.com/fonts
 
 fontello icon font: Fontelico, Font Awesome, Modern Pictograms, Zocial, Brandico
-All files in the "/ font" folder is a thing of the fontello.
+All files in the "/font" folder is a thing of the fontello.
 License: SIL Open Font License, MIT License
 Source:  http://fontello.com/
 
@@ -51,6 +51,16 @@ FlexSlider jQuery plugin Copyright 2012 WooThemes
 Included in "/plugin/flexslider" folder, all files, script is a thing of the FlexSlider.
 License: GPLv2 license
 Source:  http://www.woothemes.com/flexslider/
+
+CodeMirror JavaScript plugin Copyright 2014 by Marijn Haverbeke and others
+Included in "/admin/inc/codemirror" folder, all files, css and script is a thing of the CodeMirror.
+License: MIT license
+Source:  http://codemirror.net/
+
+TGM Plugin Activation Copyright 2012 Thomas Griffin
+/admin/inc/class-tgm-plugin-activation.php.
+License: GPL v2 or later
+Source:  https://github.com/thomasgriffin/TGM-Plugin-Activation
 
 /* ------------------------------------
 Installation
@@ -170,6 +180,18 @@ I will write your name in the translator name in reaeme.txt.
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.6
+* Theme option fixes
+* Add save the value of an option (corresponds the child theme)
+* Add Featured Image Settings
+* Add Display of heading archive of page
+* Add Link in the header image
+* Add custom CSS Settings
+* The hook of wp_title() fixes
+* Corresponds to override the child theme
+* Delete function chocolat_title_fix()
+* Text fixes
 
 v1.1.5
 * Fixed a bug when using a custom post type or custom taxonomy

@@ -1,6 +1,10 @@
 <?php
 /**
  * The functions and definitions
+ * @package   Chocolat
+ * @copyright Copyright (c) 2014 Mignon Style
+ * @license   GNU General Public License v2.0
+ * @since     Chocolat 1.0
  */
 
 /* ----------------------------------------------
@@ -13,6 +17,7 @@ if ( ! isset( $content_width ) ) {
 }
 
 // Size of the video
+if ( ! function_exists( 'chocolat_content_width' ) ) :
 function chocolat_content_width() {
 	global $content_width;
 
@@ -25,6 +30,7 @@ function chocolat_content_width() {
 		}
 	}
 }
+endif;
 add_action( 'template_redirect', 'chocolat_content_width' );
 
 /* ----------------------------------------------
@@ -43,6 +49,7 @@ function chocolat_theme_description() {
  * Exclude tablet from is_mobile().
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_is_mobile' ) ) :
 function chocolat_is_mobile() {
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 	$_ret = true;
@@ -58,6 +65,7 @@ function chocolat_is_mobile() {
 	}
 	return $_ret;
 }
+endif;
 
 /* ----------------------------------------------
  * 2.1.0 - Set up
@@ -85,11 +93,56 @@ function chocolat_setup() {
 
 	// 2.1.0.2 - Theme Options file
 	require_once( get_template_directory() . '/admin/theme-options.php' );
+	$options = chocolat_get_option();
+
+	// 2.1.0.2 - Include file
+	require_once( get_template_directory() . '/admin/inc/custom-css.php' );
 
 	// 2.1.1 - post-thumbnails
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 300, 300, true );
-	add_image_size( 'post_thumbnail', 700, 350, true );
+
+	// 2.1.1.0 - thumbnail image
+	$thumbnail_crop_x = ( ! empty( $options['thumbnail_crop_x'] ) ) ? esc_attr( $options['thumbnail_crop_x'] ) : 'center';
+	$thumbnail_crop_y = ( ! empty( $options['thumbnail_crop_y'] ) ) ? esc_attr( $options['thumbnail_crop_y'] ) : 'center';
+	set_post_thumbnail_size( 300, 300, array( $thumbnail_crop_x, $thumbnail_crop_y ) );
+
+	// 2.1.1.1 - Registers a new image size (post_thumbnails, single-post-thumbnail)
+	$featured_size_w = ( ! empty( $options['featured_size_w'] ) ) ? absint( $options['featured_size_w'] ) : 700;
+	$featured_size_h = ( ! empty( $options['featured_size_h'] ) ) ? absint( $options['featured_size_h'] ) : 350;
+	$featured_crop = true;
+
+	if ( ! empty( $options['featured_crop'] ) ) {
+		if ( $options['featured_crop'] == 'crop' ) {
+			$featured_crop_x = ( ! empty( $options['featured_crop_x'] ) ) ? esc_attr( $options['featured_crop_x'] ) : 'center';
+			$featured_crop_y = ( ! empty( $options['featured_crop_y'] ) ) ? esc_attr( $options['featured_crop_y'] ) : 'center';
+			$featured_crop = array( $featured_crop_x, $featured_crop_y );
+		} else {
+			$featured_crop = false;
+		}
+	}
+
+	// 2.1.1.2 - Changed the name to "single-post-thumbnail" from "post_thumbnail"
+	add_image_size( 'post_thumbnail', $featured_size_w, $featured_size_h, $featured_crop );
+	add_image_size( 'single-post-thumbnail', $featured_size_w, $featured_size_h, $featured_crop );
+
+	// 2.1.1.3 - Registers a new image size of home page (home-post-thumbnail)
+	if ( ! empty( $options['show_featured_home'] ) ) {
+		$featured_home_size_w = ( ! empty( $options['featured_home_size_w'] ) ) ? absint( $options['featured_home_size_w'] ) : 700;
+		$featured_home_size_h = ( ! empty( $options['featured_home_size_h'] ) ) ? absint( $options['featured_home_size_h'] ) : 350;
+		$featured_home_crop = true;
+
+		if ( ! empty( $options['featured_home_crop'] ) ) {
+			if ( $options['featured_home_crop'] == 'crop' ) {
+				$featured_home_crop_x = ( ! empty( $options['featured_home_crop_x'] ) ) ? esc_attr( $options['featured_home_crop_x'] ) : 'center';
+				$featured_home_crop_y = ( ! empty( $options['featured_home_crop_y'] ) ) ? esc_attr( $options['featured_home_crop_y'] ) : 'center';
+				$featured_home_crop = array( $featured_home_crop_x, $featured_home_crop_y );
+			} else {
+				$featured_home_crop = false;
+			}
+		}
+
+		add_image_size( 'home-post-thumbnail', $featured_home_size_w, $featured_home_size_h, $featured_home_crop );
+	}
 
 	// 2.1.2 - menus (custom menu)
 	register_nav_menus( array(
@@ -170,6 +223,7 @@ add_action( 'after_setup_theme', 'chocolat_setup' );
  * Image size square
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_post_thumbnail' ) ) :
 function chocolat_post_thumbnail() {
 	$img_size = 300;
 	if ( has_post_thumbnail() ) {
@@ -193,6 +247,7 @@ function chocolat_post_thumbnail() {
 		echo '<img src="'.esc_url( $noimage_url ).'" class="attachment-thumbnail wp-post-image'.esc_attr( $img_class ).'" alt="'.the_title_attribute( 'echo=0' ).'" width="'.absint( $img_size ).'" height="'.absint( $img_size ).'" />';
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 2.1.2 - menus (custom menu)
@@ -200,26 +255,31 @@ function chocolat_post_thumbnail() {
 
 // When the navigation is not registered,
 // it displays a menu on the top page
+if ( ! function_exists( 'chocolat_page_menu_args' ) ) :
 function chocolat_page_menu_args( $args ) {
 	$args['show_home'] = __( 'Home', 'chocolat' );
 	return $args;
 }
+endif;
 add_filter( 'wp_page_menu_args', 'chocolat_page_menu_args' );
 
 /* ----------------------------------------------
  * 2.1.3 - editor-style
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_editor_settings' ) ) :
 function chocolat_editor_settings( $initArray ) {
 	$initArray['body_class'] = 'editor-area';
 	return $initArray;
 }
+endif;
 add_filter( 'tiny_mce_before_init', 'chocolat_editor_settings' );
 
 /* ----------------------------------------------
  * 2.2 - widgets
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_widgets_init' ) ) :
 function chocolat_widgets_init() {
 	$my_before_widget = '<nav id="%1$s" class="widget %2$s clearfix">'."\n";
 	$my_before_widget_1 = '<nav id="%1$s" class="widget ';
@@ -289,10 +349,12 @@ function chocolat_widgets_init() {
 		'after_title'   => '</h3></div>'."\n",
 	) );
 }
+endif;
 add_action( 'widgets_init', 'chocolat_widgets_init' );
 
 //-----------------------------------------------
 // adsense widgets
+if ( ! function_exists( 'chocolat_ad_widget_medium' ) ) :
 function chocolat_ad_widget_medium() {
 	if ( is_single() && !is_attachment() ) {
 		if ( is_active_sidebar( 'ad_medium' ) ) {
@@ -310,9 +372,11 @@ function chocolat_ad_widget_medium() {
 		}
 	}
 }
+endif;
 
 //-----------------------------------------------
 // adsense widgets
+if ( ! function_exists( 'chocolat_ad_widget_medium_bottom' ) ) :
 function chocolat_ad_widget_medium_bottom( $pos ) {
 	if ( is_single() && !is_attachment() ) {
 		if ( is_active_sidebar( 'ad_medium' ) && ! is_active_sidebar( 'ad_large' ) ) {
@@ -332,6 +396,7 @@ function chocolat_ad_widget_medium_bottom( $pos ) {
 		}
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 2.3 - comment form
@@ -341,6 +406,7 @@ function chocolat_ad_widget_medium_bottom( $pos ) {
  * 2.3.1 - comments number
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_get_comments_only_number' ) ) :
 function chocolat_get_comments_only_number() {
 	global $id;
 	$comment_cnt = 0;
@@ -352,20 +418,24 @@ function chocolat_get_comments_only_number() {
 	}
 	return $comment_cnt;
 }
+endif;
 
 /* ----------------------------------------------
  * 2.3.2 - pings (trackback + pingback) number
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_get_pings_only_number' ) ) :
 function chocolat_get_pings_only_number() {
 	$trackback_cnt = get_comments_number() - chocolat_get_comments_only_number();
 	return $trackback_cnt;
 }
+endif;
 
 /* ----------------------------------------------
  * 2.3.3 - comment
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_theme_comment' ) ) :
 function chocolat_theme_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	$no_avatars = '';
@@ -400,11 +470,13 @@ function chocolat_theme_comment( $comment, $args, $depth ) {
 	</article>
 <?php
 }
+endif;
 
 /* ----------------------------------------------
  * 2.3.4 - pings (trackback + pingback)
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_theme_ping' ) ) :
 function chocolat_theme_ping() {
 	global $comments, $comment, $post;
 
@@ -446,11 +518,13 @@ function chocolat_theme_ping() {
 </div><!-- /comments-inner -->
 <?php
 }
+endif;
 
 /* ----------------------------------------------
  * 2.3.5 - no comments
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_no_comment' ) ) :
 function chocolat_no_comment() {
 	$options = chocolat_get_option();
 	if ( ! empty( $options['show_no_comment'] ) ) {
@@ -461,6 +535,7 @@ function chocolat_no_comment() {
 <?php
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 2.4 - Read More
@@ -488,6 +563,7 @@ add_filter( 'the_content_more_link', 'chocolat_content_more_link', 10, 2 );
  *         in the excerpt
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_excerpt_length' ) ) :
 function chocolat_excerpt_length( $length ) {
 	$options = chocolat_get_option();
 	// If the value is 0, use the value of the default
@@ -499,6 +575,7 @@ if ( strtoupper( get_locale() ) == 'JA' ) {
 } else {
 	add_filter( 'excerpt_length', 'chocolat_excerpt_length' );
 }
+endif;
 
 /* ----------------------------------------------
  * 2.4.3 - Change the last character of
@@ -516,6 +593,7 @@ add_filter( 'excerpt_more', 'chocolat_excerpt_more' );
  * 2.4.4 - Read More (the_excerpt or the_content )
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_excerpt_content' ) ) :
 function chocolat_excerpt_content() {
 	$options = chocolat_get_option();
 	echo '<div class="entry-summary">';
@@ -535,14 +613,17 @@ function chocolat_excerpt_content() {
 	}
 	echo '</div>';
 }
+endif;
 
 /* ----------------------------------------------
  * 3.1 - page title
+ * filter function for wp_title hook
  * --------------------------------------------*/
 
-function chocolat_page_title() {
+if ( ! function_exists( 'chocolat_page_title' ) ) :
+function chocolat_page_title( $title, $sep = true, $seplocation = 'right' ) {
 	global $paged, $page;
-	$sep = ' | ';
+	$sep = ' ' . $sep . ' ';
 
 	// page title
 	if ( is_search() ) {
@@ -558,42 +639,35 @@ function chocolat_page_title() {
 	} elseif ( is_404() ) {
 		$title = __( '404 Not found', 'chocolat' ).$sep;
 	} else {
-		$title = wp_title( $sep, false, 'right' );
+		$title = $title;
 	}
 
-	// site name
-	$title .= get_bloginfo( 'name' );
+	// Add the blog name
+	$title .= apply_filters( 'chocolat_wp_title_name', get_bloginfo( 'name', 'display' ) );
 
-	// site description home/front page
+	// Add the blog description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );
 	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= $sep.$site_description;
+		$title_desc = $sep.$site_description;
+		$title .= apply_filters( 'chocolat_wp_title_desc', $title_desc );
 	}
 
-	// page number
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= $sep.sprintf( __( 'Page %d', 'chocolat' ), max( $paged, $page) );
+	// Add a page number if necessary:
+	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+		$title_page = $sep.sprintf( __( 'Page %d', 'chocolat' ), max( $paged, $page) );
+		$title .= apply_filters( 'chocolat_wp_title_page', $title_page );
 	}
 
-	echo $title;
-}
-
-/* ----------------------------------------------
- * 3.2 - Remove blank for delimiter of a space or an empty
- * --------------------------------------------*/
-
-function chocolat_title_fix( $title, $sep, $seplocation ) {
-	if ( !$sep || $sep == ' ' ) {
-		$title = str_replace( ' '.$sep.' ', $sep, $title );
-	}
 	return $title;
 }
-add_filter( 'wp_title', 'chocolat_title_fix', 10, 3 );
+endif;
+add_filter( 'wp_title', 'chocolat_page_title', 10, 3 );
 
 /* ----------------------------------------------
  * 3.3 - Show page slug to body_class()
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_body_class' ) ) :
 function chocolat_body_class( $classes ) {
 	$options = chocolat_get_option();
 
@@ -615,10 +689,12 @@ function chocolat_body_class( $classes ) {
 	}
 	return $classes;
 }
+endif;
 add_filter( 'body_class', 'chocolat_body_class' );
 
 //-----------------------------------------------
 //  if ( chocolat_sidebar() )
+if ( ! function_exists( 'chocolat_sidebar' ) ) :
 function chocolat_sidebar() {
 	$options = chocolat_get_option();
 
@@ -627,6 +703,7 @@ function chocolat_sidebar() {
 		return $sidebar;
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 3.5 - Adding a class name 
@@ -636,26 +713,31 @@ function chocolat_sidebar() {
  * 3.5.1 - Add class to edit_post_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_edit_post_link' ) ) :
 function chocolat_edit_post_link( $output ) {
 	$output = str_replace( 'class="post-edit-link"', 'class="post-edit-link icon-pencil"', $output );
 	return $output;
 }
+endif;
 add_filter( 'edit_post_link', 'chocolat_edit_post_link' );
 
 /* ----------------------------------------------
  * 3.5.2 - Add class to edit_comment_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_edit_comment_link' ) ) :
 function chocolat_edit_comment_link( $output ) {
 	$output = str_replace( 'class="comment-edit-link"', 'class="comment-edit-link icon-pencil"', $output );
 	return $output;
 }
+endif;
 add_filter( 'edit_comment_link', 'chocolat_edit_comment_link' );
 
 /* ----------------------------------------------
  * 3.5.3 - Add class to comment_reply_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_comment_reply_link' ) ) :
 function chocolat_comment_reply_link( $output ) {
 	if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) {
 		$output = str_replace( 'class="comment-reply-login"', 'class="comment-reply-login icon-comment"', $output );
@@ -664,56 +746,66 @@ function chocolat_comment_reply_link( $output ) {
 	}
 	return $output;
 }
+endif;
 add_filter( 'comment_reply_link', 'chocolat_comment_reply_link' );
 
 /* ----------------------------------------------
  * 3.5.4 - Add class to cancel_comment_reply_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_cancel_comment_reply_link' ) ) :
 function chocolat_cancel_comment_reply_link( $output ) {
 	$output = str_replace( 'id="cancel-comment-reply-link"', 'id="cancel-comment-reply-link" class="icon-cancel"', $output );
 	return $output;
 }
+endif;
 add_filter( 'cancel_comment_reply_link', 'chocolat_cancel_comment_reply_link' );
 
 /* ----------------------------------------------
  * 3.5.5 - Add class to previous_post_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_previous_post_link' ) ) :
 function chocolat_previous_post_link( $output ) {
 	$search = array( 'rel="prev">', '</a>' );
 	$replace = array( 'rel="prev"><p class="prev-btn icon-left"></p><p class="prev-link">', '</p></a>' );
 	$output = str_replace( $search, $replace, $output );
 	return $output;
 }
+endif;
 add_filter( 'previous_post_link', 'chocolat_previous_post_link' );
 
 /* ----------------------------------------------
  * 3.5.6 - Add class to next_post_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_next_post_link' ) ) :
 function chocolat_next_post_link( $output ) {
 	$search = array( 'rel="next">', '</a>' );
 	$replace = array( 'rel="next"><p class="next-link">', '</p><p class="next-btn icon-right"></p></a>' );
 	$output = str_replace( $search, $replace, $output );
 	return $output;
 }
+endif;
 add_filter( 'next_post_link', 'chocolat_next_post_link' );
 
 /* ----------------------------------------------
  * 3.5.7 - The removal of the HTML tag title
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_the_title' ) ) :
 function chocolat_the_title( $title ) {
 	$title = esc_attr( strip_tags( $title ) );
 	return $title;
 }
+endif;
 add_filter( 'the_title', 'chocolat_the_title' );
 
 /* ----------------------------------------------
  * 4.1 - favicon
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_favicon' ) ) :
 function chocolat_favicon() {
 	$options = chocolat_get_option();
 
@@ -723,11 +815,13 @@ function chocolat_favicon() {
 		echo '<link rel="icon" href="'.esc_url( $favicon_url ).'" type="image/x-icon" />'."\n";
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 4.2 - apple-touch-icon
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_sp_icon' ) ) :
 function chocolat_sp_icon() {
 	$options = chocolat_get_option();
 
@@ -735,11 +829,13 @@ function chocolat_sp_icon() {
 		echo '<link rel="apple-touch-icon" href="'.esc_url( $options['sp_icon_url'] ).'" />'."\n";
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 4.4 - Reading css file
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_enqueue_styles' ) ) :
 function chocolat_enqueue_styles() {
 	$options = chocolat_get_option();
 	wp_enqueue_style( 'chocolat_style', get_template_directory_uri().'/style.css' );
@@ -763,16 +859,19 @@ function chocolat_enqueue_styles() {
 		wp_enqueue_style( 'chocolat_ja', get_template_directory_uri().'/css/ja.css' );
 	}
 
+	// Child Theme Style
 	if ( is_child_theme() ) {
 		wp_enqueue_style( 'chocolat_child_style', get_stylesheet_uri() );
 	}
 }
+endif;
 add_action( 'wp_enqueue_scripts', 'chocolat_enqueue_styles' );
 
 /* ----------------------------------------------
  * 4.5 - Read the js file
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_enqueue_scripts' ) ) :
 function chocolat_enqueue_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
@@ -808,13 +907,31 @@ function chocolat_enqueue_scripts() {
 	// script to be read after the masonry
 	wp_enqueue_script( 'chocolat_footer_fixed', get_template_directory_uri().'/js/footer-fixed.js', array( 'jquery' ), null, true );
 	wp_enqueue_script( 'chocolat_pagescroll', get_template_directory_uri().'/js/pagescroll.js', array( 'jquery' ), null, true );
+
+	// Custom style
+	if ( chocolat_featured_sneak_js() || chocolat_featured_sneak_home_js() ) {
+		wp_enqueue_script( 'chocolat_css_js', get_template_directory_uri().'/js/custom-css.js', array( 'jquery' ), null, true );
+		wp_localize_script( 'chocolat_css_js', 'chocolat_script', array(
+			// Featured image
+			'featured_sneak_js' => chocolat_featured_sneak_js(),
+			'featured_size_w'   => $options['featured_size_w'],
+			'featured_pos'      => $options['featured_position'],
+
+			// Featured image of home page
+			'featured_sneak_home_js' => chocolat_featured_sneak_home_js(),
+			'featured_home_size_w'   => $options['featured_home_size_w'],
+			'featured_home_pos'      => $options['featured_home_position'],
+		) );
+	}
 }
+endif;
 add_action( 'wp_enqueue_scripts', 'chocolat_enqueue_scripts' );
 
 /* ----------------------------------------------
  * 5.0 - Copyright
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_footer_copyright' ) ) :
 function chocolat_footer_copyright() {
 	$options = chocolat_get_option();
 	$footer_copyright = '';
@@ -846,8 +963,10 @@ function chocolat_footer_copyright() {
 
 	echo $footer_copyright;
 }
+endif;
 
 // Get the first date of the article
+if ( ! function_exists( 'chocolat_copyright_first_date' ) ) :
 function chocolat_copyright_first_date() {
 	$args = array(
 		'numberposts' => 1,
@@ -863,14 +982,18 @@ function chocolat_copyright_first_date() {
 	$first_date = ( ! empty( $first_date ) ) ? mysql2date( 'Y', $first_date, true ) : '';
 	return $first_date;
 }
+endif;
 
 // Get the latest Date of article
+if ( ! function_exists( 'chocolat_copyright_last_date' ) ) :
 function chocolat_copyright_last_date() {
 	$last_date = get_lastpostmodified( 'blog' );
 	return mysql2date( 'Y', $last_date, true );
 }
+endif;
 
 // Notation of copyright
+if ( ! function_exists( 'chocolat_get_copyright_text' ) ) :
 function chocolat_get_copyright_text() {
 	$first_date = chocolat_copyright_first_date();
 	$last_date = chocolat_copyright_last_date();
@@ -887,11 +1010,13 @@ function chocolat_get_copyright_text() {
 
 	return $copyright_text;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.1.1 - site title
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_site_title' ) ) :
 function chocolat_site_title() {
 	$site_title = get_bloginfo( 'name' );
 	$options = chocolat_get_option();
@@ -901,12 +1026,14 @@ function chocolat_site_title() {
 	}
 	echo $site_title;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.1.2 - site description
  * --------------------------------------------*/
 
 // site description (header)
+if ( ! function_exists( 'chocolat_site_description' ) ) :
 function chocolat_site_description() {
 	$options = chocolat_get_option();
 
@@ -914,9 +1041,11 @@ function chocolat_site_description() {
 		echo '<h2 id="site-description">'.get_bloginfo( 'description' ).'</h2>'."\n";
 	}
 }
+endif;
 
 //-----------------------------------------------
 // site description (footer)
+if ( ! function_exists( 'chocolat_footer_description' ) ) :
 function chocolat_footer_description() {
 	$options = chocolat_get_option();
 
@@ -924,11 +1053,13 @@ function chocolat_footer_description() {
 	echo '<h4 class="footer-description"><a href="'.esc_url( home_url( '/' ) ).'">'.get_bloginfo( 'description' ).'</a></h4>'."\n";
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.1.3 - main image
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_header_image' ) ) :
 function chocolat_header_image() {
 	$main_visual = '';
 	$header_image_class = '';
@@ -965,15 +1096,21 @@ function chocolat_header_image() {
 	// 2. custom_header
 	elseif ( get_header_image() ) { ?>
 		<div id="header-image" class="thumbnail">
-		<img src="<?php header_image(); ?>" height="<?php echo get_custom_header() -> height; ?>" width="<?php echo get_custom_header() -> width; ?>" alt="" />
+			<?php if ( ! empty( $options['show_header_link'] ) )
+				echo '<a class="home-link" href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" rel="home">';
+			?><img src="<?php header_image(); ?>" height="<?php echo get_custom_header() -> height; ?>" width="<?php echo get_custom_header() -> width; ?>" alt="<?php esc_attr_e( get_bloginfo( 'name', 'display' ) ); ?>" /><?php
+			if ( ! empty( $options['show_header_link'] ) )
+				echo '</a>'; ?>
 		</div>
 	<?php }
 }
+endif;
 
 /* ----------------------------------------------
  * 5.2 - View Last updated 
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_last_update' ) ) :
 function chocolat_last_update() {
 	$options = chocolat_get_option();
 	if ( ! empty( $options['show_last_date'] ) ) {
@@ -982,11 +1119,13 @@ function chocolat_last_update() {
 		}
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.3 - entry sticky & date
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_entry_dates' ) ) :
 function chocolat_entry_dates() {
 	if (! is_page() ) {
 		echo '<div class="entry-dates rollover">'."\n";
@@ -1008,11 +1147,13 @@ function chocolat_entry_dates() {
 		echo '</div>';
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.4 - entry category & tags & author
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_entry_meta' ) ) :
 function chocolat_entry_meta() {
 	if ( ! is_page() ) {
 		global $wp_query, $post;
@@ -1048,22 +1189,26 @@ function chocolat_entry_meta() {
 		echo '</div>'."\n";
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.5 - feedly link
  * --------------------------------------------*/
 
 // feedly URL
+if ( ! function_exists( 'chocolat_feedly_url' ) ) :
 function chocolat_feedly_url() {
 	$feedly_href = 'http://cloud.feedly.com/#subscription%2Ffeed%2F'.get_bloginfo('rss2_url');
 	return $feedly_href;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.5.1 - Contact, RSS
  * --------------------------------------------*/
 
 // contact
+if ( ! function_exists( 'chocolat_is_contact' ) ) :
 function chocolat_is_contact() {
 	$options = chocolat_get_option();
 
@@ -1072,9 +1217,11 @@ function chocolat_is_contact() {
 		return $my_contact;
 	}
 }
+endif;
 
 //-----------------------------------------------
 // RSS
+if ( ! function_exists( 'chocolat_is_rss' ) ) :
 function chocolat_is_rss() {
 	$options = chocolat_get_option();
 
@@ -1083,26 +1230,32 @@ function chocolat_is_rss() {
 		return $my_rss;
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.5.2 - Contact, RSS tags
  * --------------------------------------------*/
 
 // RSS
+if ( ! function_exists( 'chocolat_rss_link' ) ) :
 function chocolat_rss_link() {
 	$link_text = '<a href="'.get_bloginfo('rss2_url').'" target="_blank"><span class="icon-rss"></span>'.__( 'RSS', 'chocolat' ).'</a>';
 	return $link_text;
 }
+endif;
 
 //-----------------------------------------------
 // feedly
+if ( ! function_exists( 'chocolat_feedly_link' ) ) :
 function chocolat_feedly_link() {
 	$link_text = '<a href="'.esc_url( chocolat_feedly_url() ).'" target="_blank"><span><img src="'.get_template_directory_uri().'/img/common/aicon_feedly.png" alt="follow us in feedly"></span><span class="icon-text"></span>'.__( 'Feedly', 'chocolat' ).'</a>';
 	return $link_text;
 }
+endif;
 
 //-----------------------------------------------
 // contact
+if ( ! function_exists( 'chocolat_contact_link' ) ) :
 function chocolat_contact_link() {
 	$options = chocolat_get_option();
 	$contact_link = 'mailto:'.antispambot( get_bloginfo( 'admin_email' ) );
@@ -1123,11 +1276,13 @@ function chocolat_contact_link() {
 	$link_text = '<a href="'.esc_url( $contact_link ).'" target="_blank"><span class="icon-mail"></span>'.__( 'Contact', 'chocolat' ).'</a>';
 	return $link_text;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.5.3 - Contact Links (top, bottom)
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_contactlink' ) ) :
 function chocolat_contactlink( $link_pos ) {
 	$options = chocolat_get_option();
 	$show_links ='';
@@ -1161,11 +1316,13 @@ function chocolat_contactlink( $link_pos ) {
 	</div>
 	<?php endif;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.5.4 - Contact Links (sidebar)
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_contactlink_side' ) ) :
 function chocolat_contactlink_side() {
 	$options = chocolat_get_option();
 	if ( ! empty( $options['info_side_text'] ) || ! empty( $options['show_links_side'] ) && ( chocolat_is_contact() || chocolat_is_rss() ) ) : ?>
@@ -1187,11 +1344,13 @@ function chocolat_contactlink_side() {
 </nav>
 <?php endif;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.5.5 - Contact Links ul
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_contactlink_ul' ) ) :
 function chocolat_contactlink_ul( $link_pos = '' ) {
 	$options = chocolat_get_option();
 
@@ -1234,6 +1393,7 @@ function chocolat_contactlink_ul( $link_pos = '' ) {
 	}
 	echo '</ul>'."\n";
 }
+endif;
 
 /* ----------------------------------------------
  * 5.6 - pagination & prevnext-page
@@ -1243,6 +1403,7 @@ function chocolat_contactlink_ul( $link_pos = '' ) {
  * 5.6.1 - pagination
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_pagination' ) ) :
 function chocolat_pagination() {
 	global $wp_query, $paged;
 	$big = 999999999;
@@ -1265,11 +1426,13 @@ function chocolat_pagination() {
 		echo '</div>';
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.6.2 - prevnext-page
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_prevnext' ) ) :
 function chocolat_prevnext( $prevnext_area = '' ) {
 	if ( is_single() && ! is_attachment() ) {
 		if ( get_previous_post() || get_next_post() ) {
@@ -1289,11 +1452,13 @@ function chocolat_prevnext( $prevnext_area = '' ) {
 		}
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.7 - breadcrumb
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_breadcrumb' ) ) :
 function chocolat_breadcrumb() {
 	$options = chocolat_get_option();
 
@@ -1452,23 +1617,29 @@ function chocolat_breadcrumb() {
 					_e( 'Nothing Found', 'chocolat' );
 				} ?>
 			<?php else : ?>
-			<li><?php wp_title( '' ); ?>
+			<li><?php
+				add_filter( 'chocolat_wp_title_name', '__return_false' );
+				add_filter( 'chocolat_wp_title_desc', '__return_false' );
+				add_filter( 'chocolat_wp_title_page', '__return_false' );
+				wp_title( '' ); ?>
 
 			<?php endif;
-			if ( $paged >= 2 || $page >= 2 ) {
+			if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
 				$page_num = sprintf( __( 'Page %d', 'chocolat' ), max( $paged, $page ) );
-				echo ' '.$page_num;
+				echo ' - '.$page_num;
 			} ?></li>
 		</ol>
 	</div>
 	<?php endif;
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.8 - post data list
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_post_list_number' ) ) :
 function chocolat_post_list_number( $show_num = '' ) {
 	$num_class = 'five-column';
 
@@ -1482,12 +1653,14 @@ function chocolat_post_list_number( $show_num = '' ) {
 	}
 	return $num_class;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.8.1 - Show Post List
  * --------------------------------------------*/
 
 // Related Post List
+if ( ! function_exists( 'chocolat_related_post_list' ) ) :
 function chocolat_related_post_list( $show_tag ) {
 	$options = chocolat_get_option();
 
@@ -1495,9 +1668,11 @@ function chocolat_related_post_list( $show_tag ) {
 		chocolat_post_list( $show_tag );
 	}
 }
+endif;
 
 //-----------------------------------------------
 // New Post List
+if ( ! function_exists( 'chocolat_new_post_list' ) ) :
 function chocolat_new_post_list( $show_tag ) {
 	$options = chocolat_get_option();
 
@@ -1505,11 +1680,13 @@ function chocolat_new_post_list( $show_tag ) {
 		chocolat_post_list( $show_tag );
 	}
 }
+endif;
 
 /* ----------------------------------------------
  * 5.8.2 - View Post list
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_post_list' ) ) :
 function chocolat_post_list( $show_tag ) {
 	$options = chocolat_get_option();
 	// If the value is 0, use the value of the default
@@ -1570,11 +1747,13 @@ function chocolat_post_list( $show_tag ) {
 	</div>
 	<?php endif;
 }
+endif;
 
 /* ----------------------------------------------
  * 5.8.3.2 - post data
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_post_data' ) ) :
 function chocolat_post_data( $show_num, $show_tag, $order, $order_by ) {
 	global $post;
 	$tag_ID = '';
@@ -1620,12 +1799,14 @@ function chocolat_post_data( $show_num, $show_tag, $order, $order_by ) {
 	$my_query = new WP_Query( $args );
 	return $my_query;
 }
+endif;
 
 /* ----------------------------------------------
  * 9.1 - Lightbox of the image (boxer)
  * --------------------------------------------*/
 
 // Add class to image_send_to_editor
+if ( ! function_exists( 'chocolat_image_send_to_editor' ) ) :
 function chocolat_image_send_to_editor( $html, $id, $caption ) {
 	$options = chocolat_get_option();
 
@@ -1642,6 +1823,7 @@ function chocolat_image_send_to_editor( $html, $id, $caption ) {
 	}
 	return $html;
 }
+endif;
 add_filter( 'image_send_to_editor', 'chocolat_image_send_to_editor', 10, 3 );
 
 /* ----------------------------------------------
@@ -1652,6 +1834,7 @@ add_filter( 'image_send_to_editor', 'chocolat_image_send_to_editor', 10, 3 );
  * 9.2.1 - Add class to wp_get_attachment_link
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_boxer_wp_get_attachment_link' ) ) :
 function chocolat_boxer_wp_get_attachment_link( $output, $id ) {
 	$options = chocolat_get_option();
 
@@ -1670,12 +1853,14 @@ function chocolat_boxer_wp_get_attachment_link( $output, $id ) {
 	}
 	return $output;
 }
+endif;
 
 /* ----------------------------------------------
  * 9.2.2 - redesign gallery style
  *         originally in wp-includes/media.php
  * --------------------------------------------*/
 
+if ( ! function_exists( 'chocolat_post_gallery' ) ) :
 function chocolat_post_gallery( $output, $attr ) {
 	$options = chocolat_get_option();
 
@@ -1806,6 +1991,7 @@ function chocolat_post_gallery( $output, $attr ) {
 	endif;
 	return $output;
 }
+endif;
 add_filter( 'post_gallery', 'chocolat_post_gallery', 10, 2 );
 
 /* ----------------------------------------------

@@ -1,6 +1,10 @@
 <?php
 /**
  * The Content-single template
+ * @package   Chocolat
+ * @copyright Copyright (c) 2014 Mignon Style
+ * @license   GNU General Public License v2.0
+ * @since     Chocolat 1.0
  */
 ?>
 <section id="<?php echo esc_attr( $post -> post_name ); ?>" <?php post_class( 'post-section clearfix' ); ?>>
@@ -22,7 +26,7 @@
 
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-thumbnail thumbnail clearfix">
-			<?php the_post_thumbnail( 'post_thumbnail' ); ?>
+			<?php the_post_thumbnail( 'single-post-thumbnail' ); ?>
 		</div>
 		<?php endif; ?>
 

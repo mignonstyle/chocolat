@@ -5,7 +5,7 @@ Theme Options Style
 ==================================== */
 
 /* ------------------------------------
-Links
+1.0 - Links
 ------------------------------------ */
 
 .appearance_page_theme_options a {
@@ -14,7 +14,7 @@ Links
 }
 
 /* ------------------------------------
-clearfix 
+1.1 - clearfix 
 ------------------------------------ */
 
 .clearfix:after {
@@ -24,12 +24,17 @@ clearfix
 }
 
 /* ------------------------------------
-form
+2.0 - form
 ------------------------------------ */
 
 @media (min-width: 641px) {
 	.appearance_page_theme_options .theme-left-space {
-		margin-left: 1em;
+		margin-left: 1.5em;
+	}
+
+	.appearance_page_theme_options p.checkbox + .checkbox-left-space {
+		margin-left: 2em;
+		margin-bottom: 1em;
 	}
 
 	.appearance_page_theme_options input:invalid {
@@ -65,8 +70,8 @@ form
 @media (max-width: 640px) {
 	.appearance_page_theme_options .radio-image img {
 		height: auto;
-		margin: 5px 5px;
-		width: 84px;
+		margin: 5px 0;
+		width: 80px;
 	}
 }
 
@@ -112,11 +117,37 @@ form
 }
 
 /* ------------------------------------
-table
+3.0 - table
 ------------------------------------ */
+
+.appearance_page_theme_options table {
+	border-collapse: collapse;
+}
+
+.appearance_page_theme_options table td {
+	padding: 17px 15px 17px 0;
+}
+
+.appearance_page_theme_options table#save-option td {
+	padding-left: 20px;
+}
 
 .appearance_page_theme_options .addtable table td {
 	vertical-align: top;
+}
+
+.appearance_page_theme_options table.nest td {
+	padding: 5px 0;
+}
+
+@media (min-width: 641px) {
+	.appearance_page_theme_options table.nest td {
+		padding-right: 3em;
+	}
+
+	.appearance_page_theme_options table.nest td:last-child {
+		padding-right: 0;
+	}
 }
 
 @media (max-width: 640px) {
@@ -136,12 +167,12 @@ table
 }
 
 /* table-no-space */
-.table-no-space td {
-	padding: 5px 10px;
+.appearance_page_theme_options .table-no-space td {
+	padding: 10px 15px 10px 0;
 }
 
 /* ------------------------------------
-image media-uploader 
+4.0 - image media-uploader
 ------------------------------------ */
 
 .appearance_page_theme_options .media-upload .remove-open td.upload-button,
@@ -149,12 +180,18 @@ image media-uploader
 	display: none;
 }
 
-.appearance_page_theme_options .media-upload table td {
-	padding-left: 0;
+.appearance_page_theme_options .media-upload .upload-preview {
+	padding-right: 0;
+}
+
+.appearance_page_theme_options .media-upload .remove-button {
+	padding-left: 15px;
 }
 
 .appearance_page_theme_options .media-upload table img {
+	background: #eee;
 	border: solid 1px #ddd;
+	margin: 0;
 }
 
 .appearance_page_theme_options #option-favicon table img {
@@ -162,24 +199,28 @@ image media-uploader
 }
 
 /* ------------------------------------
-description
+5.0 - description
 ------------------------------------ */
 
-.appearance_page_theme_options span.description,
-.appearance_page_theme_options span.description code {
+.appearance_page_theme_options .description,
+.appearance_page_theme_options .description code {
 	font-size: 0.9em;
 }
 
-.appearance_page_theme_options span.description {
+.appearance_page_theme_options .description {
 	font-style: normal;
 }
 
-.appearance_page_theme_options span.description code {
+.appearance_page_theme_options .description code {
 	background: none;
 }
 
+.appearance_page_theme_options p.description {
+	margin: 0;
+}
+
 /* ------------------------------------
-tab panel (jquery ui tabs)
+6.0 - tab panel (jquery ui tabs)
 ------------------------------------ */
 
 .appearance_page_theme_options .ui-tabs {
@@ -194,14 +235,21 @@ tab panel (jquery ui tabs)
 .appearance_page_theme_options .ui-tabs .ui-tabs-nav li {
 	background: #eee;
 	border: solid 1px #ccc;
-	border-bottom-width: 0;
-	border-radius: 5px 5px 0 0;
+	border-radius: 5px;
 	float: left;
 	list-style: none;
-	margin: 0 3px 0 0;
+	margin: 0 10px 10px 0;
 	position: relative;
 	top: 0;
 	white-space: nowrap;
+}
+
+@media (min-width: 841px) {
+	.appearance_page_theme_options .ui-tabs .ui-tabs-nav li {
+		border-bottom-width: 0;
+		border-radius: 5px 5px 0 0;
+		margin: 0 3px 0 0;
+	}
 }
 
 .appearance_page_theme_options .ui-tabs .ui-tabs-nav li h3 {
@@ -242,15 +290,21 @@ tab panel (jquery ui tabs)
 	cursor: pointer;
 }
 
+.appearance_page_theme_options table#save-option,
 .appearance_page_theme_options .ui-tabs .ui-tabs-panel {
 	background: #fff;
 	border: solid 1px #ccc;
 	border-radius: 0 5px 5px 5px;
 	display: block;
+	margin-bottom: 10px;
+}
+
+.appearance_page_theme_options table#save-option {
+	border-radius: 5px;
 }
 
 @media (max-width: 640px) {
-	.appearance_page_theme_options .ui-tabs{
+	.appearance_page_theme_options .ui-tabs {
 		margin-top: 20px;
 	}
 
@@ -260,7 +314,7 @@ tab panel (jquery ui tabs)
 }
 
 @media (min-width: 641px) {
-	.appearance_page_theme_options .ui-tabs{
+	.appearance_page_theme_options .ui-tabs {
 		margin-top: 35px;
 	}
 
@@ -270,7 +324,7 @@ tab panel (jquery ui tabs)
 }
 
 /* ------------------------------------
-panel caption
+6.1 - panel caption
 ------------------------------------ */
 
 .appearance_page_theme_options .panel-caption {
@@ -278,13 +332,25 @@ panel caption
 }
 
 /* ------------------------------------
-label right-space
+7.0 - right-space
 ------------------------------------ */
 
-label.right-space {
-	padding-right: 2em;
+.appearance_page_theme_options .right-space {
+	padding-right: 3em;
 }
 
-label.right-space:last-child {
+.appearance_page_theme_options .right-space:last-child {
 	padding-right: 0;
+}
+
+/* ------------------------------------
+9.0 - CodeMirror
+------------------------------------ */
+
+.appearance_page_theme_options .CodeMirror {
+	border: solid 1px #ddd;
+	font-family: 'Consolas', 'Monaco', monospace;
+	height: 800px;
+	line-height: 1.2;
+	width: 95%;
 }

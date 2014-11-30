@@ -1,4 +1,11 @@
 <?php
+/**
+ * Theme Options
+ * @package   Chocolat
+ * @copyright Copyright (c) 2014 Mignon Style
+ * @license   GNU General Public License v2.0
+ * @since     Chocolat 1.0
+ */
 
 /**
  * ------------------------------------------------------------
@@ -21,7 +28,10 @@ function chocolat_admin_enqueue_style( $hook ) {
 	if ( 'appearance_page_theme_options' != $hook ) {
 		return;
 	}
-	wp_enqueue_style( 'chocolat_themeoptions_css', get_template_directory_uri().'/admin/css/theme-options.css' );
+	wp_enqueue_style( 'chocolat-themeoptions', get_template_directory_uri().'/admin/css/theme-options.css' );
+
+	// CodeMirror
+	wp_enqueue_style( 'chocolat-codemirror', get_template_directory_uri().'/admin/inc/codemirror/codemirror.css' );
 }
 add_action( 'admin_enqueue_scripts', 'chocolat_admin_enqueue_style' );
 
@@ -46,6 +56,10 @@ function chocolat_admin_print_scripts() {
 		wp_localize_script( 'chocolat_media-uploader_js', 'chocolat_media_text', $translation_array );
 		wp_enqueue_script( 'chocolat_media-uploader_js' );
 	}
+
+	// CodeMirror
+	wp_enqueue_script( 'chocolat-codemirror-js', get_template_directory_uri().'/admin/inc/codemirror/codemirror.js', array(), null, true );
+	wp_enqueue_script( 'chocolat-codemirror-css-js', get_template_directory_uri().'/admin/inc/codemirror/css.js', array( 'chocolat-codemirror-js' ), null, true );
 }
 
 /**
@@ -72,6 +86,10 @@ add_action( 'admin_menu', 'chocolat_theme_options_add_page' );
  */
 
 function chocolat_delete_option() {
+	$options = chocolat_get_option();
+	if ( ! empty( $options['save_chocolat_option'] ) ) {
+		return false;
+	}
 	delete_option( 'chocolat_theme_options' );
 }
 add_action( 'switch_theme', 'chocolat_delete_option' );
@@ -84,6 +102,7 @@ add_action( 'switch_theme', 'chocolat_delete_option' );
 
 function chocolat_theme_options_init(){
 	register_setting( 'chocolat_options', 'chocolat_theme_options', 'chocolat_theme_options_validate' );
+	get_template_part( 'admin/inc/option-register' );
 }
 add_action( 'admin_init', 'chocolat_theme_options_init' );
 
@@ -106,6 +125,8 @@ function chocolat_theme_default_options() {
 		'show_author'         => 1,
 		'show_breadcrumb'     => 1,
 		'show_no_comment'     => 1,
+		'show_archives_posts' => 1,
+		'show_header_link'    => 0,
 		'show_index_comments' => 0,
 		'show_last_date'      => 0,
 		'show_image_lightbox' => 1,
@@ -116,6 +137,26 @@ function chocolat_theme_default_options() {
 		'excerpt_number'  => $length,
 		'moretag_text'    => '',
 		'show_more_link'  => 1,
+
+		'featured_size_w'   => 700,
+		'featured_size_h'   => 350,
+		'featured_position' => 'center',
+		'featured_sneak'    => 'no_sneak',
+		'featured_crop'     => 'crop',
+		'featured_crop_x'   => 'center',
+		'featured_crop_y'   => 'center',
+
+		'show_featured_home'     => 0,
+		'featured_home_size_w'   => 700,
+		'featured_home_size_h'   => 350,
+		'featured_home_position' => 'center',
+		'featured_home_sneak'    => 'no_sneak',
+		'featured_home_crop'     => 'crop',
+		'featured_home_crop_x'   => 'center',
+		'featured_home_crop_y'   => 'center',
+
+		'thumbnail_crop_x'  => 'center',
+		'thumbnail_crop_y'  => 'center',
 
 		'favicon_url'   => '',
 		'sp_icon_url'   => '',
@@ -137,7 +178,7 @@ function chocolat_theme_default_options() {
 		'show_links_top'    => 1,
 		'show_links_side'   => 1,
 		'links_side_title'  => '',
-		'links_side_select'  => 'links_side_top',
+		'links_side_select' => 'links_side_top',
 		'show_links_bottom' => 1,
 
 		'info_side_text' => '',
@@ -154,7 +195,7 @@ function chocolat_theme_default_options() {
 		'copyright_text' => '',
 		'credit_link_radio' => 'credit_disable',
 
-		'show_slider' => 0,
+		'show_slider'  => 0,
 		'slider_color' => 'slider_light',
 
 		'slider_image01_url' => '',
@@ -174,6 +215,10 @@ function chocolat_theme_default_options() {
 		'slider_image03_link' => '',
 		'slider_image04_link' => '',
 		'slider_image05_link' => '',
+
+		'custom_css' => '',
+
+		'save_chocolat_option' => 0,
 	);
 	return $theme_default_options;
 }
@@ -203,6 +248,14 @@ function chocolat_settings_options() {
 			'id'   => 'show_no_comment',
 			'text' => __( 'Show the message when you have closed the comment', 'chocolat' ),
 		),
+		'show_archives_posts' => array(
+			'id'   => 'show_archives_posts',
+			'text' => __( 'Show the heading of number of posts in the archives page', 'chocolat' ),
+		),
+		'show_header_link' => array(
+			'id'   => 'show_header_link',
+			'text' => __( 'Add a link to the home page in the header image', 'chocolat' ),
+		),
 		'show_index_comments' => array(
 			'id'   => 'show_index_comments',
 			'text' => __( 'Shows the number of comments in the posts home page', 'chocolat' ),
@@ -216,8 +269,9 @@ function chocolat_settings_options() {
 			'text' => __( 'Use the Lightbox to image', 'chocolat' ),
 		),
 		'show_lightbox' => array(
-			'id'   => 'show_lightbox',
-			'text' => __( 'Use the Lightbox to gallery', 'chocolat' ),
+			'id'        => 'show_lightbox',
+			'text'      => __( 'Use the Lightbox to gallery', 'chocolat' ),
+			'text_desc' => __( 'When you use "Tiled Galleries" of jetpack plugin, clear the check box.', 'chocolat' ),
 		),
 		'show_widget_masonry' => array(
 			'id'   => 'show_widget_masonry',
@@ -282,14 +336,14 @@ function chocolat_upload_image_options() {
 function chocolat_contact_options() {
 	$contact_options = array(
 		'contact_mail' => array(
-			'value'    => 'contact_mail',
-			'id'       => 'mail',
-			'label'    => __( 'Use e-mail address', 'chocolat' ),
+			'value' => 'contact_mail',
+			'id'    => 'mail',
+			'label' => __( 'Use e-mail address', 'chocolat' ),
 		),
 		'contact_page' => array(
-			'value'    => 'contact_page',
-			'id'       => 'page',
-			'label'    => __( 'Use the contact page', 'chocolat' ),
+			'value' => 'contact_page',
+			'id'    => 'page',
+			'label' => __( 'Use the contact page', 'chocolat' ),
 		),
 	);
 	return $contact_options;
@@ -441,14 +495,14 @@ function chocolat_credit_link_options() {
 function chocolat_slider_color_options() {
 	$slider_color_options = array(
 		'slider_light' => array(
-			'value' => 'slider_light',
-			'img'   => 'slider-light.png',
-			'label'  => __( 'Light Color', 'chocolat' ),
+			'value'   => 'slider_light',
+			'img'     => 'slider-light.png',
+			'label_2' => __( 'Light Color', 'chocolat' ),
 		),
 		'slider_dark' => array(
-			'value' => 'slider_dark',
-			'img'   => 'slider-dark.png',
-			'label'  => __( 'Dark Color', 'chocolat' ),
+			'value'   => 'slider_dark',
+			'img'     => 'slider-dark.png',
+			'label_2' => __( 'Dark Color', 'chocolat' ),
 		),
 	);
 	return $slider_color_options;
@@ -489,6 +543,168 @@ function chocolat_upload_slider_image_options() {
 
 /**
  * ------------------------------------------------------------
+ * 3.12 - Create an array of theme options
+ *       Featured Image Position
+ * ------------------------------------------------------------
+ */
+
+function chocolat_featured_position_options() {
+	$options_array = array(
+		'left' => array(
+			'value'   => 'left',
+			'img'     => 'featured_pos_left.png',
+			'label_2' => __( 'Left', 'chocolat' ),
+		),
+		'center' => array(
+			'value'   => 'center',
+			'img'     => 'featured_pos_center.png',
+			'label_2' => __( 'Center', 'chocolat' ),
+		),
+		'right' => array(
+			'value'   => 'right',
+			'img'     => 'featured_pos_right.png',
+			'label_2' => __( 'Right', 'chocolat' ),
+		),
+	);
+	return $options_array;
+}
+
+/**
+ * ------------------------------------------------------------
+ * 3.13 - Create an array of theme options
+ *       Featured Image Sneak
+ * ------------------------------------------------------------
+ */
+
+function chocolat_featured_sneak_options() {
+	$options_array = array(
+		'sneak' => array(
+			'value'   => 'sneak',
+			'img'     => 'featured_sneak.png',
+			'label_2' => __( 'To Sneak', 'chocolat' ),
+		),
+		'no_sneak' => array(
+			'value'   => 'no_sneak',
+			'img'     => 'featured_pos_left.png',
+			'label_2' => __( 'Not Sneak', 'chocolat' ),
+		),
+	);
+	return $options_array;
+}
+
+/**
+ * ------------------------------------------------------------
+ * 3.14 - Create an array of theme options
+ *       Featured Image Crop
+ * ------------------------------------------------------------
+ */
+
+function chocolat_featured_crop_options() {
+	$options_array = array(
+		'crop' => array(
+			'value'   => 'crop',
+			'img'     => 'featured_x_center.png',
+			'label_2' => __( 'Crop', 'chocolat' ),
+		),
+		'resize' => array(
+			'value'   => 'resize',
+			'img'     => 'featured_resize.png',
+			'label_2' => __( 'Resize', 'chocolat' ),
+		),
+	);
+	return $options_array;
+}
+
+/**
+ * ------------------------------------------------------------
+ * 3.15 - Create an array of theme options
+ *       Position X
+ * ------------------------------------------------------------
+ */
+
+function chocolat_position_x_options() {
+	$options_array = array(
+		'left' => array(
+			'value'   => 'left',
+			'img'     => 'featured_x_left.png',
+			'label_2' => __( 'Left', 'chocolat' ),
+		),
+		'center' => array(
+			'value'   => 'center',
+			'img'     => 'featured_x_center.png',
+			'label_2' => __( 'Center', 'chocolat' ),
+		),
+		'right' => array(
+			'value'   => 'right',
+			'img'     => 'featured_x_right.png',
+			'label_2' => __( 'Right', 'chocolat' ),
+		),
+	);
+	return $options_array;
+}
+
+/**
+ * ------------------------------------------------------------
+ * 3.16 - Create an array of theme options
+ *       Position Y
+ * ------------------------------------------------------------
+ */
+
+function chocolat_position_y_options() {
+	$options_array = array(
+		'top' => array(
+			'value'   => 'top',
+			'img'     => 'featured_y_top.png',
+			'label_2' => __( 'Top', 'chocolat' ),
+		),
+		'center' => array(
+			'value'   => 'center',
+			'img'     => 'featured_y_center.png',
+			'label_2' => __( 'Center', 'chocolat' ),
+		),
+		'bottom' => array(
+			'value'   => 'bottom',
+			'img'     => 'featured_y_bottom.png',
+			'label_2' => __( 'Bottom', 'chocolat' ),
+		),
+	);
+	return $options_array;
+}
+
+/**
+ * ------------------------------------------------------------
+ * 3.99 - Tabs Title
+ * ------------------------------------------------------------
+ */
+
+function chocolat_tab_title() {
+	$tab_title = array(
+		'settings' => array(
+			'id'    => 'settings',
+			'title' => __( 'Display Settings', 'chocolat' ),
+		),
+		'featured' => array(
+			'id'    => 'featured',
+			'title' => __( 'Featured Image Settings', 'chocolat' ),
+		),
+		'links' => array(
+			'id'    => 'links',
+			'title' => __( 'Links Setting', 'chocolat' ),
+		),
+		'slider' => array(
+			'id'    => 'slider',
+			'title' => __( 'Slider Setting', 'chocolat' ),
+		),
+		'css' => array(
+			'id'    => 'css',
+			'title' => __( 'Custom CSS', 'chocolat' ),
+		),
+	);
+	return $tab_title;
+}
+
+/**
+ * ------------------------------------------------------------
  * 4.0 - Get the value of theme options 
  * ------------------------------------------------------------
  */
@@ -519,34 +735,33 @@ function chocolat_theme_options_do_page() {
 		<form method="post" action="options.php" enctype="multipart/form-data">
 			<?php
 				settings_fields( 'chocolat_options' );
-
 				$options = chocolat_get_option();
-				$settings_title = __( 'Display settings for each item', 'chocolat' );
-				$links_title = __( 'Links Setting', 'chocolat' );
-				$slider_title = __( 'Slider Setting', 'chocolat' );
+				$tab_title = chocolat_tab_title();
 			?>
 			<div id="tabset">
 				<ul class="tabs clearfix">
-					<li><h3 class="title"><a href="#panel-settings" id="tab-settings"><?php echo $settings_title ?></a></h3></li>
-					<li><h3 class="title"><a href="#panel-links" id="tab-links"><?php echo $links_title ?></a></h3></li>
-					<li><h3 class="title"><a href="#panel-slider" id="tab-slider"><?php echo $slider_title ?></a></h3></li>
+				<?php if ( is_array( $tab_title ) ) :
+					foreach( $tab_title as $tabs ) :
+						echo '<li><h3 class="title"><a href="#panel-'.$tabs['id'].'" id="tab-'.$tabs['id'].'">'.$tabs['title'].'</a></h3></li>'."\n";
+				endforeach; endif; ?>
 				</ul>
 
 				<div id="panel-settings" class="panel">
-					<h3 class="title"><?php echo $settings_title ?></h3>
+					<h3 class="title"><?php echo $tab_title['settings']['title']; ?></h3>
 					<table class="form-table">
 						<!-- Display Settings -->
 						<tr>
 							<th scope="row"><?php _e( 'Display Settings', 'chocolat' ); ?></th>
 							<td><fieldset>
-							<?php
-							if ( is_array( chocolat_settings_options() ) ) :
-								foreach ( chocolat_settings_options() as $option ) :
+							<?php if ( is_array( chocolat_settings_options() ) ) {
+								foreach ( chocolat_settings_options() as $option ) {
 									$option_id = $option['id'];
-							?>
-							<p><label><input id="chocolat_theme_options[<?php echo $option_id; ?>]" name="chocolat_theme_options[<?php echo $option_id; ?>]" type="checkbox" value="1" <?php if ( ! empty( $options[$option_id] ) ) checked( $options[$option_id], 1 ); ?> />
-							<?php echo $option['text']; ?></label></p>
-							<?php endforeach; endif; ?>
+									$option_name = $option_id;
+									$option_text = $option['text'];
+									$text_desc =  ( array_key_exists( 'text_desc', $option ) ) ? $option['text_desc'] : '';
+									chocolat_checkbox( $options, $option_name, $option_text, $text_desc );
+								}
+							} ?>
 							</fieldset></td>
 						</tr>
 
@@ -554,28 +769,38 @@ function chocolat_theme_options_do_page() {
 						<tr id="option-readmore">
 							<th scope="row"><?php _e( 'Excerpt Settings', 'chocolat' ); ?></th>
 							<td><fieldset>
-						<p><?php _e( 'Set the display of posts of an archive page.', 'chocolat' ); ?><br /><?php _e( 'Please select from "excerpt" or "more quick tag".', 'chocolat' ); ?></p>
+								<p><?php _e( 'Set the display of posts of an archive page.', 'chocolat' ); ?><br /><?php _e( 'Please select from "excerpt" or "more quick tag".', 'chocolat' ); ?></p>
 								<?php if ( is_array( chocolat_read_more_options() ) ) :
 									foreach ( chocolat_read_more_options() as $option ) : ?>
-									<p><label><input type="radio" name="chocolat_theme_options[read_more_radio]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php checked( $options['read_more_radio'], $option['value'] ); ?> /> <?php echo $option['label']; ?></label></p>
+									<p><?php
+										$option_name = 'read_more_radio';
+										chocolat_radio_input( $options, $option, $option_name );
+									?></p>
 
 									<div id="readmore-<?php echo $option['id']; ?>" class="theme-left-space">
 									<?php if ( $option['id'] == 'excerpt' ) : ?>
-									<div>
-										<p><?php _e( 'Number of characters to be displayed in the excerpt', 'chocolat' ); ?>:&nbsp;
-										<input id="chocolat_theme_options[excerpt_number]" class="small-text" type="number" name="chocolat_theme_options[excerpt_number]" value="<?php echo absint( $options['excerpt_number'] ); ?>" />
-										<?php if ( get_bloginfo( 'language' ) == 'ja' ) : ?>
-											<br /><span class="description"><?php _e( 'In the Japanese version of WordPress, please activate WP Multibyte Patch plugin.', 'chocolat' ); ?></span>
-										<?php endif; ?></p><br />
-									</div>
-									<?php elseif ( $option['id'] == 'moretag' ) : ?>
-									<div>
-										<p><label><input id="chocolat_theme_options[show_more_link]" name="chocolat_theme_options[show_more_link]" type="checkbox" value="1" <?php checked( $options['show_more_link'], 1 ); ?> />
-										<?php _e( 'Display the "more" link', 'chocolat' ); ?></label></p>
+									<div><?php
+										$option_name = 'excerpt_number';
+										$option_label = __( 'Number of characters to be displayed in the excerpt', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										$option_type = 'number';
+										$option_class = 'small-text';
+										chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class );
 
-										<p><?php _e( 'Character of the "more" link', 'chocolat' ); ?>:&nbsp;
-										<input id="chocolat_theme_options[moretag_text]" class="regular-text" type="text" name="chocolat_theme_options[moretag_text]" value="<?php echo esc_attr( $options['moretag_text'] ); ?>" /></p>
+										if ( get_bloginfo( 'language' ) == 'ja' ) : ?>
+											<p class="description"><?php _e( 'In the Japanese version of WordPress, please activate WP Multibyte Patch plugin.', 'chocolat' ); ?></p>
+										<?php endif; ?><br />
 									</div>
+
+									<?php elseif ( $option['id'] == 'moretag' ) : ?>
+									<div><?php
+										$option_name = 'show_more_link';
+										$option_text = __( 'Display the "more" link', 'chocolat' );
+										chocolat_checkbox( $options, $option_name, $option_text );
+
+										$option_name = 'moretag_text';
+										$option_label = __( 'Character of the "more" link', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										chocolat_textfield( $options, $option_name, $option_label );
+									?></div>
 									<?php endif; ?>
 									</div>
 								<?php endforeach; endif; ?>
@@ -588,45 +813,20 @@ function chocolat_theme_options_do_page() {
 						if ( function_exists( 'wp_enqueue_media' ) ) :
 							if ( is_array( chocolat_upload_image_options() ) ) :
 								foreach ( chocolat_upload_image_options() as $option ) :
-									$upload_remove_class = 'upload-open';
 									$option_id = $option['id'];
 									$option_name = $option['name'];
-									$option_desc = '';
-
-									if ( ! empty( $options[$option_name] ) ) {
-										$upload_remove_class = 'remove-open';
-									}
-
-									if ( $option['desc'] ) {
-										$option_desc = $option['desc'];
-									}
-						?>
-						<tr id="option-<?php echo $option_id; ?>" class="media-upload">
+									$option_text = ( ! empty( $option['desc'] ) ) ? $option['desc'] : '';
+						?><tr>
 							<th scope="row"><?php echo $option['title']; ?></th>
 							<td><fieldset>
-								<p><?php printf( __( 'Once you have set the image, it is used as the %s for your Web site.', 'chocolat' ), $option['text'] ); ?><br /><span class="description"><?php printf( __( 'Recommended files %s', 'chocolat' ), $option['size'] ); ?></span><?php echo $option_desc; ?></p>
-								<div class="upload-remove <?php echo $upload_remove_class; ?>">
-									<input id="chocolat_theme_options[<?php echo $option_name; ?>]" class="regular-text" type="hidden" name="chocolat_theme_options[<?php echo $option_name; ?>]" value="<?php echo esc_url( $options[$option_name] ); ?>" />
-									<table><tr>
-									<td class="upload-button"><input id="option-upload-<?php echo $option_id; ?>" class="button option-upload-button" value="<?php _e( 'Select Image', 'chocolat' ); ?>" type="button"></td>
-									<?php
-									if ( ! empty( $options[$option_name] ) ) {
-										$image_src = esc_url( $options[$option_name] );
-										if( preg_match( '/(^.*\.jpg|jpeg|png|gif|ico*)/i', $image_src ) ) {
-											echo '<td class="upload-preview"><img src="'.$image_src.'" alt="" /></td>';
-										}
-									}
-									?>
-									<td class="remove-button"><input id="option-remove-<?php echo $option_id; ?>" class="button option-remove-button" value="<?php _e( 'Delete Image', 'chocolat' ); ?>" type="button"></td>
-									</tr></table>
-								</div>
+								<p><?php printf( __( 'Once you have set the image, it is used as the %s for your Web site.', 'chocolat' ), $option['text'] ); ?><br /><span class="description"><?php printf( __( 'Recommended files %s', 'chocolat' ), $option['size'] ); ?></span><?php echo $option_text; ?></p>
+								<?php chocolat_media_uploader( $options, $option_id, $option_name ); ?>
 							</fieldset></td>
-						</tr>
-						<?php endforeach; endif; ?>
-						<?php else : ?>
+						</tr><?php endforeach; endif;
+						else : ?>
 						<tr>
 							<th scope="row"><?php _e( 'Image Settings', 'chocolat' ); ?></th>
-							<td><p><?php _e( 'Sorry, WordPress you are using is not supported. Upgrade your version of WordPress.', 'chocolat' ); ?></p></td>
+							<td><p><?php _e( 'Sorry, WordPress you are using is not supported. Upgrade your WordPress.', 'chocolat' ); ?></p></td>
 						</tr>
 						<?php endif; ?>
 
@@ -635,35 +835,34 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'Related Entry', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<p><?php _e( 'Displays a list of related articles, under the article of a single post page if you check.', 'chocolat' ); ?></p>
-								<p><label><input id="chocolat_theme_options[show_related]" name="chocolat_theme_options[show_related]" type="checkbox" value="1" <?php if ( ! empty( $options['show_related'] ) ) checked( $options['show_related'], 1 ); ?> />
-								<?php _e( 'View Related Posts after the content', 'chocolat' ); ?></label></p>
-								<div class="theme-left-space hidebox">
-									<p><label><?php _e( 'Title:', 'chocolat' ); ?><br />
-									<input id="chocolat_theme_options[related_title]" class="regular-text" type="text" name="chocolat_theme_options[related_title]" value="<?php echo esc_attr( $options['related_title'] ); ?>" /></label></p>
+								<?php
+									$option_name = 'show_related';
+									$option_text = __( 'View Related Posts after the content', 'chocolat' );
+									chocolat_checkbox( $options, $option_name, $option_text );
+								?>
 
-									<p><label><?php _e( 'Number of posts to show:', 'chocolat' ); ?>&nbsp;
-									<input id="chocolat_theme_options[related_number]" class="small-text" type="number" name="chocolat_theme_options[related_number]" value="<?php echo absint( $options['related_number'] ); ?>" />&nbsp;<?php _e( 'posts', 'chocolat' ); ?></label></p>
+								<div class="theme-left-space hidebox"><?php
+									$option_name = 'related_title';
+									$option_label = __( 'Title', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+									chocolat_textfield( $options, $option_name, $option_label );
 
-									<p><label><?php _e( 'Alignment sequence', 'chocolat' ); ?>:</label>&nbsp;
-									<select id="chocolat_theme_options[related_order_select]" name="chocolat_theme_options[related_order_select]" >
-									<?php
-									if ( is_array( chocolat_related_order_options() ) ) :
-										foreach ( chocolat_related_order_options() as $option ) :
-									?>
-									<option value="<?php echo $option['value']; ?>" <?php selected( $options['related_order_select'], $option['value'] ); ?>><?php echo esc_attr( $option['label'] ); ?></option>
-									<?php endforeach; endif; ?>
-									</select></p>
+									$option_name = 'related_number';
+									$option_label = __( 'Number of posts to show', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+									$option_type = 'number';
+									$option_class = 'small-text';
+									$label_after = __( 'posts', 'chocolat' );
+									chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
 
-									<p><label><?php _e( 'Classification', 'chocolat' ); ?>:</label>&nbsp;
-									<select id="chocolat_theme_options[related_class_select]" name="chocolat_theme_options[related_class_select]" >
-									<?php
-									if ( is_array( chocolat_related_class_options() ) ) :
-										foreach ( chocolat_related_class_options() as $option ) :
-									?>
-									<option value="<?php echo $option['value']; ?>" <?php selected( $options['related_class_select'], $option['value'] ); ?>><?php echo esc_attr( $option['label'] ); ?></option>
-									<?php endforeach; endif; ?>
-									</select></p>
-								</div>
+									$option_label = __( 'Alignment sequence', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+									$option_array = chocolat_related_order_options();
+									$option_name = 'related_order_select';
+									chocolat_select( $options, $option_array, $option_name, $option_label );
+
+									$option_label = __( 'Classification', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+									$option_array = chocolat_related_class_options();
+									$option_name = 'related_class_select';
+									chocolat_select( $options, $option_array, $option_name, $option_label );
+								?></div>
 							</fieldset></td>
 						</tr>
 
@@ -672,34 +871,211 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'New Entry', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<p><?php _e( 'Displays a list of new articles, under the article of a single post page if you check.', 'chocolat' ); ?></p>
-								<p><label><input id="chocolat_theme_options[show_new_posts]" name="chocolat_theme_options[show_new_posts]" type="checkbox" value="1" <?php if ( ! empty( $options['show_new_posts'] ) ) checked( $options['show_new_posts'], 1 ); ?> />
-								<?php _e( 'View New Posts after the content', 'chocolat' ); ?></label></p>
+								<?php
+									$option_name = 'show_new_posts';
+									$option_text = __( 'View New Posts after the content', 'chocolat' );
+									chocolat_checkbox( $options, $option_name, $option_text );
+								?>
+								<div class="theme-left-space hidebox"><?php
+									$option_name = 'new_posts_title';
+									$option_label = __( 'Title', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+									chocolat_textfield( $options, $option_name, $option_label );
 
-								<div class="theme-left-space hidebox">
-									<p><label><?php _e( 'Title:', 'chocolat' ); ?><br />
-									<input id="chocolat_theme_options[new_posts_title]" class="regular-text" type="text" name="chocolat_theme_options[new_posts_title]" value="<?php echo esc_attr( $options['new_posts_title'] ); ?>" /></label><br />
-
-									<label><?php _e( 'Number of posts to show:', 'chocolat' ); ?>&nbsp;<input id="chocolat_theme_options[new_posts_number]" class="small-text" type="number" name="chocolat_theme_options[new_posts_number]" value="<?php echo absint( $options['new_posts_number'] ); ?>" />&nbsp;<?php _e( 'posts', 'chocolat' ); ?></label></p>
-								</div>
+									$option_name = 'new_posts_number';
+									$option_label = __( 'Number of posts to show', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+									$option_type = 'number';
+									$option_class = 'small-text';
+									$label_after = __( 'posts', 'chocolat' );
+									chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+								?></div>
 							</fieldset></td>
 						</tr>
 
 						<!-- Sidebar settings -->
-						<tr id="option-sidebar" class="radio-image">
-							<th scope="row"><?php _e( 'Sidebar settings', 'chocolat' ); ?></th>
+						<tr id="option-sidebar">
+							<th scope="row"><?php _e( 'Sidebar Settings', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_sidebar_options();
+								$option_name = 'sidebar_radio';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+					</table>
+				</div><!-- /panel -->
+
+				<div id="panel-featured" class="panel">
+					<h3 class="title"><?php echo $tab_title['featured']['title']; ?></h3>
+					<p class="panel-caption"><?php _e( 'Set the size and the position of the featured image.', 'chocolat' ); ?></p>
+
+					<table class="form-table">
+						<!-- Featured Image Settings -->
+						<tr>
+							<th scope="row"><?php _e( 'Featured image size', 'chocolat' ); ?></th>
 							<td><fieldset>
-								<?php if ( is_array( chocolat_sidebar_options() ) ) :
-									foreach ( chocolat_sidebar_options() as $option ) : ?>
-								<label><input type="radio" name="chocolat_theme_options[sidebar_radio]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php checked( $options['sidebar_radio'], $option['value'] ); ?> />
-								<img src="<?php echo get_template_directory_uri(); ?>/admin/img/<?php echo $option['img']; ?>" alt=""></label>
-								<?php endforeach; endif; ?>
+								<table class="nest"><tr>
+									<td><?php
+										$option_name = 'featured_size_w';
+										$option_label = __( 'Width', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										$option_type = 'number';
+										$option_class = 'small-text';
+										$label_after = __( 'px', 'chocolat' );
+										chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+									?></td>
+									<td><?php
+										$option_name = 'featured_size_h';
+										$option_label = __( 'Height', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										$option_type = 'number';
+										$option_class = 'small-text';
+										$label_after = __( 'px', 'chocolat' );
+										chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+									?></td>
+								</tr></table>
+								<p class="description"><?php _e( 'The default size of the featured image is width 700px, height 350px.', 'chocolat' ); ?><br /><?php _e( 'Maximum width that can be used for featured image is 940px.', 'chocolat' ); ?></p>
+							</fieldset></td>
+						</tr>
+
+						<tr id="featured-position">
+							<th scope="row"><?php _e( 'Featured image position', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_featured_position_options();
+								$option_name = 'featured_position';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<tr id="featured-sneak">
+							<th scope="row"><?php _e( 'Sneak settings', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_featured_sneak_options();
+								$option_name = 'featured_sneak';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<tr id="featured-crop">
+							<th scope="row"><?php _e( 'Crop settings', 'chocolat' ); ?></th>
+							<td><fieldset>
+								<p><?php _e( 'Make the crop setting of the featured image.', 'chocolat' ); ?><br /><span class="description"><?php _e( 'The default is to crop in the center of the image to the size you have set.', 'chocolat' ); ?></span></p>
+							<?php
+								$option_array = chocolat_featured_crop_options();
+								$option_name = 'featured_crop';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<tr id="featured-crop-pos">
+							<th scope="row"><?php _e( 'Crop position', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_position_x_options();
+								$option_name = 'featured_crop_x';
+								chocolat_radio( $options, $option_array, $option_name );
+
+								$option_array = chocolat_position_y_options();
+								$option_name = 'featured_crop_y';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<!-- Home Page Featured Image Settings -->
+						<tr id="featured-home" class="option-check">
+							<th scope="row"><?php _e( 'Featured image settings of home page', 'chocolat' ); ?></th>
+							<td><fieldset>
+								<p><?php _e( 'If you want to the featured image of home page and posts page to another setting, please put a check.', 'chocolat' ); ?></p>
+							<?php
+								$option_name = 'show_featured_home';
+								$option_text = __( 'Setting the featured image of home page', 'chocolat' );
+								chocolat_checkbox( $options, $option_name, $option_text );
+							?></fieldset></td>
+						</tr>
+
+						<tr class="featured-home-children">
+							<th scope="row"><?php _e( 'Featured image size of home page', 'chocolat' ); ?></th>
+							<td><fieldset>
+								<table class="nest"><tr>
+									<td><?php
+										$option_name = 'featured_home_size_w';
+										$option_label = __( 'Width', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										$option_type = 'number';
+										$option_class = 'small-text';
+										$label_after = __( 'px', 'chocolat' );
+										chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+									?></td>
+									<td><?php
+										$option_name = 'featured_home_size_h';
+										$option_label = __( 'Height', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										$option_type = 'number';
+										$option_class = 'small-text';
+										$label_after = __( 'px', 'chocolat' );
+										chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+									?></td>
+								</tr></table>
+								<p class="description"><?php _e( 'The default size of the featured image is width 700px, height 350px.', 'chocolat' ); ?><br /><?php _e( 'Maximum width that can be used for featured image is 940px.', 'chocolat' ); ?></p>
+							</fieldset></td>
+						</tr>
+
+						<tr id="featured-home-position" class="featured-home-children">
+							<th scope="row"><?php _e( 'Featured image position of home page', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_featured_position_options();
+								$option_name = 'featured_home_position';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<tr id="featured-home-sneak" class="featured-home-children">
+							<th scope="row"><?php _e( 'Sneak settings of home page', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_featured_sneak_options();
+								$option_name = 'featured_home_sneak';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<tr id="featured-home-crop" class="featured-home-children">
+							<th scope="row"><?php _e( 'Crop settings of home page', 'chocolat' ); ?></th>
+							<td><fieldset>
+								<p><?php _e( 'Make the crop setting of the featured image of home page.', 'chocolat' ); ?><br /><span class="description"><?php _e( 'The default is to crop in the center of the image to the size you have set.', 'chocolat' ); ?></span></p>
+							<?php
+								$option_array = chocolat_featured_crop_options();
+								$option_name = 'featured_home_crop';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<tr id="featured-home-crop-pos" class="featured-home-children">
+							<th scope="row"><?php _e( 'Crop position of home page', 'chocolat' ); ?></th>
+							<td><fieldset><?php
+								$option_array = chocolat_position_x_options();
+								$option_name = 'featured_home_crop_x';
+								chocolat_radio( $options, $option_array, $option_name );
+
+								$option_array = chocolat_position_y_options();
+								$option_name = 'featured_home_crop_y';
+								chocolat_radio( $options, $option_array, $option_name );
+							?></fieldset></td>
+						</tr>
+
+						<!-- Thumbnail Settings -->
+						<tr>
+							<th scope="row"><?php _e( 'Thumbnail crop settings', 'chocolat' ); ?></th>
+							<td><fieldset>
+								<p><?php _e( 'Make the crop position setting of the thumbnail.', 'chocolat' ); ?><br /><span class="description"><?php _e( 'The default is to crop in the center of the image.', 'chocolat' ); ?></span></p>
+								<?php
+									$option_array = chocolat_position_x_options();
+									$option_name = 'thumbnail_crop_x';
+									chocolat_radio( $options, $option_array, $option_name );
+
+									$option_array = chocolat_position_y_options();
+									$option_name = 'thumbnail_crop_y';
+									chocolat_radio( $options, $option_array, $option_name );
+								?>
 							</fieldset></td>
 						</tr>
 					</table>
 				</div><!-- /panel -->
 
 				<div id="panel-links" class="panel">
-					<h3 class="title"><?php echo $links_title ?></h3>
+					<h3 class="title"><?php echo $tab_title['links']['title']; ?></h3>
 					<p class="panel-caption"><?php _e( 'Set the display of contact or RSS and copyright.Copyright will be displayed in the footer.', 'chocolat' ); ?></p>
 
 					<table class="form-table">
@@ -707,31 +1083,38 @@ function chocolat_theme_options_do_page() {
 						<tr>
 							<th scope="row"><?php _e( 'Position to display', 'chocolat' ); ?></th>
 							<td><fieldset>
-								<p><label><input id="chocolat_theme_options[show_links_top]" name="chocolat_theme_options[show_links_top]" type="checkbox" value="1" <?php checked( $options['show_links_top'], 1 ); ?> />
-								<?php _e( 'Display in the header', 'chocolat' ); ?></label><br /><span class="description"><?php _e( 'In a smartphone, it is displayed at the position of the footer.', 'chocolat' ); ?></span></p><br />
+								<?php
+									$option_name = 'show_links_top';
+									$option_text = __( 'Display in the header', 'chocolat' );
+									$text_desc   = __( 'In a smartphone, it is displayed at the position of the footer.', 'chocolat' );
+									chocolat_checkbox( $options, $option_name, $option_text, $text_desc );
+								?><br />
 
 								<div id="option-links-sidebar" class="option-check">
-									<p><label><input id="chocolat_theme_options[show_links_side]" name="chocolat_theme_options[show_links_side]" type="checkbox" value="1" <?php checked( $options['show_links_side'], 1 ); ?> />
-									<?php _e( 'Display in the sidebar', 'chocolat' ); ?></label></p>
+									<?php
+										$option_name = 'show_links_side';
+										$option_text = __( 'Display in the sidebar', 'chocolat' );
+										chocolat_checkbox( $options, $option_name, $option_text );
+									?>
 
-									<div class="theme-left-space hidebox">
-										<p><label><?php _e( 'Title:', 'chocolat' ); ?><br />
-										<input id="chocolat_theme_options[links_side_title]" class="regular-text" type="text" name="chocolat_theme_options[links_side_title]" value="<?php echo esc_attr( $options['links_side_title'] ); ?>" /></label><br />
+									<div class="theme-left-space hidebox"><?php
+										$option_name = 'links_side_title';
+										$option_label = __( 'Title', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										chocolat_textfield( $options, $option_name, $option_label );
 
-										<p><label><?php _e( 'Display position', 'chocolat' ); ?>:</label>&nbsp;
-										<select id="chocolat_theme_options[links_side_select]" name="chocolat_theme_options[links_side_select]" >
-										<?php
-										if ( is_array( chocolat_links_side_options() ) ) :
-											foreach ( chocolat_links_side_options() as $option ) :
-										?>
-										<option value="<?php echo $option['value']; ?>" <?php selected( $options['links_side_select'], $option['value'] ); ?>><?php echo esc_attr( $option['label'] ); ?></option>
-										<?php endforeach; endif; ?>
-										</select></p><br />
+										$option_label = __( 'Display position', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+										$option_array = chocolat_links_side_options();
+										$option_name = 'links_side_select';
+										chocolat_select( $options, $option_array, $option_name, $option_label );
+										?><br />
 									</div>
 								</div>
 
-								<p><label><input id="chocolat_theme_options[show_links_bottom]" name="chocolat_theme_options[show_links_bottom]" type="checkbox" value="1" <?php checked( $options['show_links_bottom'], 1 ); ?> />
-								<?php _e( 'Display in the footer', 'chocolat' ); ?></label></p>
+								<?php
+									$option_name = 'show_links_bottom';
+									$option_text = __( 'Display in the footer', 'chocolat' );
+									chocolat_checkbox( $options, $option_name, $option_text );
+								?>
 							</fieldset></td>
 						</tr>
 
@@ -740,7 +1123,10 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'Information', 'chocolat' ); ?></th>
 							<td>
 								<p><?php _e( 'When you fill in a profile or information, it will be displayed in the sidebar.', 'chocolat' ); ?></p>
-								<p><textarea id="chocolat_theme_options[info_side_text]" cols="60" rows="3" name="chocolat_theme_options[info_side_text]"><?php echo esc_textarea( $options['info_side_text'] ); ?></textarea></p>
+								<?php
+									$option_name = 'info_side_text';
+									chocolat_textarea( $options, $option_name );
+								?>
 							</td>
 						</tr>
 
@@ -748,21 +1134,33 @@ function chocolat_theme_options_do_page() {
 						<tr id="option-contact" class="option-check">
 							<th scope="row"><?php _e( 'Contact', 'chocolat' ); ?></th>
 							<td><fieldset>
-								<p><label><input id="chocolat_theme_options[show_contact]" name="chocolat_theme_options[show_contact]" type="checkbox" value="1" <?php checked( $options['show_contact'], 1 ); ?> />
-								<?php _e( 'View Contact', 'chocolat' ); ?></label></p>
-
+								<?php
+									$option_name = 'show_contact';
+									$option_text = __( 'View Contact', 'chocolat' );
+									chocolat_checkbox( $options, $option_name, $option_text );
+								?>
 								<?php if ( is_array( chocolat_contact_options() ) ) :
 									foreach ( chocolat_contact_options() as $option ) : ?>
 									<div id="contact-<?php echo $option['id']; ?>" class="hidebox">
-										<p class="theme-left-space"><label><input type="radio" name="chocolat_theme_options[contact_radio]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php checked( $options['contact_radio'], $option['value'] ); ?> /> <?php echo $option['label']; ?></label></p>
+										<p class="theme-left-space"><?php
+											$option_name = 'contact_radio';
+											chocolat_radio_input( $options, $option, $option_name );
+										?></p>
 										<div class="theme-left-space">
-											<?php if ( $option['id'] == 'mail' ) : ?>
-												<p><?php _e( 'E-mail address that is registered with the general settings are used. Please enter if you want to use the e-mail address of the other.', 'chocolat' ); ?></p>
-												<p><label>mailto:&nbsp;<input id="chocolat_theme_options[mail_url]" class="regular-text" type="text" name="chocolat_theme_options[mail_url]" value="<?php echo antispambot( $options['mail_url'] ); ?>" /></label></p>
-											<?php elseif ( $option['id'] == 'page' ) : ?>
-												<p><?php _e( 'URL of the Contact Page', 'chocolat' ); ?></p>
-												<p><input id="chocolat_theme_options[page_url]" class="regular-text" type="text" name="chocolat_theme_options[page_url]" value="<?php echo esc_url( $options['page_url'] ); ?>" /></p>
-											<?php endif; ?>
+										<?php if ( $option['id'] == 'mail' ) : ?>
+										<p><?php _e( 'E-mail address that is registered with the general settings are used. Please enter if you want to use the e-mail address of the other.', 'chocolat' ); ?></p><?php
+											$option_name = 'mail_url';
+											$option_label = __( 'mailto', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
+											$option_type = 'email';
+											chocolat_textfield( $options, $option_name, $option_label, $option_type );
+
+										elseif ( $option['id'] == 'page' ) : ?>
+										<p><?php _e( 'URL of the Contact Page', 'chocolat' ); ?></p><?php
+											$option_name = 'page_url';
+											$option_label = '';
+											$option_type = 'url';
+											chocolat_textfield( $options, $option_name, $option_label, $option_type );
+										endif; ?>
 										</div>
 									</div>
 								<?php endforeach; endif; ?>
@@ -772,26 +1170,53 @@ function chocolat_theme_options_do_page() {
 						<!-- RSS -->
 						<tr>
 							<th scope="row"><?php _e( 'RSS', 'chocolat' ); ?></th>
-							<td><fieldset>
-								<p><label><input id="chocolat_theme_options[show_rss]" name="chocolat_theme_options[show_rss]" type="checkbox" value="1" <?php checked( $options['show_rss'], 1 ); ?> />
-								<?php _e( 'View RSS', 'chocolat' ); ?></label></p>
+							<td><fieldset><?php
+								$option_name = 'show_rss';
+								$option_text = __( 'View RSS', 'chocolat' );
+								chocolat_checkbox( $options, $option_name, $option_text );
 
-								<p><label><input id="chocolat_theme_options[show_feedly]" name="chocolat_theme_options[show_feedly]" type="checkbox" value="1" <?php checked( $options['show_feedly'], 1 ); ?> />
-								<?php _e( 'View Feedly', 'chocolat' ); ?></label></p>
-							</fieldset></td>
+								$option_name = 'show_feedly';
+								$option_text = __( 'View Feedly', 'chocolat' );
+								chocolat_checkbox( $options, $option_name, $option_text );
+							?></fieldset></td>
+						</tr>
+
+						<!-- Social Link -->
+						<tr>
+							<th scope="row"><?php _e( 'Social Link', 'chocolat' ); ?></th>
+							<td><p><?php _e( 'To display the social link, use the "Social Links" of the custom menu.', 'chocolat' ); ?></p>
+								<p><?php _e( 'A corresponding social link', 'chocolat' ) . _e( ':', 'chocolat' ); ?><br /><?php
+									echo __( 'Twitter', 'chocolat' ) . ', ' . 
+									__( 'Facebook', 'chocolat' ) . ', ' . 
+									__( 'Google+', 'chocolat' ) . ', ' . 
+									__( 'Tumblr', 'chocolat' ) . ', ' . 
+									__( 'Pinterest', 'chocolat' ) . ', ' . 
+									__( 'Instagram', 'chocolat' ) . ', ' . 
+									__( 'LinkedIn', 'chocolat' ) . ', ' . 
+									__( 'Flickr', 'chocolat' ) . ', ' . 
+									__( 'Dribbble', 'chocolat' ) . ', ' . 
+									__( 'YouTube', 'chocolat' ) . ', ' . 
+									__( 'Vimeo', 'chocolat' ) . ', ' . 
+									__( 'GitHub', 'chocolat' );
+							?></p></td>
 						</tr>
 
 						<!-- Copyright -->
 						<tr id="option-copy" class="option-check">
 							<th scope="row"><?php _e( 'Copyright', 'chocolat' ); ?></th>
 							<td><fieldset>
-							<p><label><input id="chocolat_theme_options[show_copyright]" name="chocolat_theme_options[show_copyright]" type="checkbox" value="1" <?php checked( $options['show_copyright'], 1 ); ?> />
-								<?php _e( 'Display the copyright of Web site', 'chocolat' ); ?></label></p>
+								<?php
+									$option_name = 'show_copyright';
+									$option_text = __( 'Display the copyright of Web site', 'chocolat' );
+									chocolat_checkbox( $options, $option_name, $option_text );
+								?>
 								<div class="theme-left-space hidebox">
 									<p><?php echo chocolat_get_copyright_text(); ?><br />
-									<?php _e( 'It will be displayed.', 'chocolat' ); ?>
-									<?php _e( 'Please enter if you want to change the text of copyright.', 'chocolat' ); ?></p>
-									<p><textarea id="chocolat_theme_options[copyright_text]" cols="60" rows="3" name="chocolat_theme_options[copyright_text]"><?php echo esc_textarea( $options['copyright_text'] ); ?></textarea></p>
+									<?php _e( 'It will be displayed.', 'chocolat' ) . _e( 'Please enter if you want to change the text of copyright.', 'chocolat' ); ?></p>
+									<?php
+										$option_name = 'copyright_text';
+										chocolat_textarea( $options, $option_name );
+									?>
 								</div>
 							</fieldset></td>
 						</tr>
@@ -801,10 +1226,11 @@ function chocolat_theme_options_do_page() {
 							<th scope="row"><?php _e( 'Credit link', 'chocolat' ); ?></th>
 							<td><fieldset>
 								<p><?php _e( 'Choose to enable or disable  the credit link of the author of the theme.', 'chocolat' ); ?><br /><span class="description"><?php _e( 'If you display credit link, I am very pleased :)', 'chocolat' ); ?></span></p>
-								<?php if ( is_array( chocolat_credit_link_options() ) ) :
-									foreach ( chocolat_credit_link_options() as $option ) : ?>
-								<label class="right-space"><input type="radio" name="chocolat_theme_options[credit_link_radio]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php checked( $options['credit_link_radio'], $option['value'] ); ?> />&nbsp;<?php echo $option['label']; ?></label>
-								<?php endforeach; endif; ?>
+								<p><?php
+									$option_array = chocolat_credit_link_options();
+									$option_name = 'credit_link_radio';
+									chocolat_radio( $options, $option_array, $option_name );
+								?></p>
 							</fieldset></td>
 						</tr>
 					</table>
@@ -812,75 +1238,88 @@ function chocolat_theme_options_do_page() {
 
 				<!-- Slider -->
 				<div id="panel-slider" class="panel">
-					<h3 class="title"><?php echo $slider_title ?></h3>
+					<h3 class="title"><?php echo $tab_title['slider']['title']; ?></h3>
 				<p class="panel-caption"><?php _e( 'Setting an image to be displayed the slider.', 'chocolat' ); ?><br /><?php _e( 'Please use the image of the same size.', 'chocolat' ); ?><?php printf( __( 'Recommended files %s', 'chocolat' ), __( '.png and .jpg (width 980px)', 'chocolat') ); ?></p>
 
 				<?php if ( function_exists( 'wp_enqueue_media' ) ) : ?>
 				<table class="form-table">
-					<tr id="option-slider">
+					<tr>
 						<th scope="row"><?php _e( 'Slider Setting', 'chocolat' ); ?></th>
-						<td><p><label><input id="chocolat_theme_options[show_slider]" name="chocolat_theme_options[show_slider]" type="checkbox" value="1" <?php checked( $options['show_slider'], 1 ); ?> />
-						<?php _e( 'Use the slider to the header image', 'chocolat' ); ?></label></p></td>
+						<td id="option-slider" class="option-check"><?php
+							$option_name = 'show_slider';
+							$option_text = __( 'Use the slider to the header image', 'chocolat' );
+							chocolat_checkbox( $options, $option_name, $option_text );
+						?></td>
 					</tr>
 
-					<tr id="option-slider-color" class="radio-image slider-parent">
+					<tr id="option-slider-color" class="option-slider-children">
 						<th scope="row"><?php _e( 'The color of the slider', 'chocolat' ); ?></th>
-						<td><fieldset>
-						<?php if ( is_array( chocolat_slider_color_options() ) ) :
-							foreach ( chocolat_slider_color_options() as $option ) : ?>
-							<label><input type="radio" name="chocolat_theme_options[slider_color]" value="<?php echo esc_attr( $option['value'] ); ?>" <?php checked( $options['slider_color'], $option['value'] ); ?> /><img src="<?php echo get_template_directory_uri(); ?>/admin/img/<?php echo $option['img']; ?>" alt=""><br /><?php echo $option['label'] ; ?></label>
-							<?php endforeach; endif; ?>
-						</fieldset></td>
+						<td><fieldset><?php
+							$option_array = chocolat_slider_color_options();
+							$option_name = 'slider_color';
+							chocolat_radio( $options, $option_array, $option_name );
+						?></fieldset></td>
 					</tr>
 <?php
 					// Make sure that it will work with the media uploader
 					if ( is_array( chocolat_upload_slider_image_options() ) ) :
 						foreach ( chocolat_upload_slider_image_options() as $option ) :
-							$upload_remove_class = 'upload-open';
 							$option_id = $option['id'];
-							$option_url = $option_id.'_url';
-							$option_caption = $option_id.'_caption';
-							$option_link = $option_id.'_link';
-
-							if ( ! empty( $options[$option_url] ) ) {
-								$upload_remove_class = 'remove-open';
-							}
-?>
-					<tr id="option-<?php echo $option_id; ?>" class="media-upload slider-parent">
+							$option_name = $option_id.'_url';
+							?><tr id="<?php echo esc_attr( $option_id ); ?>" class="option-slider-children">
 						<th scope="row"><?php echo $option['title']; ?></th>
 						<td><fieldset>
-							<div class="upload-remove <?php echo $upload_remove_class; ?>">
-								<input id="chocolat_theme_options[<?php echo $option_url; ?>]" class="regular-text" type="hidden" name="chocolat_theme_options[<?php echo $option_url; ?>]" value="<?php if ( ! empty( $options[$option_url] ) ) echo esc_url( $options[$option_url] ); ?>" />
-								<table><tr>
-									<td class="upload-button"><input id="option-upload-<?php echo $option_id; ?>" class="button option-upload-button" value="<?php _e( 'Select Image', 'chocolat' ); ?>" type="button"></td>
-									<?php
-									if ( ! empty( $options[$option_url] ) ) {
-										$image_src = esc_url( $options[$option_url] );
-										if( preg_match( '/(^.*\.jpg|jpeg|png|gif*)/i', $image_src ) ) {
-											echo '<td class="upload-preview"><img src="'.$image_src.'" alt="" /></td>';
-										}
-									} ?>
-									<td class="remove-button"><input id="option-remove-<?php echo $option_id; ?>" class="button option-remove-button" value="<?php _e( 'Delete Image', 'chocolat' ); ?>" type="button"></td>
-								</tr></table>
-							</div>
-
-							<table class="table-no-space"><tr>
-								<td><?php _e( 'Caption', 'chocolat' ); ?>:</td>
-								<td><input id="chocolat_theme_options[<?php echo $option_caption; ?>]" class="regular-text" type="text" name="chocolat_theme_options[<?php echo $option_caption; ?>]" value="<?php if ( ! empty( $options[$option_caption] ) ) echo esc_attr( $options[$option_caption] ); ?>" /></td>
+							<?php chocolat_media_uploader( $options, $option_id, $option_name ); ?>
+						<table class="table-no-space">
+							<tr>
+								<td><?php _e( 'Caption', 'chocolat' ) . _e( ':', 'chocolat' ); ?></td>
+								<td><?php
+									$option_name = $option_id.'_caption';
+									chocolat_textfield( $options, $option_name );
+								?></td>
 							</tr>
 							<tr>
-								<td><?php _e( 'Link URL', 'chocolat' ); ?>:</td>
-								<td><input id="chocolat_theme_options[<?php echo $option_link; ?>]" class="regular-text" type="text" name="chocolat_theme_options[<?php echo $option_link; ?>]" value="<?php if ( ! empty( $options[$option_link] ) ) echo esc_url( $options[$option_link] ); ?>" /></td>
-							</tr></table>
+								<td><?php _e( 'Link URL', 'chocolat' ) . _e( ':', 'chocolat' ); ?></td>
+								<td><?php
+									$option_name = $option_id.'_link';
+									$option_type = 'url';
+									chocolat_textfield( $options, $option_name, '' , $option_type );
+								?></td>
+							</tr>
+						</table>
 						</fieldset></td>
-					</tr>
-					<?php endforeach; endif; ?>
+					</tr><?php endforeach; endif; ?>
 				</table>
 				<?php else : ?>
 				<p><?php _e( 'Sorry, WordPress you are using is not supported. Upgrade your version of WordPress.', 'chocolat' ); ?></p>
 				<?php endif; ?>
 				</div><!-- /panel -->
+
+				<!-- Custom CSS -->
+				<div id="panel-css" class="panel">
+					<h3 class="title"><?php echo $tab_title['css']['title']; ?></h3>
+					<p class="panel-caption"><?php _e( 'The Custom CSS editor gives you can edit the theme, add or replace your theme\'s CSS.', 'chocolat' ); ?><br /><?php _e( 'This gives syntax coloring, auto-indent feature comes with.', 'chocolat' ); ?></p>
+					<table class="form-table">
+						<tr><td><?php
+							$option_name = 'custom_css';
+							$option_cols = 50;
+							$option_rows = 3;
+							$content = isset( $options['custom_css'] ) && ! empty( $options['custom_css'] ) ? $options['custom_css'] : '/* ' . __( 'Enter Your Custom CSS Here', 'chocolat' ) . ' */';
+							chocolat_textarea( $options, $option_name, $option_cols, $option_rows, $content );
+						?></td></tr>
+					</table>
+				</div><!-- /panel -->
 			</div><!-- /#tabset -->
+
+			<table id="save-option" class="form-table">
+				<td><?php
+					$option_name = 'save_chocolat_option';
+					$option_text = __( 'Save the value of the option of Chocolat in the database', 'chocolat' );
+					$text_desc = __( 'If you want to use the value of the option of Chocolat a child theme, please check the check box.', 'chocolat' );
+					chocolat_checkbox( $options, $option_name, $option_text, $text_desc );
+				?></td>
+			</table>
+
 			<div id="submit-button">
 				<?php submit_button( __( 'Save Changes', 'chocolat' ), 'primary', 'save' ); ?>
 				<?php submit_button( __( 'Reset Defaults', 'chocolat' ), 'secondary', 'reset' ); ?>
@@ -920,6 +1359,14 @@ function chocolat_theme_options_validate( $input ) {
 			$input['show_no_comment'] = null;
 		$input['show_no_comment'] = ( $input['show_no_comment'] == 1 ? 1 : 0 );
 
+		if ( ! isset( $input['show_archives_posts'] ) )
+			$input['show_archives_posts'] = null;
+		$input['show_archives_posts'] = ( $input['show_archives_posts'] == 1 ? 1 : 0 );
+
+		if ( ! isset( $input['show_header_link'] ) )
+			$input['show_header_link'] = null;
+		$input['show_header_link'] = ( $input['show_header_link'] == 1 ? 1 : 0 );
+
 		if ( ! isset( $input['show_index_comments'] ) )
 			$input['show_index_comments'] = null;
 		$input['show_index_comments'] = ( $input['show_index_comments'] == 1 ? 1 : 0 );
@@ -953,6 +1400,85 @@ function chocolat_theme_options_validate( $input ) {
 		if ( ! isset( $input['show_more_link'] ) )
 			$input['show_more_link'] = null;
 		$input['show_more_link'] = ( $input['show_more_link'] == 1 ? 1 : 0 );
+
+		// Featured Image Settings
+		if ( isset( $input['featured_size_w'] ) && $input['featured_size_w'] > 940 )
+			$input['featured_size_w'] = 940;
+		$input['featured_size_w'] = absint( $input['featured_size_w'] );
+
+		$input['featured_size_h'] = absint( $input['featured_size_h'] );
+
+		if ( ! isset( $input['featured_position'] ) )
+			$input['featured_position'] = null;
+		if ( ! array_key_exists( $input['featured_position'], chocolat_featured_position_options() ) )
+			$input['featured_position'] = null;
+
+		if ( ! isset( $input['featured_sneak'] ) )
+			$input['featured_sneak'] = null;
+		if ( ! array_key_exists( $input['featured_sneak'], chocolat_featured_sneak_options() ) )
+			$input['featured_sneak'] = null;
+
+		if ( ! isset( $input['featured_crop'] ) )
+			$input['featured_crop'] = null;
+		if ( ! array_key_exists( $input['featured_crop'], chocolat_featured_crop_options() ) )
+			$input['featured_crop'] = null;
+
+		if ( ! isset( $input['featured_crop_x'] ) )
+			$input['featured_crop_x'] = null;
+		if ( ! array_key_exists( $input['featured_crop_x'], chocolat_position_x_options() ) )
+			$input['featured_crop_x'] = null;
+
+		if ( ! isset( $input['featured_crop_y'] ) )
+			$input['featured_crop_y'] = null;
+		if ( ! array_key_exists( $input['featured_crop_y'], chocolat_position_y_options() ) )
+			$input['featured_crop_y'] = null;
+
+		// Home Page Featured Image Settings
+		if ( ! isset( $input['show_featured_home'] ) )
+			$input['show_featured_home'] = null;
+		$input['show_featured_home'] = ( $input['show_featured_home'] == 1 ? 1 : 0 );
+
+		if ( isset( $input['featured_home_size_w'] ) && $input['featured_home_size_w'] > 940 )
+			$input['featured_home_size_w'] = 940;
+		$input['featured_home_size_w'] = absint( $input['featured_home_size_w'] );
+
+		$input['featured_home_size_h'] = absint( $input['featured_home_size_h'] );
+
+		if ( ! isset( $input['featured_home_position'] ) )
+			$input['featured_home_position'] = null;
+		if ( ! array_key_exists( $input['featured_home_position'], chocolat_featured_position_options() ) )
+			$input['featured_home_position'] = null;
+
+		if ( ! isset( $input['featured_home_sneak'] ) )
+			$input['featured_home_sneak'] = null;
+		if ( ! array_key_exists( $input['featured_home_sneak'], chocolat_featured_sneak_options() ) )
+			$input['featured_home_sneak'] = null;
+
+		if ( ! isset( $input['featured_home_crop'] ) )
+			$input['featured_home_crop'] = null;
+		if ( ! array_key_exists( $input['featured_home_crop'], chocolat_featured_crop_options() ) )
+			$input['featured_home_crop'] = null;
+
+		if ( ! isset( $input['featured_home_crop_x'] ) )
+			$input['featured_home_crop_x'] = null;
+		if ( ! array_key_exists( $input['featured_home_crop_x'], chocolat_position_x_options() ) )
+			$input['featured_home_crop_x'] = null;
+
+		if ( ! isset( $input['featured_home_crop_y'] ) )
+			$input['featured_home_crop_y'] = null;
+		if ( ! array_key_exists( $input['featured_home_crop_y'], chocolat_position_y_options() ) )
+			$input['featured_home_crop_y'] = null;
+
+		// Thumbnail Image Settings
+		if ( ! isset( $input['thumbnail_crop_x'] ) )
+			$input['thumbnail_crop_x'] = null;
+		if ( ! array_key_exists( $input['thumbnail_crop_x'], chocolat_position_x_options() ) )
+			$input['thumbnail_crop_x'] = null;
+
+		if ( ! isset( $input['thumbnail_crop_y'] ) )
+			$input['thumbnail_crop_y'] = null;
+		if ( ! array_key_exists( $input['thumbnail_crop_y'], chocolat_position_y_options() ) )
+			$input['thumbnail_crop_y'] = null;
 
 		// Related Posts
 		if ( ! isset( $input['show_related'] ) )
@@ -1073,6 +1599,14 @@ function chocolat_theme_options_validate( $input ) {
 		$input['slider_image03_link'] = esc_url_raw( $input['slider_image03_link'] );
 		$input['slider_image04_link'] = esc_url_raw( $input['slider_image04_link'] );
 		$input['slider_image05_link'] = esc_url_raw( $input['slider_image05_link'] );
+
+		// Custom Css
+		$input['custom_css'] = esc_textarea( $input['custom_css'] );
+
+		// save Chocolat option value ( child theme )
+		if ( ! isset( $input['save_chocolat_option'] ) )
+			$input['save_chocolat_option'] = null;
+		$input['save_chocolat_option'] = ( $input['save_chocolat_option'] == 1 ? 1 : 0 );
 	}
 	return $input;
 }

@@ -1,6 +1,10 @@
 <?php
 /**
  * The Footer template
+ * @package   Chocolat
+ * @copyright Copyright (c) 2014 Mignon Style
+ * @license   GNU General Public License v2.0
+ * @since     Chocolat 1.0
  */
 ?>
 <?php get_sidebar(); ?>

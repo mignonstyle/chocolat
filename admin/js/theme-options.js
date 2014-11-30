@@ -4,23 +4,21 @@
 	http://mignonstyle.com/
 ------------------------------------ */
 jQuery(function($){
+	var obj, obj_value, tar_obj01, tar_obj02;
+
 	chocolat_options_checkbox();
 	chocolat_contact_radio();
 	chocolat_readmore_radio();
-	chocolat_slider_checkbox();
+	chocolat_featured_position_radio();
+	chocolat_featured_crop_radio();
+	chocolat_featured_home_position_radio();
+	chocolat_featured_home_crop_radio();
+	chocolat_codemirror();
 
 	// input change
 	$('.option-check input:checkbox').change(function(){
 		var parent_id = $(this).parents('.option-check').attr('id');
 		chocolat_checkbox_show_hide(parent_id);
-	});
-
-	$('#option-contact input:radio').change(function(){
-		chocolat_contact_radio();
-	});
-
-	$('#option-readmore input:radio').change(function(){
-		chocolat_readmore_radio();
 	});
 
 	// checkbox
@@ -32,52 +30,119 @@ jQuery(function($){
 	}
 
 	function chocolat_checkbox_show_hide(parent_id){
+		var children = '.'+parent_id+'-children';
 		parent_id = '#'+parent_id+' ';
 
 		if($(parent_id+'input:checkbox').prop('checked')){
 			$(parent_id+'div.hidebox').show();
+			$(children).show();
 		}else{
 			$(parent_id+'div.hidebox').hide();
+			$(children).hide();
 		}
 	}
 
-	// slider checkbox
-	$('#option-slider input:checkbox').change(function(){
-		chocolat_slider_checkbox();
-	});
+	// radio button
+	function chocolat_options_radio(obj, obj_value, tar_obj01='', tar_obj02=''){
+		var input_value = $(obj+':checked').val();
 
-	function chocolat_slider_checkbox(){
-		if($('#option-slider input:checkbox').prop('checked')){
-			$('.slider-parent').show();
+		if(input_value == obj_value){
+			$(tar_obj01).show();
+			$(tar_obj02).hide();
 		}else{
-			$('.slider-parent').hide();
+			$(tar_obj01).hide();
+			$(tar_obj02).show();
 		}
 	}
 
 	// contact radio button
-	function chocolat_contact_radio(){
-		var input_value = $('#option-contact input:radio:checked').val();
+	$('#option-contact input:radio').change(function(){
+		chocolat_contact_radio();
+	});
 
-		if(input_value == 'contact_mail'){
-			$('#contact-mail div').show();
-			$('#contact-page div').hide();
-		}else{
-			$('#contact-mail div').hide();
-			$('#contact-page div').show();
+	function chocolat_contact_radio(){
+		obj = '#option-contact input:radio';
+		obj_value = 'contact_mail';
+		tar_obj01 = '#contact-mail div';
+		tar_obj02 = '#contact-page div';
+		chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02 );
+	}
+
+	// readmore radio button
+	$('#option-readmore input:radio').change(function(){
+		chocolat_readmore_radio();
+	});
+
+	function chocolat_readmore_radio(){
+		obj = '#option-readmore input:radio';
+		obj_value = 'more_excerpt';
+		tar_obj01 = '#readmore-excerpt div';
+		tar_obj02 = '#readmore-moretag div';
+		chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02);
+	}
+
+	// Featured Image Position radio button
+	$('input[name*="featured_position"]').change(function(){
+		chocolat_featured_position_radio();
+	});
+
+	function chocolat_featured_position_radio(){
+		obj = 'input[name*="featured_position"]';
+		obj_value = 'center';
+		tar_obj01 = '';
+		tar_obj02 = '#featured-sneak';
+		chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02);
+	}
+
+	// Featured Image Crop radio button
+	$('input[name*="featured_crop"]').change(function(){
+		chocolat_featured_crop_radio();
+	});
+
+	function chocolat_featured_crop_radio(){
+		obj = 'input[name*="featured_crop"]';
+		obj_value = 'crop';
+		tar_obj01 = '#featured-crop-pos';
+		chocolat_options_radio(obj, obj_value, tar_obj01);
+	}
+
+	// Home page Featured Image Position radio button
+	$('input[name*="featured_home_position"]').change(function(){
+		chocolat_featured_home_position_radio();
+	});
+
+	function chocolat_featured_home_position_radio(){
+		if($('#featured-home input:checkbox').prop('checked')){
+			obj = 'input[name*="featured_home_position"]';
+			obj_value = 'center';
+			tar_obj01 = '';
+			tar_obj02 = '#featured-home-sneak';
+			chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02);
 		}
 	}
 
-	// Read More radio button
-	function chocolat_readmore_radio(){
-		var input_value = $('#option-readmore input:radio:checked').val();
+	// Home page Featured Image Crop radio button
+	$('input[name*="featured_home_crop"]').change(function(){
+		chocolat_featured_home_crop_radio();
+	});
 
-		if(input_value == 'more_excerpt'){
-			$('#readmore-excerpt div').show();
-			$('#readmore-moretag div').hide();
-		}else{
-			$('#readmore-excerpt div').hide();
-			$('#readmore-moretag div').show();
+	function chocolat_featured_home_crop_radio(){
+		if($('#featured-home input:checkbox').prop('checked')){
+			obj = 'input[name*="featured_home_crop"]';
+			obj_value = 'crop';
+			tar_obj01 = '#featured-home-crop-pos';
+			chocolat_options_radio(obj, obj_value, tar_obj01);
 		}
+	}
+
+	/*
+	* CodeMirror
+	*/
+	function chocolat_codemirror(){
+		var editor = CodeMirror.fromTextArea(document.getElementById("chocolat_theme_options[custom_css]"), {
+			lineNumbers: true,
+			lineWrapping: true,
+		});
 	}
 
 	/*

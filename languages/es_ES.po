@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2014-10-04 19:12+0900\n"
-"PO-Revision-Date: 2014-10-04 19:12+0900\n"
+"POT-Creation-Date: 2014-12-01 02:29+0900\n"
+"PO-Revision-Date: 2014-12-01 02:29+0900\n"
 "Last-Translator: Raxa Kau\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: es_ES\n"
@@ -13,115 +13,116 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
-"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;__ngettext:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../comments.php:14
+#: ../comments.php:19
 #, php-format
 msgid "%d Comments"
 msgstr "%d Comentarios"
 
-#: ../comments.php:45
+#: ../comments.php:50
 msgid "TrackBack URL"
 msgstr "TrackBack URL"
 
-#: ../content-none.php:19 ../functions.php:559 ../functions.php:1388
+#: ../content-none.php:23 ../functions.php:640 ../functions.php:1553
 msgid "404 Not found"
 msgstr "404 No encontrado"
 
-#: ../content-none.php:21 ../functions.php:1452
+#: ../content-none.php:25 ../functions.php:1617
 msgid "Nothing Found"
 msgstr "Sin resultados"
 
-#: ../content-none.php:27
+#: ../content-none.php:31
 msgid "The page you're looking for can't be found."
 msgstr "La página que busca no fue localizada."
 
-#: ../content-none.php:28
+#: ../content-none.php:32
 #, php-format
 msgid "Try retyping the URL.%2$sOr use the search box, or going back to %1$s."
 msgstr ""
 "Intente volver a escribir la URL.%2$sO utilice la búsqueda, o regrese a %1$s."
 
-#: ../content-none.php:31
+#: ../content-none.php:35
 #, php-format
 msgid "We found no results for \"%s\"."
 msgstr "No encontramos resultados para \"%s\"."
 
-#: ../content-none.php:32
+#: ../content-none.php:36
 #, php-format
 msgid "Try different search words, or going back to %s."
 msgstr "Intente diferentes palabras de búsqueda, o regrese a %s."
 
-#: ../content-none.php:35
+#: ../content-none.php:39
 msgid "The info you're looking for can't be found."
 msgstr "La información que está buscando no fue localizada."
 
-#: ../content-none.php:36
+#: ../content-none.php:40
 #, php-format
 msgid "Enter a keywords in the search field, or going back to %s."
 msgstr "Escriba palabras clave en los campos de búsqueda, o regrese a %s."
 
-#: ../content-single.php:9 ../content.php:9 ../functions.php:388
-#: ../functions.php:434
+#: ../content-single.php:13 ../content.php:13 ../functions.php:458
+#: ../functions.php:506
 msgid "Edit"
 msgstr "Editar"
 
-#: ../content-top.php:16
+#: ../content-top.php:20
 #, php-format
 msgid "Post Type : %s"
 msgstr ""
 
-#: ../content-top.php:19 ../content-top.php:23
+#: ../content-top.php:23 ../content-top.php:27
 #, php-format
 msgid "Category : %s"
 msgstr "Categoría : %s"
 
-#: ../content-top.php:21
+#: ../content-top.php:25
 #, php-format
 msgid "Search Results of \"%s\""
 msgstr "Resultados de búsqueda de \"%s\""
 
-#: ../content-top.php:25
+#: ../content-top.php:29
 #, php-format
 msgid "Tag : %s"
 msgstr "Etiqueta : %s"
 
-#: ../content-top.php:27 ../functions.php:552 ../functions.php:1414
-#: ../functions.php:1417
+#: ../content-top.php:31 ../functions.php:633 ../functions.php:1579
+#: ../functions.php:1582
 msgid "Y"
 msgstr "Y"
 
-#: ../content-top.php:29 ../functions.php:554
+#: ../content-top.php:33 ../functions.php:635
 msgid "F Y"
 msgstr "F Y"
 
-#: ../content-top.php:31 ../functions.php:556
+#: ../content-top.php:35 ../functions.php:637
 msgid "F j, Y"
 msgstr "F j, Y"
 
-#: ../content-top.php:33
+#: ../content-top.php:37
 #, php-format
 msgid "Author : %s"
 msgstr "Autor : %s"
 
-#: ../content-top.php:35
+#: ../content-top.php:39
 msgid "Archives"
 msgstr "Archivos"
 
-#: ../content-top.php:39 ../functions.php:1385
+#: ../content-top.php:43 ../functions.php:1550
 #, php-format
 msgid "%d posts"
 msgstr "%d posts"
 
-#: ../footer.php:37
+#: ../footer.php:41
 msgid "PAGE TOP"
 msgstr "SUBIR"
 
-#: ../functions.php:37
+#: ../functions.php:43
 msgid ""
 "Chocolat is a simple WordPress theme for the blog. Use the Responsive layout "
 "of CSS media queries, and automatically respond to tablets and smartphones. "
@@ -133,39 +134,39 @@ msgstr ""
 "responsivo que automáticamente responde a tabletas y smartphones. Equipado "
 "con su propio widget, es posible incluso mostrarlo en el widget."
 
-#: ../functions.php:96
+#: ../functions.php:149
 msgid "Global Navigation"
 msgstr "Navegación global"
 
-#: ../functions.php:97
+#: ../functions.php:150
 msgid "Social Links"
 msgstr "Links sociales"
 
-#: ../functions.php:122
+#: ../functions.php:175
 msgid "leaves"
 msgstr "hojas"
 
-#: ../functions.php:128
+#: ../functions.php:181
 msgid "cutlery"
 msgstr "cubiertos"
 
-#: ../functions.php:134
+#: ../functions.php:187
 msgid "rose"
 msgstr "rosa"
 
-#: ../functions.php:140
+#: ../functions.php:193
 msgid "bird"
 msgstr "ave"
 
-#: ../functions.php:204
+#: ../functions.php:260
 msgid "Home"
 msgstr "Inicio"
 
-#: ../functions.php:233
+#: ../functions.php:293
 msgid "Sidebar Widget"
 msgstr "Widget  de la barra lateral"
 
-#: ../functions.php:235
+#: ../functions.php:295
 msgid ""
 "Widgets in this area will be shown at the position that has been set for "
 "\"Sidebar settings\" of theme options (right-hand or left-hand side)."
@@ -174,464 +175,528 @@ msgstr ""
 "\"configuración de la barra lateral\" de las opciones del tema (lado mano "
 "derecha o mano izquierda)."
 
-#: ../functions.php:243
+#: ../functions.php:303
 msgid "AdSense Small"
 msgstr "AdSense pequeño"
 
-#: ../functions.php:245
+#: ../functions.php:305
 msgid "Widgets in this area will be shown at the top of the sidebar widget."
 msgstr ""
 "Los Widgets en esta área se mostrarán en la parte superior de la barra "
 "lateral de widgets."
 
-#: ../functions.php:253
+#: ../functions.php:313
 msgid "AdSense Medium"
 msgstr "AdSense Mediano"
 
-#: ../functions.php:255
+#: ../functions.php:315
 msgid "Widgets in this area will be shown after posts of single post page."
 msgstr ""
 "Los Widgets en esta área se mostrarán después de los posts en la página de "
 "post individuales."
 
-#: ../functions.php:263
+#: ../functions.php:323
 msgid "AdSense Large"
 msgstr "AdSense Grande"
 
-#: ../functions.php:265
+#: ../functions.php:325
 msgid "Widgets in this area will be shown between the footer and sidebar."
 msgstr ""
 "Los Widgets en esta área se mostrarán entre el pie de página y la barra "
 "lateral"
 
-#: ../functions.php:273
+#: ../functions.php:333
 msgid "Ad Banner"
 msgstr "Ad Banner"
 
-#: ../functions.php:275
+#: ../functions.php:335
 msgid "Widgets in this area will be shown at the bottom of the sidebar widget."
 msgstr ""
 "Los Widgets en esta área se mostrarán entre el final y la barra lateral"
 
-#: ../functions.php:283
+#: ../functions.php:343
 msgid "Footer Widget"
 msgstr "Widget de pie de página"
 
-#: ../functions.php:285
+#: ../functions.php:345
 msgid "Widgets in this area will be shown in the footer."
 msgstr "Los Widgets en esta área se mostrarán en el pie de página"
 
-#: ../functions.php:379
+#: ../functions.php:449
 msgid "This comment is awaiting moderation."
 msgstr "Este comentario está esperando moderación."
 
-#: ../functions.php:387
+#: ../functions.php:457
 msgid "Reply"
 msgstr "Responder"
 
-#: ../functions.php:426
+#: ../functions.php:498
 #, php-format
 msgid "Trackback %d"
 msgstr "Trackback %d"
 
-#: ../functions.php:459
+#: ../functions.php:533
 msgid "Comments are closed."
 msgstr "Los comentarios están cerrados"
 
-#: ../functions.php:524
+#: ../functions.php:602
 #, php-format
 msgid "READ%sMORE"
 msgstr "LEER%sMÁS"
 
-#: ../functions.php:534
+#: ../functions.php:612
 #, php-format
 msgid "READ%sPOST"
 msgstr "LEER%sPOST"
 
-#: ../functions.php:549 ../functions.php:1385
+#: ../functions.php:630 ../functions.php:1550
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr "Resultados de búsqueda para \" %s \""
 
-#: ../functions.php:575 ../functions.php:1459
+#: ../functions.php:657 ../functions.php:1628
 #, php-format
 msgid "Page %d"
 msgstr "Página %d"
 
-#: ../functions.php:844
+#: ../functions.php:961
 #, php-format
 msgid "Chocolat theme by %1$sMignon Style%2$s."
 msgstr "Tema Chocolat por %1$sMignon Style%2$s."
 
-#: ../functions.php:844
+#: ../functions.php:961
 #, php-format
 msgid "Powered by %1$sWordPress%2$s."
 msgstr "Generado por %1$sWordPress%2$s."
 
-#: ../functions.php:886
+#: ../functions.php:1009
 #, php-format
 msgid "Copyright &copy; %1$s %2$s All Rights Reserved."
 msgstr "Derechos de autor &copy; %1$s %2$s Todos los derechos reservados."
 
-#: ../functions.php:981
+#: ../functions.php:1118
 msgid "Last updated"
 msgstr "Última actualización"
 
-#: ../functions.php:998
+#: ../functions.php:1137
 msgid "Attention"
 msgstr "Atención"
 
-#: ../functions.php:1041
+#: ../functions.php:1182
 #, fuzzy
 msgid "No Comments"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1041
+#: ../functions.php:1182
 #, fuzzy
 msgid "1 Comment"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1041
+#: ../functions.php:1182
 #, fuzzy
 msgid "% Comments"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1041
+#: ../functions.php:1182
 #, fuzzy
 msgid "Comments Off"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1093 ../functions.php:1203 ../admin/theme-options.php:774
+#: ../functions.php:1242 ../functions.php:1362 ../admin/theme-options.php:1172
 msgid "RSS"
 msgstr "RSS"
 
-#: ../functions.php:1100 ../functions.php:1212
+#: ../functions.php:1251 ../functions.php:1371
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../functions.php:1123 ../functions.php:1231 ../admin/theme-options.php:749
+#: ../functions.php:1276 ../functions.php:1390 ../admin/theme-options.php:1135
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../functions.php:1173 ../admin/theme-options.php:740
+#: ../functions.php:1330 ../admin/theme-options.php:1123
 msgid "Information"
 msgstr "Información"
 
-#: ../functions.php:1421 ../functions.php:1424
+#: ../functions.php:1586 ../functions.php:1589
 msgid "F"
 msgstr "F"
 
-#: ../functions.php:1426
+#: ../functions.php:1591
 msgid "j"
 msgstr "j"
 
-#: ../functions.php:1520 ../functions.php:1823 ../functions.php:1848
-#: ../admin/theme-options.php:672
+#: ../functions.php:1697 ../functions.php:2009 ../functions.php:2034
+#: ../admin/theme-options.php:871
 msgid "New Entry"
 msgstr "Nueva entrada"
 
-#: ../functions.php:1530 ../functions.php:1943 ../functions.php:1970
-#: ../admin/theme-options.php:635
+#: ../functions.php:1707 ../functions.php:2129 ../functions.php:2156
+#: ../admin/theme-options.php:835
 msgid "Related Entry"
 msgstr "Entradas relacionadas"
 
-#: ../functions.php:1822 ../functions.php:1942 ../functions.php:2053
+#: ../functions.php:2008 ../functions.php:2128 ../functions.php:2239
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr "Es un widget para el %s tema."
 
-#: ../functions.php:1822
+#: ../functions.php:2008
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr "Los posts más recientes en su sitio (con miniaturas)"
 
-#: ../functions.php:1823
+#: ../functions.php:2009
 msgid "(with thumbnails)"
 msgstr "(con miniaturas)"
 
-#: ../functions.php:1919 ../functions.php:2033 ../functions.php:2110
-#: ../admin/theme-options.php:641 ../admin/theme-options.php:679
-#: ../admin/theme-options.php:718
+#: ../functions.php:2105 ../functions.php:2219 ../functions.php:2296
 msgid "Title:"
 msgstr "Título:"
 
-#: ../functions.php:1922 ../functions.php:2036 ../admin/theme-options.php:644
-#: ../admin/theme-options.php:682
+#: ../functions.php:2108 ../functions.php:2222
 msgid "Number of posts to show:"
 msgstr "Número de posts que se mostrarán:"
 
-#: ../functions.php:1926 ../functions.php:2040
+#: ../functions.php:2112 ../functions.php:2226
 msgid "Display post date?"
 msgstr "Mostrar la fecha del post?"
 
-#: ../functions.php:1929
+#: ../functions.php:2115
 msgid "Do not want to display the top page of the Web site."
 msgstr "No mostrar la parte superior de la página del sitio."
 
-#: ../functions.php:1942
+#: ../functions.php:2128
 msgid "In the single page, and view the latest posts in the same category."
 msgstr ""
 "En las páginas  individuales, mostrar los posts más recientes de la misma "
 "categoría"
 
-#: ../functions.php:2053
+#: ../functions.php:2239
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr ""
 "Ver el menú de navegación en una página estática con una página padre-hijo"
 
-#: ../functions.php:2054
+#: ../functions.php:2240
 msgid "Fixed Page Menu"
 msgstr "Página de menú fijo"
 
-#: ../functions.php:2061
+#: ../functions.php:2247
 msgid "Page Navi"
 msgstr "Navegación de página"
 
-#: ../functions.php:2112
+#: ../functions.php:2298
 msgid "Sort by:"
 msgstr "Organizado por:"
 
-#: ../functions.php:2114
+#: ../functions.php:2300
 msgid "Page title"
 msgstr "Título de página"
 
-#: ../functions.php:2115
+#: ../functions.php:2301
 msgid "Page order"
 msgstr "Orden de página"
 
-#: ../functions.php:2116
+#: ../functions.php:2302
 msgid "Page ID"
 msgstr "ID  de página"
 
-#: ../searchform.php:8 ../searchform.php:9 ../searchform.php:10
+#: ../searchform.php:12 ../searchform.php:13 ../searchform.php:14
 msgid "Search"
 msgstr "Buscar"
 
-#: ../admin/theme-options.php:10
+#: ../admin/theme-options.php:17
 #, php-format
 msgid "%s Settings"
 msgstr "%s Configuraciones"
 
-#: ../admin/theme-options.php:43 ../admin/theme-options.php:611
-#: ../admin/theme-options.php:855
+#: ../admin/theme-options.php:53 ../admin/inc/option-register.php:189
 msgid "Select Image"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:44
+#: ../admin/theme-options.php:54
 msgid "Set up Image"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:192
+#: ../admin/theme-options.php:237
 msgid "View a description of the Web site"
 msgstr "Ver descripción del sitio"
 
-#: ../admin/theme-options.php:196
+#: ../admin/theme-options.php:241
 msgid "Show the name of the author of the posts"
 msgstr "Mostrar el nombre del autor del post"
 
-#: ../admin/theme-options.php:200
+#: ../admin/theme-options.php:245
 msgid "Show breadcrumbs"
 msgstr "Mostrar \"migajas de pan\""
 
-#: ../admin/theme-options.php:204
+#: ../admin/theme-options.php:249
 msgid "Show the message when you have closed the comment"
 msgstr ""
 
-#: ../admin/theme-options.php:208
+#: ../admin/theme-options.php:253
+#, fuzzy
+msgid "Show the heading of number of posts in the archives page"
+msgstr "Mostrar el nombre del autor del post"
+
+#: ../admin/theme-options.php:257
+msgid "Add a link to the home page in the header image"
+msgstr ""
+
+#: ../admin/theme-options.php:261
 #, fuzzy
 msgid "Shows the number of comments in the posts home page"
 msgstr "Mostrar el nombre del autor del post"
 
-#: ../admin/theme-options.php:212
+#: ../admin/theme-options.php:265
 msgid "View Last updated post page"
 msgstr "Ver el post actualizado más recientemente"
 
-#: ../admin/theme-options.php:216
+#: ../admin/theme-options.php:269
 msgid "Use the Lightbox to image"
 msgstr "Usar Lightbox para la imagen"
 
-#: ../admin/theme-options.php:220
+#: ../admin/theme-options.php:273
 msgid "Use the Lightbox to gallery"
 msgstr "Usar Lightbox para la galería"
 
-#: ../admin/theme-options.php:224
+#: ../admin/theme-options.php:274
+msgid ""
+"When you use \"Tiled Galleries\" of jetpack plugin, clear the check box."
+msgstr ""
+
+#: ../admin/theme-options.php:278
 msgid "Show a Fluid Grid Layout widgets"
 msgstr "Mostrar los widgets en una retícula fluida"
 
-#: ../admin/theme-options.php:241
+#: ../admin/theme-options.php:295
 msgid "Favicon Settings"
 msgstr "Configuración del favicon"
 
-#: ../admin/theme-options.php:242
+#: ../admin/theme-options.php:296
 msgid "favicon"
 msgstr "favicon"
 
-#: ../admin/theme-options.php:244
+#: ../admin/theme-options.php:298
 msgid "favicon.ico (width 16px x height 16px)"
 msgstr "favicon.ico (width(ancho) 16px x height (alto) 16px)"
 
-#: ../admin/theme-options.php:249
+#: ../admin/theme-options.php:303
 msgid "Icon Settings"
 msgstr "Configuración de iconos"
 
-#: ../admin/theme-options.php:250
+#: ../admin/theme-options.php:304
 msgid "smartphone icon"
 msgstr "icono de smartphone"
 
-#: ../admin/theme-options.php:252
+#: ../admin/theme-options.php:306
 msgid "apple-touch-icon.png (width 144px x height 144px)"
 msgstr "apple-touch-icon.png (width(ancho) 144px x height(alto) 144px)"
 
-#: ../admin/theme-options.php:257
+#: ../admin/theme-options.php:311
 msgid "Logo Settings"
 msgstr "Configuración del logo"
 
-#: ../admin/theme-options.php:258
+#: ../admin/theme-options.php:312
 msgid "logo"
 msgstr "logo"
 
-#: ../admin/theme-options.php:260
+#: ../admin/theme-options.php:314
 msgid ".png, .jpg and .gif (max-width 350px)"
 msgstr ".png, .jpg and .gif (ancho máximo 350px)"
 
-#: ../admin/theme-options.php:265
+#: ../admin/theme-options.php:319
 msgid "No Image Settings"
 msgstr "Sin configuración de imagen"
 
-#: ../admin/theme-options.php:266
+#: ../admin/theme-options.php:320
 msgid "image of \"No Image\""
 msgstr "imagen de  \"Sin Imagen\""
 
-#: ../admin/theme-options.php:267
+#: ../admin/theme-options.php:321
 msgid "If you have not set, use the \"No Image\" image of theme defaults."
 msgstr "Si no ha configurado la imagen \"Sin Imagen\" preestablecida del tema."
 
-#: ../admin/theme-options.php:268
+#: ../admin/theme-options.php:322
 msgid ".png, .jpg and .gif (width 300px x height 300px)"
 msgstr ".png, .jpg and .gif (width(ancho) 300px x height(alto) 300px)"
 
-#: ../admin/theme-options.php:287
+#: ../admin/theme-options.php:341
 msgid "Use e-mail address"
 msgstr "Utilizar dirección de e-mail"
 
-#: ../admin/theme-options.php:292
+#: ../admin/theme-options.php:346
 msgid "Use the contact page"
 msgstr "Usar página de contacto"
 
-#: ../admin/theme-options.php:309
+#: ../admin/theme-options.php:363
 msgid "Descending order"
 msgstr "Orden descendiente"
 
-#: ../admin/theme-options.php:313
+#: ../admin/theme-options.php:367
 msgid "Ascending order"
 msgstr "Orden ascendiente"
 
-#: ../admin/theme-options.php:317
+#: ../admin/theme-options.php:371
 msgid "Random"
 msgstr "Aleatorio"
 
-#: ../admin/theme-options.php:334
+#: ../admin/theme-options.php:388
 msgid "Category"
 msgstr "Categoría"
 
-#: ../admin/theme-options.php:338
+#: ../admin/theme-options.php:392
 msgid "Tag"
 msgstr "Etiqueta"
 
-#: ../admin/theme-options.php:380
+#: ../admin/theme-options.php:434
 msgid "Top of the sidebar"
 msgstr "Superior de la barra lateral"
 
-#: ../admin/theme-options.php:384
+#: ../admin/theme-options.php:438
 msgid "Bottom of the sidebar"
 msgstr "Inferior de la barra lateral"
 
-#: ../admin/theme-options.php:402
+#: ../admin/theme-options.php:456
 msgid "Use an excerpt"
 msgstr "Usar extracto"
 
-#: ../admin/theme-options.php:407
+#: ../admin/theme-options.php:461
 msgid "Use the \"more\" quicktag"
 msgstr "Usar la etiqueta rápida \"más\" "
 
-#: ../admin/theme-options.php:424
+#: ../admin/theme-options.php:478
 msgid "Enable"
 msgstr "Activar"
 
-#: ../admin/theme-options.php:428
+#: ../admin/theme-options.php:482
 msgid "Disable"
 msgstr "Desactivar"
 
-#: ../admin/theme-options.php:446
+#: ../admin/theme-options.php:500
 msgid "Light Color"
 msgstr ""
 
-#: ../admin/theme-options.php:451
+#: ../admin/theme-options.php:505
 msgid "Dark Color"
 msgstr ""
 
-#: ../admin/theme-options.php:468
+#: ../admin/theme-options.php:522
 #, fuzzy
 msgid "Slider Image 1"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:472
+#: ../admin/theme-options.php:526
 #, fuzzy
 msgid "Slider Image 2"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:476
+#: ../admin/theme-options.php:530
 #, fuzzy
 msgid "Slider Image 3"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:480
+#: ../admin/theme-options.php:534
 #, fuzzy
 msgid "Slider Image 4"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:484
+#: ../admin/theme-options.php:538
 #, fuzzy
 msgid "Slider Image 5"
 msgstr "Seleccionar imagen"
 
-#: ../admin/theme-options.php:516
-msgid "Settings saved."
-msgstr "Configuración guardada"
+#: ../admin/theme-options.php:556 ../admin/theme-options.php:630
+msgid "Left"
+msgstr ""
 
-#: ../admin/theme-options.php:524
-msgid "Display settings for each item"
-msgstr "Mostrar configuración para cada item"
+#: ../admin/theme-options.php:561 ../admin/theme-options.php:635
+#: ../admin/theme-options.php:663
+msgid "Center"
+msgstr ""
 
-#: ../admin/theme-options.php:525
+#: ../admin/theme-options.php:566 ../admin/theme-options.php:640
+msgid "Right"
+msgstr ""
+
+#: ../admin/theme-options.php:584
+msgid "To Sneak"
+msgstr ""
+
+#: ../admin/theme-options.php:589
+msgid "Not Sneak"
+msgstr ""
+
+#: ../admin/theme-options.php:607
+msgid "Crop"
+msgstr ""
+
+#: ../admin/theme-options.php:612
+msgid "Resize"
+msgstr ""
+
+#: ../admin/theme-options.php:658
+msgid "Top"
+msgstr ""
+
+#: ../admin/theme-options.php:668
+msgid "Bottom"
+msgstr ""
+
+#: ../admin/theme-options.php:684 ../admin/theme-options.php:754
+msgid "Display Settings"
+msgstr "Configuración de apariencia"
+
+#: ../admin/theme-options.php:688
+#, fuzzy
+msgid "Featured Image Settings"
+msgstr "Configuración de la imagen"
+
+#: ../admin/theme-options.php:692
 msgid "Links Setting"
 msgstr "Configuración de links"
 
-#: ../admin/theme-options.php:526 ../admin/theme-options.php:821
+#: ../admin/theme-options.php:696 ../admin/theme-options.php:1247
 #, fuzzy
 msgid "Slider Setting"
 msgstr "Configuración de la barra lateral"
 
-#: ../admin/theme-options.php:540
-msgid "Display Settings"
-msgstr "Configuración de apariencia"
+#: ../admin/theme-options.php:700
+msgid "Custom CSS"
+msgstr ""
 
-#: ../admin/theme-options.php:555
+#: ../admin/theme-options.php:732
+msgid "Settings saved."
+msgstr "Configuración guardada"
+
+#: ../admin/theme-options.php:770
 msgid "Excerpt Settings"
 msgstr "COnfiguración de extractos"
 
-#: ../admin/theme-options.php:557
+#: ../admin/theme-options.php:772
 msgid "Set the display of posts of an archive page."
 msgstr "Configure la muestar de post en la página de archivo"
 
-#: ../admin/theme-options.php:557
+#: ../admin/theme-options.php:772
 msgid "Please select from \"excerpt\" or \"more quick tag\"."
 msgstr "Por favor, seleccione del  \"extracto\" o \"más etiquetas rápidas\"."
 
-#: ../admin/theme-options.php:565
+#: ../admin/theme-options.php:784
 msgid "Number of characters to be displayed in the excerpt"
 msgstr "Número de caracteres que se mostrarán en el extracto"
 
-#: ../admin/theme-options.php:568
+#: ../admin/theme-options.php:784 ../admin/theme-options.php:801
+#: ../admin/theme-options.php:846 ../admin/theme-options.php:850
+#: ../admin/theme-options.php:856 ../admin/theme-options.php:861
+#: ../admin/theme-options.php:881 ../admin/theme-options.php:885
+#: ../admin/theme-options.php:918 ../admin/theme-options.php:926
+#: ../admin/theme-options.php:997 ../admin/theme-options.php:1005
+#: ../admin/theme-options.php:1102 ../admin/theme-options.php:1105
+#: ../admin/theme-options.php:1153 ../admin/theme-options.php:1188
+#: ../admin/theme-options.php:1275 ../admin/theme-options.php:1282
+msgid ":"
+msgstr ""
+
+#: ../admin/theme-options.php:790
 msgid ""
 "In the Japanese version of WordPress, please activate WP Multibyte Patch "
 "plugin."
@@ -639,41 +704,37 @@ msgstr ""
 "En la versión japonesa de WordPress, por favor active WP Multibyte Patch "
 "Plugin - En español no es necesario-"
 
-#: ../admin/theme-options.php:574
+#: ../admin/theme-options.php:797
 msgid "Display the \"more\" link"
 msgstr "Mostrar el link \"más\" "
 
-#: ../admin/theme-options.php:576
+#: ../admin/theme-options.php:801
 msgid "Character of the \"more\" link"
 msgstr "Caractér en el link\"más\""
 
-#: ../admin/theme-options.php:607
+#: ../admin/theme-options.php:822
 #, php-format
 msgid "Once you have set the image, it is used as the %s for your Web site."
 msgstr "Una vez elegida la imagen, es utilizada como el %s de su sitio."
 
-#: ../admin/theme-options.php:607 ../admin/theme-options.php:816
+#: ../admin/theme-options.php:822 ../admin/theme-options.php:1242
 #, php-format
 msgid "Recommended files %s"
 msgstr "Archivos recomendados %s"
 
-#: ../admin/theme-options.php:620 ../admin/theme-options.php:863
-msgid "Delete Image"
-msgstr "Borrar imagen"
-
-#: ../admin/theme-options.php:628
+#: ../admin/theme-options.php:828
 msgid "Image Settings"
 msgstr "Configuración de la imagen"
 
-#: ../admin/theme-options.php:629 ../admin/theme-options.php:880
+#: ../admin/theme-options.php:829 ../admin/inc/option-register.php:201
+#, fuzzy
 msgid ""
-"Sorry, WordPress you are using is not supported. Upgrade your version of "
-"WordPress."
+"Sorry, WordPress you are using is not supported. Upgrade your WordPress."
 msgstr ""
 "Lo sentimos, la versión de WordPress que está usando no es soportada, por "
 "favor actualice su versión."
 
-#: ../admin/theme-options.php:637
+#: ../admin/theme-options.php:837
 msgid ""
 "Displays a list of related articles, under the article of a single post page "
 "if you check."
@@ -681,23 +742,34 @@ msgstr ""
 "Muestra una lista de artículos relacionados debajo del articulo de los posts "
 "individuales si activa la casilla"
 
-#: ../admin/theme-options.php:639
+#: ../admin/theme-options.php:840
 msgid "View Related Posts after the content"
 msgstr "Ver posts relacionados a este contenido"
 
-#: ../admin/theme-options.php:645 ../admin/theme-options.php:682
+#: ../admin/theme-options.php:846 ../admin/theme-options.php:881
+#: ../admin/theme-options.php:1102
+#, fuzzy
+msgid "Title"
+msgstr "Título:"
+
+#: ../admin/theme-options.php:850 ../admin/theme-options.php:885
+#, fuzzy
+msgid "Number of posts to show"
+msgstr "Número de posts que se mostrarán:"
+
+#: ../admin/theme-options.php:853 ../admin/theme-options.php:888
 msgid "posts"
 msgstr "posts"
 
-#: ../admin/theme-options.php:647
+#: ../admin/theme-options.php:856
 msgid "Alignment sequence"
 msgstr "Secuencia de alineación"
 
-#: ../admin/theme-options.php:657
+#: ../admin/theme-options.php:861
 msgid "Classification"
 msgstr "Clasificación"
 
-#: ../admin/theme-options.php:674
+#: ../admin/theme-options.php:873
 msgid ""
 "Displays a list of new articles, under the article of a single post page if "
 "you check."
@@ -705,15 +777,126 @@ msgstr ""
 "Muestra una lista de artículos nuevos, debajo los posts individuales si "
 "activa la casilla"
 
-#: ../admin/theme-options.php:676
+#: ../admin/theme-options.php:876
 msgid "View New Posts after the content"
 msgstr "Ver nuevos posts después del contenido"
 
-#: ../admin/theme-options.php:689
-msgid "Sidebar settings"
+#: ../admin/theme-options.php:896
+#, fuzzy
+msgid "Sidebar Settings"
 msgstr "Configuración de la barra lateral"
 
-#: ../admin/theme-options.php:703
+#: ../admin/theme-options.php:908
+#, fuzzy
+msgid "Set the size and the position of the featured image."
+msgstr "Usar Lightbox para la imagen"
+
+#: ../admin/theme-options.php:913
+msgid "Featured image size"
+msgstr ""
+
+#: ../admin/theme-options.php:918 ../admin/theme-options.php:997
+msgid "Width"
+msgstr ""
+
+#: ../admin/theme-options.php:921 ../admin/theme-options.php:929
+#: ../admin/theme-options.php:1000 ../admin/theme-options.php:1008
+msgid "px"
+msgstr ""
+
+#: ../admin/theme-options.php:926 ../admin/theme-options.php:1005
+msgid "Height"
+msgstr ""
+
+#: ../admin/theme-options.php:933 ../admin/theme-options.php:1012
+msgid "The default size of the featured image is width 700px, height 350px."
+msgstr ""
+
+#: ../admin/theme-options.php:933 ../admin/theme-options.php:1012
+msgid "Maximum width that can be used for featured image is 940px."
+msgstr ""
+
+#: ../admin/theme-options.php:938
+msgid "Featured image position"
+msgstr ""
+
+#: ../admin/theme-options.php:947
+#, fuzzy
+msgid "Sneak settings"
+msgstr "Configuración de la barra lateral"
+
+#: ../admin/theme-options.php:956
+#, fuzzy
+msgid "Crop settings"
+msgstr "Configuración de iconos"
+
+#: ../admin/theme-options.php:958
+#, fuzzy
+msgid "Make the crop setting of the featured image."
+msgstr "Usar Lightbox para la imagen"
+
+#: ../admin/theme-options.php:958 ../admin/theme-options.php:1037
+msgid ""
+"The default is to crop in the center of the image to the size you have set."
+msgstr ""
+
+#: ../admin/theme-options.php:967
+#, fuzzy
+msgid "Crop position"
+msgstr "Posición de mostrar"
+
+#: ../admin/theme-options.php:981
+msgid "Featured image settings of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:983
+msgid ""
+"If you want to the featured image of home page and posts page to another "
+"setting, please put a check."
+msgstr ""
+
+#: ../admin/theme-options.php:986
+msgid "Setting the featured image of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:992
+msgid "Featured image size of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:1017
+msgid "Featured image position of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:1026
+msgid "Sneak settings of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:1035
+msgid "Crop settings of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:1037
+msgid "Make the crop setting of the featured image of home page."
+msgstr ""
+
+#: ../admin/theme-options.php:1046
+msgid "Crop position of home page"
+msgstr ""
+
+#: ../admin/theme-options.php:1060
+#, fuzzy
+msgid "Thumbnail crop settings"
+msgstr "Configuración de la barra lateral"
+
+#: ../admin/theme-options.php:1062
+msgid "Make the crop position setting of the thumbnail."
+msgstr ""
+
+#: ../admin/theme-options.php:1062
+msgid "The default is to crop in the center of the image."
+msgstr ""
+
+#: ../admin/theme-options.php:1079
 msgid ""
 "Set the display of contact or RSS and copyright.Copyright will be displayed "
 "in the footer."
@@ -721,31 +904,31 @@ msgstr ""
 "Configurar el contacto RSS y derechos de autor. Los derechos de autor serán "
 "mostrados en el pie de página"
 
-#: ../admin/theme-options.php:708
+#: ../admin/theme-options.php:1084
 msgid "Position to display"
 msgstr "Posición para mostrar"
 
-#: ../admin/theme-options.php:711
+#: ../admin/theme-options.php:1088
 msgid "Display in the header"
 msgstr "Mostrar en el encabezado de la página"
 
-#: ../admin/theme-options.php:711
+#: ../admin/theme-options.php:1089
 msgid "In a smartphone, it is displayed at the position of the footer."
 msgstr "En un smartphone, se mostrá en el pie de página"
 
-#: ../admin/theme-options.php:715
+#: ../admin/theme-options.php:1096
 msgid "Display in the sidebar"
 msgstr "Mostrar en la barra lateral"
 
-#: ../admin/theme-options.php:721
+#: ../admin/theme-options.php:1105
 msgid "Display position"
 msgstr "Posición de mostrar"
 
-#: ../admin/theme-options.php:734
+#: ../admin/theme-options.php:1115
 msgid "Display in the footer"
 msgstr "Mostrar en el pie de página"
 
-#: ../admin/theme-options.php:742
+#: ../admin/theme-options.php:1125
 msgid ""
 "When you fill in a profile or information, it will be displayed in the "
 "sidebar."
@@ -753,11 +936,11 @@ msgstr ""
 "Cuando llene la información de su perfil, esta se mostrará en la barra "
 "lateral"
 
-#: ../admin/theme-options.php:752
+#: ../admin/theme-options.php:1139
 msgid "View Contact"
 msgstr "Ver contacto"
 
-#: ../admin/theme-options.php:760
+#: ../admin/theme-options.php:1151
 msgid ""
 "E-mail address that is registered with the general settings are used. Please "
 "enter if you want to use the e-mail address of the other."
@@ -765,83 +948,188 @@ msgstr ""
 "La dirección de e-mail que esta registrada en las configuraciones generales "
 "será usada, por favor ingrese otra."
 
-#: ../admin/theme-options.php:763
+#: ../admin/theme-options.php:1153
+msgid "mailto"
+msgstr ""
+
+#: ../admin/theme-options.php:1158
 msgid "URL of the Contact Page"
 msgstr "URL de página de contacto"
 
-#: ../admin/theme-options.php:777
+#: ../admin/theme-options.php:1175
 msgid "View RSS"
 msgstr "Ver RSS"
 
-#: ../admin/theme-options.php:780
+#: ../admin/theme-options.php:1179
 msgid "View Feedly"
 msgstr "Ver Feedly"
 
-#: ../admin/theme-options.php:786
+#: ../admin/theme-options.php:1186
+#, fuzzy
+msgid "Social Link"
+msgstr "Links sociales"
+
+#: ../admin/theme-options.php:1187
+msgid ""
+"To display the social link, use the \"Social Links\" of the custom menu."
+msgstr ""
+
+#: ../admin/theme-options.php:1188
+msgid "A corresponding social link"
+msgstr ""
+
+#: ../admin/theme-options.php:1189
+msgid "Twitter"
+msgstr ""
+
+#: ../admin/theme-options.php:1190
+msgid "Facebook"
+msgstr ""
+
+#: ../admin/theme-options.php:1191
+msgid "Google+"
+msgstr ""
+
+#: ../admin/theme-options.php:1192
+msgid "Tumblr"
+msgstr ""
+
+#: ../admin/theme-options.php:1193
+msgid "Pinterest"
+msgstr ""
+
+#: ../admin/theme-options.php:1194
+msgid "Instagram"
+msgstr ""
+
+#: ../admin/theme-options.php:1195
+msgid "LinkedIn"
+msgstr ""
+
+#: ../admin/theme-options.php:1196
+msgid "Flickr"
+msgstr ""
+
+#: ../admin/theme-options.php:1197
+msgid "Dribbble"
+msgstr ""
+
+#: ../admin/theme-options.php:1198
+msgid "YouTube"
+msgstr ""
+
+#: ../admin/theme-options.php:1199
+msgid "Vimeo"
+msgstr ""
+
+#: ../admin/theme-options.php:1200
+msgid "GitHub"
+msgstr ""
+
+#: ../admin/theme-options.php:1206
 msgid "Copyright"
 msgstr "Derechos de autor"
 
-#: ../admin/theme-options.php:789
+#: ../admin/theme-options.php:1210
 msgid "Display the copyright of Web site"
 msgstr "Mostrar los derechos de autor en el sitio"
 
-#: ../admin/theme-options.php:792
+#: ../admin/theme-options.php:1215
 msgid "It will be displayed."
 msgstr "Se mostrará"
 
-#: ../admin/theme-options.php:793
+#: ../admin/theme-options.php:1215
 msgid "Please enter if you want to change the text of copyright."
 msgstr ""
 "Por favor, escriba algo si desea cambiar el texto de los derechos de autor."
 
-#: ../admin/theme-options.php:801
+#: ../admin/theme-options.php:1226
 msgid "Credit link"
 msgstr "Link de crédito"
 
-#: ../admin/theme-options.php:803
+#: ../admin/theme-options.php:1228
 msgid ""
 "Choose to enable or disable  the credit link of the author of the theme."
 msgstr "Elija, activar o desactivar el link de crédito al autor del tema"
 
-#: ../admin/theme-options.php:803
+#: ../admin/theme-options.php:1228
 msgid "If you display credit link, I am very pleased :)"
 msgstr "Si muestra el link de crédito, estaré muy contento :)"
 
-#: ../admin/theme-options.php:816
+#: ../admin/theme-options.php:1242
 msgid "Setting an image to be displayed the slider."
 msgstr ""
 
-#: ../admin/theme-options.php:816
+#: ../admin/theme-options.php:1242
 msgid "Please use the image of the same size."
 msgstr ""
 
-#: ../admin/theme-options.php:816
+#: ../admin/theme-options.php:1242
 #, fuzzy
 msgid ".png and .jpg (width 980px)"
 msgstr ".png, .jpg and .gif (ancho máximo 350px)"
 
-#: ../admin/theme-options.php:823
+#: ../admin/theme-options.php:1250
 #, fuzzy
 msgid "Use the slider to the header image"
 msgstr "Usar Lightbox para la imagen"
 
-#: ../admin/theme-options.php:827
+#: ../admin/theme-options.php:1256
 #, fuzzy
 msgid "The color of the slider"
 msgstr "Superior de la barra lateral"
 
-#: ../admin/theme-options.php:868
+#: ../admin/theme-options.php:1275
 msgid "Caption"
 msgstr ""
 
-#: ../admin/theme-options.php:872
+#: ../admin/theme-options.php:1282
 msgid "Link URL"
 msgstr ""
 
-#: ../admin/theme-options.php:885
+#: ../admin/theme-options.php:1294
+msgid ""
+"Sorry, WordPress you are using is not supported. Upgrade your version of "
+"WordPress."
+msgstr ""
+"Lo sentimos, la versión de WordPress que está usando no es soportada, por "
+"favor actualice su versión."
+
+#: ../admin/theme-options.php:1301
+msgid ""
+"The Custom CSS editor gives you can edit the theme, add or replace your "
+"theme's CSS."
+msgstr ""
+
+#: ../admin/theme-options.php:1301
+msgid "This gives syntax coloring, auto-indent feature comes with."
+msgstr ""
+
+#: ../admin/theme-options.php:1307
+msgid "Enter Your Custom CSS Here"
+msgstr ""
+
+#: ../admin/theme-options.php:1317
+msgid "Save the value of the option of Chocolat in the database"
+msgstr ""
+
+#: ../admin/theme-options.php:1318
+msgid ""
+"If you want to use the value of the option of Chocolat a child theme, please "
+"check the check box."
+msgstr ""
+
+#: ../admin/theme-options.php:1324
 msgid "Save Changes"
 msgstr "Salvar cambios"
 
-#: ../admin/theme-options.php:886
+#: ../admin/theme-options.php:1325
 msgid "Reset Defaults"
 msgstr "Restablecer predeterminados"
+
+#: ../admin/inc/option-register.php:196
+msgid "Delete Image"
+msgstr "Borrar imagen"
+
+#~ msgid "Display settings for each item"
+#~ msgstr "Mostrar configuración para cada item"
