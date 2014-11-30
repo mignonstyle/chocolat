@@ -57,11 +57,6 @@ Included in "/admin/inc/codemirror" folder, all files, css and script is a thing
 License: MIT license
 Source:  http://codemirror.net/
 
-TGM Plugin Activation Copyright 2012 Thomas Griffin
-/admin/inc/class-tgm-plugin-activation.php.
-License: GPL v2 or later
-Source:  https://github.com/thomasgriffin/TGM-Plugin-Activation
-
 /* ------------------------------------
 Installation
 ------------------------------------ */
