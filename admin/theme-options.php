@@ -1197,7 +1197,9 @@ function chocolat_theme_options_do_page() {
 									__( 'Dribbble', 'chocolat' ) . ', ' . 
 									__( 'YouTube', 'chocolat' ) . ', ' . 
 									__( 'Vimeo', 'chocolat' ) . ', ' . 
-									__( 'GitHub', 'chocolat' );
+									__( 'GitHub', 'chocolat' ) . ', ' . 
+									__( 'Viadeo', 'chocolat' ) . ', ' . 
+									__( 'Bloglovin', 'chocolat' );
 							?></p></td>
 						</tr>
 

@@ -87,6 +87,17 @@ img.alignright {
 }
 
 /* ------------------------------------
+3.4.1 links link
+------------------------------------ */
+
+.links-aicon li a[href*="viadeo.com"],
+.links-aicon li a[href*="viadeo.com"]:hover,
+.links-aicon li a[href*="bloglovin.com"],
+.links-aicon li a[href*="bloglovin.com"]:hover {
+	background-size: 26px auto;
+}
+
+/* ------------------------------------
 3.4.2 contactlink-top
 4.1.2 - header searchform
 4.2 - globalnav

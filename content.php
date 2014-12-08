@@ -16,7 +16,7 @@
 		<?php chocolat_entry_dates(); ?>
 
 		<div class="entry-title">
-			<?php if ( ! is_page() ) : ?><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php endif; ?>
+			<?php if ( ! is_page() ) : ?><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php endif; ?>
 				<h1 class="post-title"><?php the_title_attribute(); ?></h1>
 			<?php if ( ! is_page() ) : ?></a><?php endif; ?>
 		</div>

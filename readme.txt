@@ -57,6 +57,11 @@ Included in "/admin/inc/codemirror" folder, all files, css and script is a thing
 License: MIT license
 Source:  http://codemirror.net/
 
+TGM Plugin Activation Copyright 2012 Thomas Griffin
+/admin/inc/class-tgm-plugin-activation.php.
+License: GPL v2 or later
+Source:  https://github.com/thomasgriffin/TGM-Plugin-Activation
+
 /* ------------------------------------
 Installation
 ------------------------------------ */
@@ -154,8 +159,8 @@ How to use:
 2. Click "Add to Menu" button.
 
 A corresponding social link:
-twitter, facebook, google-plus, tumblr, pinterest, instagram,
-linkedin, flickr, dribbble, youtube, vimeo, github
+Twitter, Facebook, Google+, Tumblr, Pinterest, Instagram,
+LinkedIn, Flickr, Dribbble, YouTube, Vimeo, GitHub, Viadeo, Bloglovin
 
 /* ------------------------------------
 Translations
@@ -175,6 +180,14 @@ I will write your name in the translator name in reaeme.txt.
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.7
+* Corresponding to the author of microformats
+* Pagination fix (for smartphones)
+* Add viadeo, the Bloglovin to SNS link
+* TGM Plugin Activation
+* Change screenshot.png
+* Text and CSS fixes
 
 v1.1.6
 * Theme option fixes

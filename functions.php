@@ -95,8 +95,11 @@ function chocolat_setup() {
 	require_once( get_template_directory() . '/admin/theme-options.php' );
 	$options = chocolat_get_option();
 
-	// 2.1.0.2 - Include file
+	// 2.1.0.3 - Include file
 	require_once( get_template_directory() . '/admin/inc/custom-css.php' );
+
+	// 2.1.0.4 - TGM Plugin Activation
+	require_once( get_template_directory() . '/admin/inc/tgm-plugin-installer.php' );
 
 	// 2.1.1 - post-thumbnails
 	add_theme_support( 'post-thumbnails' );
@@ -1184,7 +1187,7 @@ function chocolat_entry_meta() {
 		}
 		// Post author
 		if ( ! empty( $options['show_author'] ) && ( ! in_array( get_post_type(), array( 'page', 'attachment' ) ) ) ) {
-			echo '<p class="entry-author"><a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'" rel="author" class="icon-pencil">'.get_the_author().'</a></p>'."\n";
+			echo '<p class="entry-author"><span class="author vcard"><a href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'" rel="author" class="icon-pencil fn">'.get_the_author().'</a></span></p>'."\n";
 		}
 		echo '</div>'."\n";
 	}
@@ -1412,13 +1415,14 @@ function chocolat_pagination() {
 	if ( empty( $paged ) ) $paged = 1;
 
 	if ( 1 < $pages ) {
+		$mid_size = ( chocolat_is_mobile() ) ? 0 : 3 ;
 		echo '<div class="pagination clearfix">'."\n";
 		echo paginate_links( array(
 			'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
 			'format'    => '?paged=%#%',
 			'current'   => max( 1, get_query_var( 'paged' ) ),
 			'total'     => $wp_query -> max_num_pages,
-			'mid_size'  => 3,
+			'mid_size'  => $mid_size,
 			'prev_text' => '&lsaquo;',
 			'next_text' => '&rsaquo;',
 			'type'      => 'list'
