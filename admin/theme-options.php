@@ -1182,10 +1182,12 @@ function chocolat_theme_options_do_page() {
 						</tr>
 
 						<!-- Social Link -->
-						<tr>
-							<th scope="row"><?php _e( 'Social Link', 'chocolat' ); ?></th>
-							<td><p><?php _e( 'To display the social link, use the "Social Links" of the custom menu.', 'chocolat' ); ?></p>
-								<p><?php _e( 'A corresponding social link', 'chocolat' ) . _e( ':', 'chocolat' ); ?><br /><?php
+						<tr id="option-sociallink" >
+							<th scope="row"><?php _e( 'Social Links', 'chocolat' ); ?></th>
+							<td><p><?php _e( 'To display the social links, use the "Social Links" of the custom menu.', 'chocolat' ); ?></p>
+								<p><?php _e( 'Position to display', 'chocolat' ) . _e( ':', 'chocolat' ); ?><br /><?php _e( 'Displays in a position that is set in the "Position to display" of "Links Setting".', 'chocolat' ); ?>
+								</p>
+								<p><?php _e( 'A corresponding social links', 'chocolat' ) . _e( ':', 'chocolat' ); ?><br /><?php
 									echo __( 'Twitter', 'chocolat' ) . ', ' . 
 									__( 'Facebook', 'chocolat' ) . ', ' . 
 									__( 'Google+', 'chocolat' ) . ', ' . 
@@ -1199,7 +1201,8 @@ function chocolat_theme_options_do_page() {
 									__( 'Vimeo', 'chocolat' ) . ', ' . 
 									__( 'GitHub', 'chocolat' ) . ', ' . 
 									__( 'Viadeo', 'chocolat' ) . ', ' . 
-									__( 'Bloglovin', 'chocolat' );
+									__( 'Bloglovin', 'chocolat' ) . ', ' . 
+									__( 'pixiv', 'chocolat' );
 							?></p></td>
 						</tr>
 
@@ -1314,12 +1317,12 @@ function chocolat_theme_options_do_page() {
 			</div><!-- /#tabset -->
 
 			<table id="save-option" class="form-table">
-				<td><?php
+				<tr><td><?php
 					$option_name = 'save_chocolat_option';
 					$option_text = __( 'Save the value of the option of Chocolat in the database', 'chocolat' );
 					$text_desc = __( 'If you want to use the value of the option of Chocolat a child theme, please check the check box.', 'chocolat' );
 					chocolat_checkbox( $options, $option_name, $option_text, $text_desc );
-				?></td>
+				?></td></tr>
 			</table>
 
 			<div id="submit-button">
@@ -1603,7 +1606,7 @@ function chocolat_theme_options_validate( $input ) {
 		$input['slider_image05_link'] = esc_url_raw( $input['slider_image05_link'] );
 
 		// Custom Css
-		$input['custom_css'] = esc_textarea( $input['custom_css'] );
+		$input['custom_css'] = wp_kses_stripslashes( $input['custom_css'] );
 
 		// save Chocolat option value ( child theme )
 		if ( ! isset( $input['save_chocolat_option'] ) )

@@ -159,8 +159,8 @@ How to use:
 2. Click "Add to Menu" button.
 
 A corresponding social link:
-Twitter, Facebook, Google+, Tumblr, Pinterest, Instagram,
-LinkedIn, Flickr, Dribbble, YouTube, Vimeo, GitHub, Viadeo, Bloglovin
+Twitter, Facebook, Google+, Tumblr, Pinterest, Instagram, LinkedIn,
+Flickr, Dribbble, YouTube, Vimeo, GitHub, Viadeo, Bloglovin, pixiv
 
 /* ------------------------------------
 Translations
@@ -181,11 +181,16 @@ I will write your name in the translator name in reaeme.txt.
 Changelog
 ------------------------------------ */
 
+v1.1.8
+* Add wp-pointer (SNS link)
+* Add pixiv to SNS link
+* Bug and Text fixes
+
 v1.1.7
 * Corresponding to the author of microformats
 * Pagination fix (for smartphones)
 * Add viadeo, the Bloglovin to SNS link
-* TGM Plugin Activation
+* Add TGM Plugin Activation
 * Change screenshot.png
 * Text and CSS fixes
 

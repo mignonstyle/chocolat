@@ -118,7 +118,7 @@ function chocolat_custom_css() {
 
 	if ( ! empty( $options['custom_css'] ) ) {
 		echo '<style type="text/css">';
-		echo "\n" . wp_kses_split( $options['custom_css'], array(), array() ) . "\n";
+		echo "\n" . wp_kses_stripslashes( $options['custom_css'] ) . "\n";
 		echo '</style>' . "\n";
 	}
 }

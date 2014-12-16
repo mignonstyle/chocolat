@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2014-12-09 02:43+0900\n"
-"PO-Revision-Date: 2014-12-09 02:43+0900\n"
+"POT-Creation-Date: 2014-12-17 04:35+0900\n"
+"PO-Revision-Date: 2014-12-17 04:35+0900\n"
 "Last-Translator: Raxa Kau\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: es_ES\n"
@@ -29,11 +29,11 @@ msgstr "%d Comentarios"
 msgid "TrackBack URL"
 msgstr "TrackBack URL"
 
-#: ../content-none.php:23 ../functions.php:643 ../functions.php:1557
+#: ../content-none.php:23 ../functions.php:646 ../functions.php:1560
 msgid "404 Not found"
 msgstr "404 No encontrado"
 
-#: ../content-none.php:25 ../functions.php:1621
+#: ../content-none.php:25 ../functions.php:1624
 msgid "Nothing Found"
 msgstr "Sin resultados"
 
@@ -66,8 +66,8 @@ msgstr "La información que está buscando no fue localizada."
 msgid "Enter a keywords in the search field, or going back to %s."
 msgstr "Escriba palabras clave en los campos de búsqueda, o regrese a %s."
 
-#: ../content-single.php:13 ../content.php:13 ../functions.php:461
-#: ../functions.php:509
+#: ../content-single.php:13 ../content.php:13 ../functions.php:464
+#: ../functions.php:512
 msgid "Edit"
 msgstr "Editar"
 
@@ -91,16 +91,16 @@ msgstr "Resultados de búsqueda de \"%s\""
 msgid "Tag : %s"
 msgstr "Etiqueta : %s"
 
-#: ../content-top.php:31 ../functions.php:636 ../functions.php:1583
-#: ../functions.php:1586
+#: ../content-top.php:31 ../functions.php:639 ../functions.php:1586
+#: ../functions.php:1589
 msgid "Y"
 msgstr "Y"
 
-#: ../content-top.php:33 ../functions.php:638
+#: ../content-top.php:33 ../functions.php:641
 msgid "F Y"
 msgstr "F Y"
 
-#: ../content-top.php:35 ../functions.php:640
+#: ../content-top.php:35 ../functions.php:643
 msgid "F j, Y"
 msgstr "F j, Y"
 
@@ -113,7 +113,7 @@ msgstr "Autor : %s"
 msgid "Archives"
 msgstr "Archivos"
 
-#: ../content-top.php:43 ../functions.php:1554
+#: ../content-top.php:43 ../functions.php:1557
 #, php-format
 msgid "%d posts"
 msgstr "%d posts"
@@ -134,39 +134,39 @@ msgstr ""
 "responsivo que automáticamente responde a tabletas y smartphones. Equipado "
 "con su propio widget, es posible incluso mostrarlo en el widget."
 
-#: ../functions.php:152
+#: ../functions.php:155
 msgid "Global Navigation"
 msgstr "Navegación global"
 
-#: ../functions.php:153
+#: ../functions.php:156 ../admin/theme-options.php:1186
 msgid "Social Links"
 msgstr "Links sociales"
 
-#: ../functions.php:178
+#: ../functions.php:181
 msgid "leaves"
 msgstr "hojas"
 
-#: ../functions.php:184
+#: ../functions.php:187
 msgid "cutlery"
 msgstr "cubiertos"
 
-#: ../functions.php:190
+#: ../functions.php:193
 msgid "rose"
 msgstr "rosa"
 
-#: ../functions.php:196
+#: ../functions.php:199
 msgid "bird"
 msgstr "ave"
 
-#: ../functions.php:263
+#: ../functions.php:266
 msgid "Home"
 msgstr "Inicio"
 
-#: ../functions.php:296
+#: ../functions.php:299
 msgid "Sidebar Widget"
 msgstr "Widget  de la barra lateral"
 
-#: ../functions.php:298
+#: ../functions.php:301
 msgid ""
 "Widgets in this area will be shown at the position that has been set for "
 "\"Sidebar settings\" of theme options (right-hand or left-hand side)."
@@ -175,228 +175,228 @@ msgstr ""
 "\"configuración de la barra lateral\" de las opciones del tema (lado mano "
 "derecha o mano izquierda)."
 
-#: ../functions.php:306
+#: ../functions.php:309
 msgid "AdSense Small"
 msgstr "AdSense pequeño"
 
-#: ../functions.php:308
+#: ../functions.php:311
 msgid "Widgets in this area will be shown at the top of the sidebar widget."
 msgstr ""
 "Los Widgets en esta área se mostrarán en la parte superior de la barra "
 "lateral de widgets."
 
-#: ../functions.php:316
+#: ../functions.php:319
 msgid "AdSense Medium"
 msgstr "AdSense Mediano"
 
-#: ../functions.php:318
+#: ../functions.php:321
 msgid "Widgets in this area will be shown after posts of single post page."
 msgstr ""
 "Los Widgets en esta área se mostrarán después de los posts en la página de "
 "post individuales."
 
-#: ../functions.php:326
+#: ../functions.php:329
 msgid "AdSense Large"
 msgstr "AdSense Grande"
 
-#: ../functions.php:328
+#: ../functions.php:331
 msgid "Widgets in this area will be shown between the footer and sidebar."
 msgstr ""
 "Los Widgets en esta área se mostrarán entre el pie de página y la barra "
 "lateral"
 
-#: ../functions.php:336
+#: ../functions.php:339
 msgid "Ad Banner"
 msgstr "Ad Banner"
 
-#: ../functions.php:338
+#: ../functions.php:341
 msgid "Widgets in this area will be shown at the bottom of the sidebar widget."
 msgstr ""
 "Los Widgets en esta área se mostrarán entre el final y la barra lateral"
 
-#: ../functions.php:346
+#: ../functions.php:349
 msgid "Footer Widget"
 msgstr "Widget de pie de página"
 
-#: ../functions.php:348
+#: ../functions.php:351
 msgid "Widgets in this area will be shown in the footer."
 msgstr "Los Widgets en esta área se mostrarán en el pie de página"
 
-#: ../functions.php:452
+#: ../functions.php:455
 msgid "This comment is awaiting moderation."
 msgstr "Este comentario está esperando moderación."
 
-#: ../functions.php:460
+#: ../functions.php:463
 msgid "Reply"
 msgstr "Responder"
 
-#: ../functions.php:501
+#: ../functions.php:504
 #, php-format
 msgid "Trackback %d"
 msgstr "Trackback %d"
 
-#: ../functions.php:536
+#: ../functions.php:539
 msgid "Comments are closed."
 msgstr "Los comentarios están cerrados"
 
-#: ../functions.php:605
+#: ../functions.php:608
 #, php-format
 msgid "READ%sMORE"
 msgstr "LEER%sMÁS"
 
-#: ../functions.php:615
+#: ../functions.php:618
 #, php-format
 msgid "READ%sPOST"
 msgstr "LEER%sPOST"
 
-#: ../functions.php:633 ../functions.php:1554
+#: ../functions.php:636 ../functions.php:1557
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr "Resultados de búsqueda para \" %s \""
 
-#: ../functions.php:660 ../functions.php:1632
+#: ../functions.php:663 ../functions.php:1635
 #, php-format
 msgid "Page %d"
 msgstr "Página %d"
 
-#: ../functions.php:964
+#: ../functions.php:967
 #, php-format
 msgid "Chocolat theme by %1$sMignon Style%2$s."
 msgstr "Tema Chocolat por %1$sMignon Style%2$s."
 
-#: ../functions.php:964
+#: ../functions.php:967
 #, php-format
 msgid "Powered by %1$sWordPress%2$s."
 msgstr "Generado por %1$sWordPress%2$s."
 
-#: ../functions.php:1012
+#: ../functions.php:1015
 #, php-format
 msgid "Copyright &copy; %1$s %2$s All Rights Reserved."
 msgstr "Derechos de autor &copy; %1$s %2$s Todos los derechos reservados."
 
-#: ../functions.php:1121
+#: ../functions.php:1124
 msgid "Last updated"
 msgstr "Última actualización"
 
-#: ../functions.php:1140
+#: ../functions.php:1143
 msgid "Attention"
 msgstr "Atención"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 #, fuzzy
 msgid "No Comments"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 #, fuzzy
 msgid "1 Comment"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 #, fuzzy
 msgid "% Comments"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 #, fuzzy
 msgid "Comments Off"
 msgstr "%d Comentarios"
 
-#: ../functions.php:1245 ../functions.php:1365 ../admin/theme-options.php:1172
+#: ../functions.php:1248 ../functions.php:1368 ../admin/theme-options.php:1172
 msgid "RSS"
 msgstr "RSS"
 
-#: ../functions.php:1254 ../functions.php:1374
+#: ../functions.php:1257 ../functions.php:1377
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../functions.php:1279 ../functions.php:1393 ../admin/theme-options.php:1135
+#: ../functions.php:1282 ../functions.php:1396 ../admin/theme-options.php:1135
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../functions.php:1333 ../admin/theme-options.php:1123
+#: ../functions.php:1336 ../admin/theme-options.php:1123
 msgid "Information"
 msgstr "Información"
 
-#: ../functions.php:1590 ../functions.php:1593
+#: ../functions.php:1593 ../functions.php:1596
 msgid "F"
 msgstr "F"
 
-#: ../functions.php:1595
+#: ../functions.php:1598
 msgid "j"
 msgstr "j"
 
-#: ../functions.php:1701 ../functions.php:2013 ../functions.php:2038
+#: ../functions.php:1704 ../functions.php:2016 ../functions.php:2041
 #: ../admin/theme-options.php:871
 msgid "New Entry"
 msgstr "Nueva entrada"
 
-#: ../functions.php:1711 ../functions.php:2133 ../functions.php:2160
+#: ../functions.php:1714 ../functions.php:2136 ../functions.php:2163
 #: ../admin/theme-options.php:835
 msgid "Related Entry"
 msgstr "Entradas relacionadas"
 
-#: ../functions.php:2012 ../functions.php:2132 ../functions.php:2243
+#: ../functions.php:2015 ../functions.php:2135 ../functions.php:2246
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr "Es un widget para el %s tema."
 
-#: ../functions.php:2012
+#: ../functions.php:2015
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr "Los posts más recientes en su sitio (con miniaturas)"
 
-#: ../functions.php:2013
+#: ../functions.php:2016
 msgid "(with thumbnails)"
 msgstr "(con miniaturas)"
 
-#: ../functions.php:2109 ../functions.php:2223 ../functions.php:2300
+#: ../functions.php:2112 ../functions.php:2226 ../functions.php:2303
 msgid "Title:"
 msgstr "Título:"
 
-#: ../functions.php:2112 ../functions.php:2226
+#: ../functions.php:2115 ../functions.php:2229
 msgid "Number of posts to show:"
 msgstr "Número de posts que se mostrarán:"
 
-#: ../functions.php:2116 ../functions.php:2230
+#: ../functions.php:2119 ../functions.php:2233
 msgid "Display post date?"
 msgstr "Mostrar la fecha del post?"
 
-#: ../functions.php:2119
+#: ../functions.php:2122
 msgid "Do not want to display the top page of the Web site."
 msgstr "No mostrar la parte superior de la página del sitio."
 
-#: ../functions.php:2132
+#: ../functions.php:2135
 msgid "In the single page, and view the latest posts in the same category."
 msgstr ""
 "En las páginas  individuales, mostrar los posts más recientes de la misma "
 "categoría"
 
-#: ../functions.php:2243
+#: ../functions.php:2246
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr ""
 "Ver el menú de navegación en una página estática con una página padre-hijo"
 
-#: ../functions.php:2244
+#: ../functions.php:2247
 msgid "Fixed Page Menu"
 msgstr "Página de menú fijo"
 
-#: ../functions.php:2251
+#: ../functions.php:2254
 msgid "Page Navi"
 msgstr "Navegación de página"
 
-#: ../functions.php:2302
+#: ../functions.php:2305
 msgid "Sort by:"
 msgstr "Organizado por:"
 
-#: ../functions.php:2304
+#: ../functions.php:2307
 msgid "Page title"
 msgstr "Título de página"
 
-#: ../functions.php:2305
+#: ../functions.php:2308
 msgid "Page order"
 msgstr "Orden de página"
 
-#: ../functions.php:2306
+#: ../functions.php:2309
 msgid "Page ID"
 msgstr "ID  de página"
 
@@ -655,7 +655,7 @@ msgstr "Configuración de la imagen"
 msgid "Links Setting"
 msgstr "Configuración de links"
 
-#: ../admin/theme-options.php:696 ../admin/theme-options.php:1249
+#: ../admin/theme-options.php:696 ../admin/theme-options.php:1252
 #, fuzzy
 msgid "Slider Setting"
 msgstr "Configuración de la barra lateral"
@@ -692,7 +692,9 @@ msgstr "Número de caracteres que se mostrarán en el extracto"
 #: ../admin/theme-options.php:997 ../admin/theme-options.php:1005
 #: ../admin/theme-options.php:1102 ../admin/theme-options.php:1105
 #: ../admin/theme-options.php:1153 ../admin/theme-options.php:1188
-#: ../admin/theme-options.php:1277 ../admin/theme-options.php:1284
+#: ../admin/theme-options.php:1190 ../admin/theme-options.php:1280
+#: ../admin/theme-options.php:1287 ../admin/inc/pointer/pointer.php:98
+#: ../admin/inc/pointer/pointer.php:99
 msgid ":"
 msgstr ""
 
@@ -717,7 +719,7 @@ msgstr "Caractér en el link\"más\""
 msgid "Once you have set the image, it is used as the %s for your Web site."
 msgstr "Una vez elegida la imagen, es utilizada como el %s de su sitio."
 
-#: ../admin/theme-options.php:822 ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:822 ../admin/theme-options.php:1247
 #, php-format
 msgid "Recommended files %s"
 msgstr "Archivos recomendados %s"
@@ -904,7 +906,7 @@ msgstr ""
 "Configurar el contacto RSS y derechos de autor. Los derechos de autor serán "
 "mostrados en el pie de página"
 
-#: ../admin/theme-options.php:1084
+#: ../admin/theme-options.php:1084 ../admin/theme-options.php:1188
 msgid "Position to display"
 msgstr "Posición para mostrar"
 
@@ -964,138 +966,143 @@ msgstr "Ver RSS"
 msgid "View Feedly"
 msgstr "Ver Feedly"
 
-#: ../admin/theme-options.php:1186
-#, fuzzy
-msgid "Social Link"
-msgstr "Links sociales"
-
 #: ../admin/theme-options.php:1187
 msgid ""
-"To display the social link, use the \"Social Links\" of the custom menu."
+"To display the social links, use the \"Social Links\" of the custom menu."
 msgstr ""
 
 #: ../admin/theme-options.php:1188
-msgid "A corresponding social link"
-msgstr ""
-
-#: ../admin/theme-options.php:1189
-msgid "Twitter"
+msgid ""
+"Displays in a position that is set in the \"Position to display\" of \"Links "
+"Setting\"."
 msgstr ""
 
 #: ../admin/theme-options.php:1190
-msgid "Facebook"
+msgid "A corresponding social links"
 msgstr ""
 
 #: ../admin/theme-options.php:1191
-msgid "Google+"
+msgid "Twitter"
 msgstr ""
 
 #: ../admin/theme-options.php:1192
-msgid "Tumblr"
+msgid "Facebook"
 msgstr ""
 
 #: ../admin/theme-options.php:1193
-msgid "Pinterest"
+msgid "Google+"
 msgstr ""
 
 #: ../admin/theme-options.php:1194
-msgid "Instagram"
+msgid "Tumblr"
 msgstr ""
 
 #: ../admin/theme-options.php:1195
-msgid "LinkedIn"
+msgid "Pinterest"
 msgstr ""
 
 #: ../admin/theme-options.php:1196
-msgid "Flickr"
+msgid "Instagram"
 msgstr ""
 
 #: ../admin/theme-options.php:1197
-msgid "Dribbble"
+msgid "LinkedIn"
 msgstr ""
 
 #: ../admin/theme-options.php:1198
-msgid "YouTube"
+msgid "Flickr"
 msgstr ""
 
 #: ../admin/theme-options.php:1199
-msgid "Vimeo"
+msgid "Dribbble"
 msgstr ""
 
 #: ../admin/theme-options.php:1200
-msgid "GitHub"
+msgid "YouTube"
 msgstr ""
 
 #: ../admin/theme-options.php:1201
-msgid "Viadeo"
+msgid "Vimeo"
 msgstr ""
 
 #: ../admin/theme-options.php:1202
+msgid "GitHub"
+msgstr ""
+
+#: ../admin/theme-options.php:1203
+msgid "Viadeo"
+msgstr ""
+
+#: ../admin/theme-options.php:1204
 msgid "Bloglovin"
 msgstr ""
 
-#: ../admin/theme-options.php:1208
+#: ../admin/theme-options.php:1205
+msgid "pixiv"
+msgstr ""
+
+#: ../admin/theme-options.php:1211
 msgid "Copyright"
 msgstr "Derechos de autor"
 
-#: ../admin/theme-options.php:1212
+#: ../admin/theme-options.php:1215
 msgid "Display the copyright of Web site"
 msgstr "Mostrar los derechos de autor en el sitio"
 
-#: ../admin/theme-options.php:1217
+#: ../admin/theme-options.php:1220
 msgid "It will be displayed."
 msgstr "Se mostrará"
 
-#: ../admin/theme-options.php:1217
+#: ../admin/theme-options.php:1220
 msgid "Please enter if you want to change the text of copyright."
 msgstr ""
 "Por favor, escriba algo si desea cambiar el texto de los derechos de autor."
 
-#: ../admin/theme-options.php:1228
+#: ../admin/theme-options.php:1231
 msgid "Credit link"
 msgstr "Link de crédito"
 
-#: ../admin/theme-options.php:1230
+#: ../admin/theme-options.php:1233
 msgid ""
 "Choose to enable or disable  the credit link of the author of the theme."
 msgstr "Elija, activar o desactivar el link de crédito al autor del tema"
 
-#: ../admin/theme-options.php:1230
+#: ../admin/theme-options.php:1233
 msgid "If you display credit link, I am very pleased :)"
 msgstr "Si muestra el link de crédito, estaré muy contento :)"
 
-#: ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:1247
 msgid "Setting an image to be displayed the slider."
 msgstr ""
 
-#: ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:1247
 msgid "Please use the image of the same size."
 msgstr ""
 
-#: ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:1247
 #, fuzzy
 msgid ".png and .jpg (width 980px)"
 msgstr ".png, .jpg and .gif (ancho máximo 350px)"
 
-#: ../admin/theme-options.php:1252
+#: ../admin/theme-options.php:1255
 #, fuzzy
 msgid "Use the slider to the header image"
 msgstr "Usar Lightbox para la imagen"
 
-#: ../admin/theme-options.php:1258
+#: ../admin/theme-options.php:1261
 #, fuzzy
 msgid "The color of the slider"
 msgstr "Superior de la barra lateral"
 
-#: ../admin/theme-options.php:1277
+#: ../admin/theme-options.php:1280
 msgid "Caption"
 msgstr ""
 
-#: ../admin/theme-options.php:1284
+#: ../admin/theme-options.php:1287
 msgid "Link URL"
 msgstr ""
 
-#: ../admin/theme-options.php:1296
+#: ../admin/theme-options.php:1299
 msgid ""
 "Sorry, WordPress you are using is not supported. Upgrade your version of "
 "WordPress."
@@ -1103,35 +1110,35 @@ msgstr ""
 "Lo sentimos, la versión de WordPress que está usando no es soportada, por "
 "favor actualice su versión."
 
-#: ../admin/theme-options.php:1303
+#: ../admin/theme-options.php:1306
 msgid ""
 "The Custom CSS editor gives you can edit the theme, add or replace your "
 "theme's CSS."
 msgstr ""
 
-#: ../admin/theme-options.php:1303
+#: ../admin/theme-options.php:1306
 msgid "This gives syntax coloring, auto-indent feature comes with."
 msgstr ""
 
-#: ../admin/theme-options.php:1309
+#: ../admin/theme-options.php:1312
 msgid "Enter Your Custom CSS Here"
 msgstr ""
 
-#: ../admin/theme-options.php:1319
+#: ../admin/theme-options.php:1322
 msgid "Save the value of the option of Chocolat in the database"
 msgstr ""
 
-#: ../admin/theme-options.php:1320
+#: ../admin/theme-options.php:1323
 msgid ""
 "If you want to use the value of the option of Chocolat a child theme, please "
 "check the check box."
 msgstr ""
 
-#: ../admin/theme-options.php:1326
+#: ../admin/theme-options.php:1329
 msgid "Save Changes"
 msgstr "Salvar cambios"
 
-#: ../admin/theme-options.php:1327
+#: ../admin/theme-options.php:1330
 msgid "Reset Defaults"
 msgstr "Restablecer predeterminados"
 
@@ -1474,6 +1481,58 @@ msgstr ""
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:61
+#, fuzzy
+msgid "How to use Social Links"
+msgstr "Links sociales"
+
+#: ../admin/inc/pointer/pointer.php:91
+msgid "Click Appearance > Menus > \"Edit Menus\" tab."
+msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:94
+msgid "Select a menu to edit or create a new menu."
+msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:97
+msgid "Setting of the \"link\"."
+msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:98
+msgid "URL"
+msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:98
+#, fuzzy
+msgid "Url of the social link"
+msgstr "Caractér en el link\"más\""
+
+#: ../admin/inc/pointer/pointer.php:99
+#, fuzzy
+msgid "Link Text"
+msgstr "Configuración de links"
+
+#: ../admin/inc/pointer/pointer.php:99
+#, fuzzy
+msgid "Name of the social link"
+msgstr "Caractér en el link\"más\""
+
+#: ../admin/inc/pointer/pointer.php:100
+msgid "Click \"Add to Menu\" button."
+msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:103
+msgid "Setting of \"Theme locations\" of \"Menu Settings\"."
+msgstr ""
+
+#: ../admin/inc/pointer/pointer.php:104
+msgid "Please check the check box of \"social links\"."
+msgstr ""
+
+#, fuzzy
+#~ msgid "Social Link"
+#~ msgstr "Links sociales"
 
 #~ msgid "Display settings for each item"
 #~ msgstr "Mostrar configuración para cada item"

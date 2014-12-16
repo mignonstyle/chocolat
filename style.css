@@ -9,7 +9,7 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 Tags: brown, tan, white, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, fluid-layout, custom-background, custom-header, custom-menu, sticky-post, microformats, theme-options, threaded-comments, translation-ready
 Text Domain: chocolat
-Version: 1.1.7
+Version: 1.1.8
 ------------------------------------ */
 
 /* ------------------------------------
@@ -808,7 +808,7 @@ selection
 }
 
 .links-aicon ul li.rss a:hover {
-	background: #fbce78;
+	background: #f2c49b;
 }
 
 .links-aicon ul li.feedly a {
@@ -816,7 +816,7 @@ selection
 }
 
 .links-aicon ul li.feedly a:hover {
-	background: #bed17c;
+	background: #c1d186;
 }
 
 .links-aicon ul li.feedly a:hover span img {
@@ -831,7 +831,7 @@ selection
 }
 
 .links-aicon li.mail a:hover {
-	background: #bf9065;
+	background: #b89a7e;
 }
 
 /* social links */
@@ -840,7 +840,7 @@ selection
 }
 
 .links-aicon li a[href*="twitter.com"]:hover {
-	background: #66cef5;
+	background: #66cdf5;
 }
 
 .links-aicon li a[href*="facebook.com"] {
@@ -848,7 +848,7 @@ selection
 }
 
 .links-aicon li a[href*="facebook.com"]:hover {
-	background: #7da0d6;
+	background: #899bc1;
 }
 
 .links-aicon li a[href*="plus.google.com"] {
@@ -856,7 +856,7 @@ selection
 }
 
 .links-aicon li a[href*="plus.google.com"]:hover {
-	background: #eb7546;
+	background: #eb9388;
 }
 
 .links-aicon li a[href*="tumblr.com"] {
@@ -864,7 +864,7 @@ selection
 }
 
 .links-aicon li a[href*="tumblr.com"]:hover {
-	background: #6e89af;
+	background: #8091a1;
 }
 
 .links-aicon li a[href*="pinterest.com"] {
@@ -872,7 +872,7 @@ selection
 }
 
 .links-aicon li a[href*="pinterest.com"]:hover {
-	background: #e26e63;
+	background: #df797d;
 }
 
 .links-aicon li a[href*="instagram.com"] {
@@ -880,7 +880,7 @@ selection
 }
 
 .links-aicon li a[href*="instagram.com"]:hover {
-	background: #b9b9b9;
+	background: #a3a3a3;
 }
 
 .links-aicon li a[href*="linkedin.com"] {
@@ -888,7 +888,7 @@ selection
 }
 
 .links-aicon li a[href*="linkedin.com"]:hover {
-	background: #5db2e3;
+	background: #66add3;
 }
 
 .links-aicon li a[href*="flickr.com"] {
@@ -896,7 +896,7 @@ selection
 }
 
 .links-aicon li a[href*="flickr.com"]:hover {
-	background: #ddd;
+	background: #d4d4d4;
 }
 
 .links-aicon li a[href*="dribbble.com"] {
@@ -904,7 +904,7 @@ selection
 }
 
 .links-aicon li a[href*="dribbble.com"]:hover {
-	background: #6f6e6e;
+	background: #666;
 }
 
 .links-aicon li a[href*="youtube.com"] {
@@ -912,7 +912,7 @@ selection
 }
 
 .links-aicon li a[href*="youtube.com"]:hover {
-	background: #f57f82;
+	background: #f68a8b;
 }
 
 .links-aicon li a[href*="vimeo.com"] {
@@ -920,7 +920,7 @@ selection
 }
 
 .links-aicon li a[href*="vimeo.com"]:hover {
-	background: #6bc7ed;
+	background: #7ac2e0;
 }
 
 .links-aicon li a[href*="github.com"] {
@@ -928,16 +928,15 @@ selection
 }
 
 .links-aicon li a[href*="github.com"]:hover {
-	background: #6f6e6e;
+	background: #666;
 }
 
-.links-aicon li a[href*="viadeo.com"],
-.links-aicon li a[href*="viadeo.com"]:hover {
+.links-aicon li a[href*="viadeo.com"] {
 	background: #f56600 url(img/common/aicon-viadeo.png) no-repeat center center;
 }
 
 .links-aicon li a[href*="viadeo.com"]:hover {
-	background-color: #ff9435;
+	background-color: #f9a366;
 }
 
 .links-aicon li a[href*="bloglovin.com"] {
@@ -945,20 +944,32 @@ selection
 }
 
 .links-aicon li a[href*="bloglovin.com"]:hover {
-	background-color: #5dcefd;
+	background-color: #66cdff;
+}
+
+.links-aicon li a[href*="pixiv.net"] {
+	background: #0096db url(img/common/aicon-pixiv.png) no-repeat center center;
+}
+
+.links-aicon li a[href*="pixiv.net"]:hover {
+	background-color: #66c0e9;
 }
 
 .links-aicon li a[href*="viadeo.com"],
 .links-aicon li a[href*="viadeo.com"]:hover,
 .links-aicon li a[href*="bloglovin.com"],
-.links-aicon li a[href*="bloglovin.com"]:hover {
+.links-aicon li a[href*="bloglovin.com"]:hover,
+.links-aicon li a[href*="pixiv.net"],
+.links-aicon li a[href*="pixiv.net"]:hover {
 	background-size: 21px auto;
 }
 
 .contactlink-side-center ul li a[href*="viadeo.com"],
 .contactlink-side-center ul li a[href*="viadeo.com"]:hover,
 .contactlink-side-center ul li a[href*="bloglovin.com"],
-.contactlink-side-center ul li a[href*="bloglovin.com"]:hover {
+.contactlink-side-center ul li a[href*="bloglovin.com"]:hover,
+.contactlink-side-center ul li a[href*="pixiv.net"],
+.contactlink-side-center ul li a[href*="pixiv.net"]:hover {
 	background-size: 26px auto;
 }
 

@@ -101,6 +101,9 @@ function chocolat_setup() {
 	// 2.1.0.4 - TGM Plugin Activation
 	require_once( get_template_directory() . '/admin/inc/tgm-plugin-installer.php' );
 
+	// 2.1.0.5 - WP Pointer
+	require_once( get_template_directory() . '/admin/inc/pointer/pointer.php' );
+
 	// 2.1.1 - post-thumbnails
 	add_theme_support( 'post-thumbnails' );
 

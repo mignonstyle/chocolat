@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2014-12-09 02:44+0900\n"
-"PO-Revision-Date: 2014-12-09 02:44+0900\n"
+"POT-Creation-Date: 2014-12-17 04:36+0900\n"
+"PO-Revision-Date: 2014-12-17 04:36+0900\n"
 "Last-Translator: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: Japanese\n"
@@ -29,11 +29,11 @@ msgstr "%d 件のコメント"
 msgid "TrackBack URL"
 msgstr "トラックバックURL"
 
-#: ../content-none.php:23 ../functions.php:643 ../functions.php:1557
+#: ../content-none.php:23 ../functions.php:646 ../functions.php:1560
 msgid "404 Not found"
 msgstr "ページが見つかりません"
 
-#: ../content-none.php:25 ../functions.php:1621
+#: ../content-none.php:25 ../functions.php:1624
 msgid "Nothing Found"
 msgstr "見つかりません"
 
@@ -67,8 +67,8 @@ msgstr "お探しのページは見つかりませんでした。"
 msgid "Enter a keywords in the search field, or going back to %s."
 msgstr "別のキーワードを試すか、%s へ戻って該当のページをお探しください。"
 
-#: ../content-single.php:13 ../content.php:13 ../functions.php:461
-#: ../functions.php:509
+#: ../content-single.php:13 ../content.php:13 ../functions.php:464
+#: ../functions.php:512
 msgid "Edit"
 msgstr "編集"
 
@@ -92,16 +92,16 @@ msgstr "「 %s 」の検索結果"
 msgid "Tag : %s"
 msgstr "タグ「 %s 」の記事"
 
-#: ../content-top.php:31 ../functions.php:636 ../functions.php:1583
-#: ../functions.php:1586
+#: ../content-top.php:31 ../functions.php:639 ../functions.php:1586
+#: ../functions.php:1589
 msgid "Y"
 msgstr "Y年"
 
-#: ../content-top.php:33 ../functions.php:638
+#: ../content-top.php:33 ../functions.php:641
 msgid "F Y"
 msgstr "Y年n月"
 
-#: ../content-top.php:35 ../functions.php:640
+#: ../content-top.php:35 ../functions.php:643
 msgid "F j, Y"
 msgstr "Y年n月j日"
 
@@ -114,7 +114,7 @@ msgstr "%s の記事"
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: ../content-top.php:43 ../functions.php:1554
+#: ../content-top.php:43 ../functions.php:1557
 #, php-format
 msgid "%d posts"
 msgstr "%d 件"
@@ -136,39 +136,39 @@ msgstr ""
 "す。オリジナルのウィジェットで、AdWords広告などの表示も簡単にできます。管理画"
 "面のテーマオプションで関連記事や新着記事の表示も簡単に設定できます。"
 
-#: ../functions.php:152
+#: ../functions.php:155
 msgid "Global Navigation"
 msgstr "グローバルナビ"
 
-#: ../functions.php:153
+#: ../functions.php:156 ../admin/theme-options.php:1186
 msgid "Social Links"
 msgstr "ソーシャルリンク"
 
-#: ../functions.php:178
+#: ../functions.php:181
 msgid "leaves"
 msgstr "はっぱ"
 
-#: ../functions.php:184
+#: ../functions.php:187
 msgid "cutlery"
 msgstr "カラトリー"
 
-#: ../functions.php:190
+#: ../functions.php:193
 msgid "rose"
 msgstr "バラ"
 
-#: ../functions.php:196
+#: ../functions.php:199
 msgid "bird"
 msgstr "ことり"
 
-#: ../functions.php:263
+#: ../functions.php:266
 msgid "Home"
 msgstr "Home"
 
-#: ../functions.php:296
+#: ../functions.php:299
 msgid "Sidebar Widget"
 msgstr "サイドバー ウィジェット"
 
-#: ../functions.php:298
+#: ../functions.php:301
 msgid ""
 "Widgets in this area will be shown at the position that has been set for "
 "\"Sidebar settings\" of theme options (right-hand or left-hand side)."
@@ -176,214 +176,214 @@ msgstr ""
 "このウィジェットはテーマオプションの「サイドバーの位置」で設定した位置（右側"
 "もしくは左側）に表示されます。"
 
-#: ../functions.php:306
+#: ../functions.php:309
 msgid "AdSense Small"
 msgstr "アドセンス S"
 
-#: ../functions.php:308
+#: ../functions.php:311
 msgid "Widgets in this area will be shown at the top of the sidebar widget."
 msgstr "このウィジェットはサイドバーウィジェットの一番上に表示されます。"
 
-#: ../functions.php:316
+#: ../functions.php:319
 msgid "AdSense Medium"
 msgstr "アドセンス M"
 
-#: ../functions.php:318
+#: ../functions.php:321
 msgid "Widgets in this area will be shown after posts of single post page."
 msgstr "このウィジェットは投稿ページの記事の後に表示されます。"
 
-#: ../functions.php:326
+#: ../functions.php:329
 msgid "AdSense Large"
 msgstr "アドセンス L"
 
-#: ../functions.php:328
+#: ../functions.php:331
 msgid "Widgets in this area will be shown between the footer and sidebar."
 msgstr "このウィジェットはフッターとサイドバーの間に表示されます。"
 
-#: ../functions.php:336
+#: ../functions.php:339
 msgid "Ad Banner"
 msgstr "バナー広告"
 
-#: ../functions.php:338
+#: ../functions.php:341
 msgid "Widgets in this area will be shown at the bottom of the sidebar widget."
 msgstr "このウィジェットはサイドバーウィジェットの一番下に表示されます。"
 
-#: ../functions.php:346
+#: ../functions.php:349
 msgid "Footer Widget"
 msgstr "フッター ウィジェット"
 
-#: ../functions.php:348
+#: ../functions.php:351
 msgid "Widgets in this area will be shown in the footer."
 msgstr "このウィジェットはフッターに表示されます。"
 
-#: ../functions.php:452
+#: ../functions.php:455
 msgid "This comment is awaiting moderation."
 msgstr "このコメントは管理者の承認待ちです。"
 
-#: ../functions.php:460
+#: ../functions.php:463
 msgid "Reply"
 msgstr "返信"
 
-#: ../functions.php:501
+#: ../functions.php:504
 #, php-format
 msgid "Trackback %d"
 msgstr "%d 件のトラックバック"
 
-#: ../functions.php:536
+#: ../functions.php:539
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません。"
 
-#: ../functions.php:605
+#: ../functions.php:608
 #, php-format
 msgid "READ%sMORE"
 msgstr "READ%sMORE"
 
-#: ../functions.php:615
+#: ../functions.php:618
 #, php-format
 msgid "READ%sPOST"
 msgstr "READ%sPOST"
 
-#: ../functions.php:633 ../functions.php:1554
+#: ../functions.php:636 ../functions.php:1557
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr "「 %s 」の検索結果"
 
-#: ../functions.php:660 ../functions.php:1632
+#: ../functions.php:663 ../functions.php:1635
 #, php-format
 msgid "Page %d"
 msgstr "%d ページ"
 
-#: ../functions.php:964
+#: ../functions.php:967
 #, php-format
 msgid "Chocolat theme by %1$sMignon Style%2$s."
 msgstr "Chocolat theme by %1$sMignon Style%2$s."
 
-#: ../functions.php:964
+#: ../functions.php:967
 #, php-format
 msgid "Powered by %1$sWordPress%2$s."
 msgstr "Powered by %1$sWordPress%2$s."
 
-#: ../functions.php:1012
+#: ../functions.php:1015
 #, php-format
 msgid "Copyright &copy; %1$s %2$s All Rights Reserved."
 msgstr "Copyright &copy; %1$s %2$s All Rights Reserved."
 
-#: ../functions.php:1121
+#: ../functions.php:1124
 msgid "Last updated"
 msgstr "更新日"
 
-#: ../functions.php:1140
+#: ../functions.php:1143
 msgid "Attention"
 msgstr "Attention"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 msgid "No Comments"
 msgstr "0件"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 msgid "1 Comment"
 msgstr "1件"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 msgid "% Comments"
 msgstr "%件"
 
-#: ../functions.php:1185
+#: ../functions.php:1188
 msgid "Comments Off"
 msgstr "OFF"
 
-#: ../functions.php:1245 ../functions.php:1365 ../admin/theme-options.php:1172
+#: ../functions.php:1248 ../functions.php:1368 ../admin/theme-options.php:1172
 msgid "RSS"
 msgstr "RSS"
 
-#: ../functions.php:1254 ../functions.php:1374
+#: ../functions.php:1257 ../functions.php:1377
 msgid "Feedly"
 msgstr "Feedly"
 
-#: ../functions.php:1279 ../functions.php:1393 ../admin/theme-options.php:1135
+#: ../functions.php:1282 ../functions.php:1396 ../admin/theme-options.php:1135
 msgid "Contact"
 msgstr "お問い合わせ"
 
-#: ../functions.php:1333 ../admin/theme-options.php:1123
+#: ../functions.php:1336 ../admin/theme-options.php:1123
 msgid "Information"
 msgstr "インフォメーション"
 
-#: ../functions.php:1590 ../functions.php:1593
+#: ../functions.php:1593 ../functions.php:1596
 msgid "F"
 msgstr "n月"
 
-#: ../functions.php:1595
+#: ../functions.php:1598
 msgid "j"
 msgstr "j日"
 
-#: ../functions.php:1701 ../functions.php:2013 ../functions.php:2038
+#: ../functions.php:1704 ../functions.php:2016 ../functions.php:2041
 #: ../admin/theme-options.php:871
 msgid "New Entry"
 msgstr "新着記事"
 
-#: ../functions.php:1711 ../functions.php:2133 ../functions.php:2160
+#: ../functions.php:1714 ../functions.php:2136 ../functions.php:2163
 #: ../admin/theme-options.php:835
 msgid "Related Entry"
 msgstr "関連記事"
 
-#: ../functions.php:2012 ../functions.php:2132 ../functions.php:2243
+#: ../functions.php:2015 ../functions.php:2135 ../functions.php:2246
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr "%s テーマ用のウィジェット。"
 
-#: ../functions.php:2012
+#: ../functions.php:2015
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr "最近の投稿をサムネイル付きで表示します。"
 
-#: ../functions.php:2013
+#: ../functions.php:2016
 msgid "(with thumbnails)"
 msgstr "（サムネイル付き）"
 
-#: ../functions.php:2109 ../functions.php:2223 ../functions.php:2300
+#: ../functions.php:2112 ../functions.php:2226 ../functions.php:2303
 msgid "Title:"
 msgstr "タイトル:"
 
-#: ../functions.php:2112 ../functions.php:2226
+#: ../functions.php:2115 ../functions.php:2229
 msgid "Number of posts to show:"
 msgstr "表示する投稿数:"
 
-#: ../functions.php:2116 ../functions.php:2230
+#: ../functions.php:2119 ../functions.php:2233
 msgid "Display post date?"
 msgstr "投稿日を表示しますか ?"
 
-#: ../functions.php:2119
+#: ../functions.php:2122
 msgid "Do not want to display the top page of the Web site."
 msgstr "Webサイトのトップページには表示しない。"
 
-#: ../functions.php:2132
+#: ../functions.php:2135
 msgid "In the single page, and view the latest posts in the same category."
 msgstr "投稿ページで、同じカテゴリーの新着記事を表示します。"
 
-#: ../functions.php:2243
+#: ../functions.php:2246
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr "親子ページのある固定ページにナビゲーションメニューを表示します。"
 
-#: ../functions.php:2244
+#: ../functions.php:2247
 msgid "Fixed Page Menu"
 msgstr "固定ページ メニュー"
 
-#: ../functions.php:2251
+#: ../functions.php:2254
 msgid "Page Navi"
 msgstr "ページナビ"
 
-#: ../functions.php:2302
+#: ../functions.php:2305
 msgid "Sort by:"
 msgstr "並び順:"
 
-#: ../functions.php:2304
+#: ../functions.php:2307
 msgid "Page title"
 msgstr "ページタイトル"
 
-#: ../functions.php:2305
+#: ../functions.php:2308
 msgid "Page order"
 msgstr "ページ順序"
 
-#: ../functions.php:2306
+#: ../functions.php:2309
 msgid "Page ID"
 msgstr "ページ ID"
 
@@ -636,7 +636,7 @@ msgstr "アイキャッチの設定"
 msgid "Links Setting"
 msgstr "リンクの設定"
 
-#: ../admin/theme-options.php:696 ../admin/theme-options.php:1249
+#: ../admin/theme-options.php:696 ../admin/theme-options.php:1252
 msgid "Slider Setting"
 msgstr "スライダーの設定"
 
@@ -672,7 +672,9 @@ msgstr "抜粋に表示する文字数"
 #: ../admin/theme-options.php:997 ../admin/theme-options.php:1005
 #: ../admin/theme-options.php:1102 ../admin/theme-options.php:1105
 #: ../admin/theme-options.php:1153 ../admin/theme-options.php:1188
-#: ../admin/theme-options.php:1277 ../admin/theme-options.php:1284
+#: ../admin/theme-options.php:1190 ../admin/theme-options.php:1280
+#: ../admin/theme-options.php:1287 ../admin/inc/pointer/pointer.php:98
+#: ../admin/inc/pointer/pointer.php:99
 msgid ":"
 msgstr ":"
 
@@ -696,7 +698,7 @@ msgstr "\"more\"リンクの文字"
 msgid "Once you have set the image, it is used as the %s for your Web site."
 msgstr "設定した画像がWebサイトの%sに使用されます。"
 
-#: ../admin/theme-options.php:822 ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:822 ../admin/theme-options.php:1247
 #, php-format
 msgid "Recommended files %s"
 msgstr "おすすめは %s です。"
@@ -875,7 +877,7 @@ msgstr ""
 "お問い合わせやRSS、コピーライトの表示を設定します。コピーライトはフッターに表"
 "示されます。"
 
-#: ../admin/theme-options.php:1084
+#: ../admin/theme-options.php:1084 ../admin/theme-options.php:1188
 msgid "Position to display"
 msgstr "表示する位置"
 
@@ -935,136 +937,142 @@ msgstr "RSSを表示する"
 msgid "View Feedly"
 msgstr "Feedlyを表示する"
 
-#: ../admin/theme-options.php:1186
-msgid "Social Link"
-msgstr "ソーシャルリンク"
-
 #: ../admin/theme-options.php:1187
 msgid ""
-"To display the social link, use the \"Social Links\" of the custom menu."
+"To display the social links, use the \"Social Links\" of the custom menu."
 msgstr ""
-"ソーシャルリンクを表示するにはカスタムメニューの「Social Links」を使用しま"
+"ソーシャルリンクを表示するには、カスタムメニューの「Social Links」を使用しま"
 "す。"
 
 #: ../admin/theme-options.php:1188
-msgid "A corresponding social link"
+msgid ""
+"Displays in a position that is set in the \"Position to display\" of \"Links "
+"Setting\"."
+msgstr "「リンクの設定」の「表示する位置」で設定した位置に表示します。"
+
+#: ../admin/theme-options.php:1190
+msgid "A corresponding social links"
 msgstr "対応するソーシャルリンク"
 
-#: ../admin/theme-options.php:1189
+#: ../admin/theme-options.php:1191
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../admin/theme-options.php:1190
+#: ../admin/theme-options.php:1192
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../admin/theme-options.php:1191
+#: ../admin/theme-options.php:1193
 msgid "Google+"
 msgstr "Google+"
 
-#: ../admin/theme-options.php:1192
+#: ../admin/theme-options.php:1194
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: ../admin/theme-options.php:1193
+#: ../admin/theme-options.php:1195
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: ../admin/theme-options.php:1194
+#: ../admin/theme-options.php:1196
 msgid "Instagram"
 msgstr "Instagram"
 
-#: ../admin/theme-options.php:1195
+#: ../admin/theme-options.php:1197
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ../admin/theme-options.php:1196
+#: ../admin/theme-options.php:1198
 msgid "Flickr"
 msgstr "Flickr"
 
-#: ../admin/theme-options.php:1197
+#: ../admin/theme-options.php:1199
 msgid "Dribbble"
 msgstr "Dribbble"
 
-#: ../admin/theme-options.php:1198
+#: ../admin/theme-options.php:1200
 msgid "YouTube"
 msgstr "YouTube"
 
-#: ../admin/theme-options.php:1199
+#: ../admin/theme-options.php:1201
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: ../admin/theme-options.php:1200
+#: ../admin/theme-options.php:1202
 msgid "GitHub"
 msgstr "GitHub"
 
-#: ../admin/theme-options.php:1201
+#: ../admin/theme-options.php:1203
 msgid "Viadeo"
 msgstr "Viadeo"
 
-#: ../admin/theme-options.php:1202
+#: ../admin/theme-options.php:1204
 msgid "Bloglovin"
 msgstr "Bloglovin"
 
-#: ../admin/theme-options.php:1208
+#: ../admin/theme-options.php:1205
+msgid "pixiv"
+msgstr "pixiv"
+
+#: ../admin/theme-options.php:1211
 msgid "Copyright"
 msgstr "コピーライト"
 
-#: ../admin/theme-options.php:1212
+#: ../admin/theme-options.php:1215
 msgid "Display the copyright of Web site"
 msgstr "Webサイトのコピーライトを表示する"
 
-#: ../admin/theme-options.php:1217
+#: ../admin/theme-options.php:1220
 msgid "It will be displayed."
 msgstr "と表示されます。"
 
-#: ../admin/theme-options.php:1217
+#: ../admin/theme-options.php:1220
 msgid "Please enter if you want to change the text of copyright."
 msgstr "コピーライトのテキストを変更する場合は入力してください。"
 
-#: ../admin/theme-options.php:1228
+#: ../admin/theme-options.php:1231
 msgid "Credit link"
 msgstr "クレジットリンク"
 
-#: ../admin/theme-options.php:1230
+#: ../admin/theme-options.php:1233
 msgid ""
 "Choose to enable or disable  the credit link of the author of the theme."
 msgstr ""
 "テーマの作成者のクレジットリンクを有効または無効にするかを選択してください。"
 
-#: ../admin/theme-options.php:1230
+#: ../admin/theme-options.php:1233
 msgid "If you display credit link, I am very pleased :)"
 msgstr "クレジットリンクを表示して頂けたら幸いです :)"
 
-#: ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:1247
 msgid "Setting an image to be displayed the slider."
 msgstr "スライダーで表示する画像を設定します。"
 
-#: ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:1247
 msgid "Please use the image of the same size."
 msgstr "すべて同じサイズの画像を使用してください。"
 
-#: ../admin/theme-options.php:1244
+#: ../admin/theme-options.php:1247
 msgid ".png and .jpg (width 980px)"
 msgstr "幅980pxのpng、jpgファイル"
 
-#: ../admin/theme-options.php:1252
+#: ../admin/theme-options.php:1255
 msgid "Use the slider to the header image"
 msgstr "ヘッダー画像にスライダーを使用する"
 
-#: ../admin/theme-options.php:1258
+#: ../admin/theme-options.php:1261
 msgid "The color of the slider"
 msgstr "スライダーの色"
 
-#: ../admin/theme-options.php:1277
+#: ../admin/theme-options.php:1280
 msgid "Caption"
 msgstr "キャプション"
 
-#: ../admin/theme-options.php:1284
+#: ../admin/theme-options.php:1287
 msgid "Link URL"
 msgstr "リンクURL"
 
-#: ../admin/theme-options.php:1296
+#: ../admin/theme-options.php:1299
 msgid ""
 "Sorry, WordPress you are using is not supported. Upgrade your version of "
 "WordPress."
@@ -1072,7 +1080,7 @@ msgstr ""
 "申し訳ありませんがご使用のワードプレスは対応していません。ワードプレスのバー"
 "ジョンをアップグレードしてください。"
 
-#: ../admin/theme-options.php:1303
+#: ../admin/theme-options.php:1306
 msgid ""
 "The Custom CSS editor gives you can edit the theme, add or replace your "
 "theme's CSS."
@@ -1080,19 +1088,19 @@ msgstr ""
 "カスタムCSSを使って、テーマのCSSを追加または置き換えして、テーマを変更するこ"
 "となくテーマを編集できます。"
 
-#: ../admin/theme-options.php:1303
+#: ../admin/theme-options.php:1306
 msgid "This gives syntax coloring, auto-indent feature comes with."
 msgstr "構文カラーリング、自動インデント機能がついています。"
 
-#: ../admin/theme-options.php:1309
+#: ../admin/theme-options.php:1312
 msgid "Enter Your Custom CSS Here"
 msgstr "カスタマイズするCSSをここに入力してください。"
 
-#: ../admin/theme-options.php:1319
+#: ../admin/theme-options.php:1322
 msgid "Save the value of the option of Chocolat in the database"
 msgstr "Chocolatのオプションの値をデータベースに保存する"
 
-#: ../admin/theme-options.php:1320
+#: ../admin/theme-options.php:1323
 msgid ""
 "If you want to use the value of the option of Chocolat a child theme, please "
 "check the check box."
@@ -1100,11 +1108,11 @@ msgstr ""
 "Chocolatの子テーマでこのオプションの値を使用する場合はチェックを入れてくださ"
 "い。"
 
-#: ../admin/theme-options.php:1326
+#: ../admin/theme-options.php:1329
 msgid "Save Changes"
 msgstr "変更を保存"
 
-#: ../admin/theme-options.php:1327
+#: ../admin/theme-options.php:1330
 msgid "Reset Defaults"
 msgstr "リセット"
 
@@ -1474,3 +1482,50 @@ msgstr "プラグイン API で問題が発生しました。"
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr "すべてのプラグインのインストールと有効化に成功しました。 %s"
+
+#: ../admin/inc/pointer/pointer.php:61
+msgid "How to use Social Links"
+msgstr "ソーシャルリンクの使い方"
+
+#: ../admin/inc/pointer/pointer.php:91
+msgid "Click Appearance > Menus > \"Edit Menus\" tab."
+msgstr "外観 >メニュー >「メニューを編集」タブをクリックします。"
+
+#: ../admin/inc/pointer/pointer.php:94
+msgid "Select a menu to edit or create a new menu."
+msgstr "編集するメニューを選択、または新規メニューを作成します。"
+
+#: ../admin/inc/pointer/pointer.php:97
+msgid "Setting of the \"link\"."
+msgstr "「リンク」の設定"
+
+#: ../admin/inc/pointer/pointer.php:98
+msgid "URL"
+msgstr "URL"
+
+#: ../admin/inc/pointer/pointer.php:98
+msgid "Url of the social link"
+msgstr "ソーシャルリンクのURL"
+
+#: ../admin/inc/pointer/pointer.php:99
+msgid "Link Text"
+msgstr "リンクテキスト"
+
+#: ../admin/inc/pointer/pointer.php:99
+msgid "Name of the social link"
+msgstr "ソーシャルリンクの名前"
+
+#: ../admin/inc/pointer/pointer.php:100
+msgid "Click \"Add to Menu\" button."
+msgstr "「メニューに追加」ボタンをクリックします。"
+
+#: ../admin/inc/pointer/pointer.php:103
+msgid "Setting of \"Theme locations\" of \"Menu Settings\"."
+msgstr "「メニュー設定」の「テーマの位置」の設定"
+
+#: ../admin/inc/pointer/pointer.php:104
+msgid "Please check the check box of \"social links\"."
+msgstr "「ソーシャルリンク」のチェックボックスにチェックします。"
+
+#~ msgid "Social Link"
+#~ msgstr "ソーシャルリンク"
