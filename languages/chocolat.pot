@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2014-12-17 04:34+0900\n"
-"PO-Revision-Date: 2014-12-17 04:34+0900\n"
+"POT-Creation-Date: 2014-12-17 10:19+0900\n"
+"PO-Revision-Date: 2014-12-17 10:19+0900\n"
 "Last-Translator: \n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -28,11 +28,11 @@ msgstr ""
 msgid "TrackBack URL"
 msgstr ""
 
-#: ../content-none.php:23 ../functions.php:646 ../functions.php:1560
+#: ../content-none.php:23 ../functions.php:643 ../functions.php:1557
 msgid "404 Not found"
 msgstr ""
 
-#: ../content-none.php:25 ../functions.php:1624
+#: ../content-none.php:25 ../functions.php:1621
 msgid "Nothing Found"
 msgstr ""
 
@@ -64,8 +64,8 @@ msgstr ""
 msgid "Enter a keywords in the search field, or going back to %s."
 msgstr ""
 
-#: ../content-single.php:13 ../content.php:13 ../functions.php:464
-#: ../functions.php:512
+#: ../content-single.php:13 ../content.php:13 ../functions.php:461
+#: ../functions.php:509
 msgid "Edit"
 msgstr ""
 
@@ -89,16 +89,16 @@ msgstr ""
 msgid "Tag : %s"
 msgstr ""
 
-#: ../content-top.php:31 ../functions.php:639 ../functions.php:1586
-#: ../functions.php:1589
+#: ../content-top.php:31 ../functions.php:636 ../functions.php:1583
+#: ../functions.php:1586
 msgid "Y"
 msgstr ""
 
-#: ../content-top.php:33 ../functions.php:641
+#: ../content-top.php:33 ../functions.php:638
 msgid "F Y"
 msgstr ""
 
-#: ../content-top.php:35 ../functions.php:643
+#: ../content-top.php:35 ../functions.php:640
 msgid "F j, Y"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Archives"
 msgstr ""
 
-#: ../content-top.php:43 ../functions.php:1557
+#: ../content-top.php:43 ../functions.php:1554
 #, php-format
 msgid "%d posts"
 msgstr ""
@@ -129,252 +129,252 @@ msgid ""
 "easily."
 msgstr ""
 
-#: ../functions.php:155
+#: ../functions.php:152
 msgid "Global Navigation"
 msgstr ""
 
-#: ../functions.php:156 ../admin/theme-options.php:1186
+#: ../functions.php:153 ../admin/theme-options.php:1186
 msgid "Social Links"
 msgstr ""
 
-#: ../functions.php:181
+#: ../functions.php:178
 msgid "leaves"
 msgstr ""
 
-#: ../functions.php:187
+#: ../functions.php:184
 msgid "cutlery"
 msgstr ""
 
-#: ../functions.php:193
+#: ../functions.php:190
 msgid "rose"
 msgstr ""
 
-#: ../functions.php:199
+#: ../functions.php:196
 msgid "bird"
 msgstr ""
 
-#: ../functions.php:266
+#: ../functions.php:263
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:299
+#: ../functions.php:296
 msgid "Sidebar Widget"
 msgstr ""
 
-#: ../functions.php:301
+#: ../functions.php:298
 msgid ""
 "Widgets in this area will be shown at the position that has been set for "
 "\"Sidebar settings\" of theme options (right-hand or left-hand side)."
 msgstr ""
 
-#: ../functions.php:309
+#: ../functions.php:306
 msgid "AdSense Small"
 msgstr ""
 
-#: ../functions.php:311
+#: ../functions.php:308
 msgid "Widgets in this area will be shown at the top of the sidebar widget."
 msgstr ""
 
-#: ../functions.php:319
+#: ../functions.php:316
 msgid "AdSense Medium"
 msgstr ""
 
-#: ../functions.php:321
+#: ../functions.php:318
 msgid "Widgets in this area will be shown after posts of single post page."
 msgstr ""
 
-#: ../functions.php:329
+#: ../functions.php:326
 msgid "AdSense Large"
 msgstr ""
 
-#: ../functions.php:331
+#: ../functions.php:328
 msgid "Widgets in this area will be shown between the footer and sidebar."
 msgstr ""
 
-#: ../functions.php:339
+#: ../functions.php:336
 msgid "Ad Banner"
 msgstr ""
 
-#: ../functions.php:341
+#: ../functions.php:338
 msgid "Widgets in this area will be shown at the bottom of the sidebar widget."
 msgstr ""
 
-#: ../functions.php:349
+#: ../functions.php:346
 msgid "Footer Widget"
 msgstr ""
 
-#: ../functions.php:351
+#: ../functions.php:348
 msgid "Widgets in this area will be shown in the footer."
 msgstr ""
 
-#: ../functions.php:455
+#: ../functions.php:452
 msgid "This comment is awaiting moderation."
 msgstr ""
 
-#: ../functions.php:463
+#: ../functions.php:460
 msgid "Reply"
 msgstr ""
 
-#: ../functions.php:504
+#: ../functions.php:501
 #, php-format
 msgid "Trackback %d"
 msgstr ""
 
-#: ../functions.php:539
+#: ../functions.php:536
 msgid "Comments are closed."
 msgstr ""
 
-#: ../functions.php:608
+#: ../functions.php:605
 #, php-format
 msgid "READ%sMORE"
 msgstr ""
 
-#: ../functions.php:618
+#: ../functions.php:615
 #, php-format
 msgid "READ%sPOST"
 msgstr ""
 
-#: ../functions.php:636 ../functions.php:1557
+#: ../functions.php:633 ../functions.php:1554
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr ""
 
-#: ../functions.php:663 ../functions.php:1635
+#: ../functions.php:660 ../functions.php:1632
 #, php-format
 msgid "Page %d"
 msgstr ""
 
-#: ../functions.php:967
+#: ../functions.php:964
 #, php-format
 msgid "Chocolat theme by %1$sMignon Style%2$s."
 msgstr ""
 
-#: ../functions.php:967
+#: ../functions.php:964
 #, php-format
 msgid "Powered by %1$sWordPress%2$s."
 msgstr ""
 
-#: ../functions.php:1015
+#: ../functions.php:1012
 #, php-format
 msgid "Copyright &copy; %1$s %2$s All Rights Reserved."
 msgstr ""
 
-#: ../functions.php:1124
+#: ../functions.php:1121
 msgid "Last updated"
 msgstr ""
 
-#: ../functions.php:1143
+#: ../functions.php:1140
 msgid "Attention"
 msgstr ""
 
-#: ../functions.php:1188
+#: ../functions.php:1185
 msgid "No Comments"
 msgstr ""
 
-#: ../functions.php:1188
+#: ../functions.php:1185
 msgid "1 Comment"
 msgstr ""
 
-#: ../functions.php:1188
+#: ../functions.php:1185
 msgid "% Comments"
 msgstr ""
 
-#: ../functions.php:1188
+#: ../functions.php:1185
 msgid "Comments Off"
 msgstr ""
 
-#: ../functions.php:1248 ../functions.php:1368 ../admin/theme-options.php:1172
+#: ../functions.php:1245 ../functions.php:1365 ../admin/theme-options.php:1172
 msgid "RSS"
 msgstr ""
 
-#: ../functions.php:1257 ../functions.php:1377
+#: ../functions.php:1254 ../functions.php:1374
 msgid "Feedly"
 msgstr ""
 
-#: ../functions.php:1282 ../functions.php:1396 ../admin/theme-options.php:1135
+#: ../functions.php:1279 ../functions.php:1393 ../admin/theme-options.php:1135
 msgid "Contact"
 msgstr ""
 
-#: ../functions.php:1336 ../admin/theme-options.php:1123
+#: ../functions.php:1333 ../admin/theme-options.php:1123
 msgid "Information"
 msgstr ""
 
-#: ../functions.php:1593 ../functions.php:1596
+#: ../functions.php:1590 ../functions.php:1593
 msgid "F"
 msgstr ""
 
-#: ../functions.php:1598
+#: ../functions.php:1595
 msgid "j"
 msgstr ""
 
-#: ../functions.php:1704 ../functions.php:2016 ../functions.php:2041
+#: ../functions.php:1701 ../functions.php:2013 ../functions.php:2038
 #: ../admin/theme-options.php:871
 msgid "New Entry"
 msgstr ""
 
-#: ../functions.php:1714 ../functions.php:2136 ../functions.php:2163
+#: ../functions.php:1711 ../functions.php:2133 ../functions.php:2160
 #: ../admin/theme-options.php:835
 msgid "Related Entry"
 msgstr ""
 
-#: ../functions.php:2015 ../functions.php:2135 ../functions.php:2246
+#: ../functions.php:2012 ../functions.php:2132 ../functions.php:2243
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr ""
 
-#: ../functions.php:2015
+#: ../functions.php:2012
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr ""
 
-#: ../functions.php:2016
+#: ../functions.php:2013
 msgid "(with thumbnails)"
 msgstr ""
 
-#: ../functions.php:2112 ../functions.php:2226 ../functions.php:2303
+#: ../functions.php:2109 ../functions.php:2223 ../functions.php:2300
 msgid "Title:"
 msgstr ""
 
-#: ../functions.php:2115 ../functions.php:2229
+#: ../functions.php:2112 ../functions.php:2226
 msgid "Number of posts to show:"
 msgstr ""
 
-#: ../functions.php:2119 ../functions.php:2233
+#: ../functions.php:2116 ../functions.php:2230
 msgid "Display post date?"
 msgstr ""
 
-#: ../functions.php:2122
+#: ../functions.php:2119
 msgid "Do not want to display the top page of the Web site."
 msgstr ""
 
-#: ../functions.php:2135
+#: ../functions.php:2132
 msgid "In the single page, and view the latest posts in the same category."
 msgstr ""
 
-#: ../functions.php:2246
+#: ../functions.php:2243
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr ""
 
-#: ../functions.php:2247
+#: ../functions.php:2244
 msgid "Fixed Page Menu"
 msgstr ""
 
-#: ../functions.php:2254
+#: ../functions.php:2251
 msgid "Page Navi"
 msgstr ""
 
-#: ../functions.php:2305
+#: ../functions.php:2302
 msgid "Sort by:"
 msgstr ""
 
-#: ../functions.php:2307
+#: ../functions.php:2304
 msgid "Page title"
 msgstr ""
 
-#: ../functions.php:2308
+#: ../functions.php:2305
 msgid "Page order"
 msgstr ""
 
-#: ../functions.php:2309
+#: ../functions.php:2306
 msgid "Page ID"
 msgstr ""
 
@@ -662,8 +662,7 @@ msgstr ""
 #: ../admin/theme-options.php:1102 ../admin/theme-options.php:1105
 #: ../admin/theme-options.php:1153 ../admin/theme-options.php:1188
 #: ../admin/theme-options.php:1190 ../admin/theme-options.php:1280
-#: ../admin/theme-options.php:1287 ../admin/inc/pointer/pointer.php:98
-#: ../admin/inc/pointer/pointer.php:99
+#: ../admin/theme-options.php:1287
 msgid ":"
 msgstr ""
 
@@ -1416,48 +1415,4 @@ msgstr ""
 #: ../admin/inc/tgm-plugin-installer.php:86
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:61
-msgid "How to use Social Links"
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:91
-msgid "Click Appearance > Menus > \"Edit Menus\" tab."
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:94
-msgid "Select a menu to edit or create a new menu."
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:97
-msgid "Setting of the \"link\"."
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:98
-msgid "URL"
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:98
-msgid "Url of the social link"
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:99
-msgid "Link Text"
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:99
-msgid "Name of the social link"
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:100
-msgid "Click \"Add to Menu\" button."
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:103
-msgid "Setting of \"Theme locations\" of \"Menu Settings\"."
-msgstr ""
-
-#: ../admin/inc/pointer/pointer.php:104
-msgid "Please check the check box of \"social links\"."
 msgstr ""

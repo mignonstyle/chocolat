@@ -181,6 +181,9 @@ I will write your name in the translator name in reaeme.txt.
 Changelog
 ------------------------------------ */
 
+v1.1.9
+* Delete wp-pointer (SNS link)
+
 v1.1.8
 * Add wp-pointer (SNS link)
 * Add pixiv to SNS link
