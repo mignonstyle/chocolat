@@ -80,6 +80,7 @@ endif;
  * 2.1.7 - post-formats
  * 2.1.8 - html5
  * 2.1.9 - gallery styles
+ * 2.1.10- title-tag
  * --------------------------------------------*/
 
 /* ----------------------------------------------
@@ -99,7 +100,9 @@ function chocolat_setup() {
 	require_once( get_template_directory() . '/admin/inc/custom-css.php' );
 
 	// 2.1.0.4 - TGM Plugin Activation
-	require_once( get_template_directory() . '/admin/inc/tgm-plugin-installer.php' );
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		require_once( get_template_directory() . '/admin/inc/tgm-plugin-installer.php' );
+	}
 
 	// 2.1.1 - post-thumbnails
 	add_theme_support( 'post-thumbnails' );
@@ -217,6 +220,9 @@ function chocolat_setup() {
 
 	// 2.1.9 - This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
+
+	// 2.1.10 - title-tag
+	add_theme_support( 'title-tag' );
 }
 endif;
 add_action( 'after_setup_theme', 'chocolat_setup' );
@@ -277,6 +283,18 @@ function chocolat_editor_settings( $initArray ) {
 }
 endif;
 add_filter( 'tiny_mce_before_init', 'chocolat_editor_settings' );
+
+/* ----------------------------------------------
+ * 2.1.10 - title-tag
+ * --------------------------------------------*/
+
+if ( ! function_exists( '_wp_render_title_tag' ) ) :
+	function chocolat_render_title() {
+	?><title><?php wp_title( '|', true, 'right' ); ?></title>
+<?php
+	}
+	add_action( 'wp_head', 'chocolat_render_title', 1 );
+endif;
 
 /* ----------------------------------------------
  * 2.2 - widgets
