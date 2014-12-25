@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2014-12-23 19:15+0900\n"
-"PO-Revision-Date: 2014-12-23 19:15+0900\n"
+"POT-Creation-Date: 2014-12-26 02:39+0900\n"
+"PO-Revision-Date: 2014-12-26 02:39+0900\n"
 "Last-Translator: \n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -28,11 +28,11 @@ msgstr ""
 msgid "TrackBack URL"
 msgstr ""
 
-#: ../content-none.php:23 ../functions.php:661 ../functions.php:1575
+#: ../content-none.php:23 ../functions.php:661 ../functions.php:1573
 msgid "404 Not found"
 msgstr ""
 
-#: ../content-none.php:25 ../functions.php:1639
+#: ../content-none.php:25 ../functions.php:1637
 msgid "Nothing Found"
 msgstr ""
 
@@ -89,8 +89,8 @@ msgstr ""
 msgid "Tag : %s"
 msgstr ""
 
-#: ../content-top.php:31 ../functions.php:654 ../functions.php:1601
-#: ../functions.php:1604
+#: ../content-top.php:31 ../functions.php:654 ../functions.php:1599
+#: ../functions.php:1602
 msgid "Y"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Archives"
 msgstr ""
 
-#: ../content-top.php:43 ../functions.php:1572
+#: ../content-top.php:43 ../functions.php:1570
 #, php-format
 msgid "%d posts"
 msgstr ""
@@ -234,12 +234,12 @@ msgstr ""
 msgid "READ%sPOST"
 msgstr ""
 
-#: ../functions.php:651 ../functions.php:1572
+#: ../functions.php:651 ../functions.php:1570
 #, php-format
 msgid "Search Results of \" %s \""
 msgstr ""
 
-#: ../functions.php:678 ../functions.php:1650
+#: ../functions.php:678 ../functions.php:1648
 #, php-format
 msgid "Page %d"
 msgstr ""
@@ -299,82 +299,82 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#: ../functions.php:1608 ../functions.php:1611
+#: ../functions.php:1606 ../functions.php:1609
 msgid "F"
 msgstr ""
 
-#: ../functions.php:1613
+#: ../functions.php:1611
 msgid "j"
 msgstr ""
 
-#: ../functions.php:1719 ../functions.php:2031 ../functions.php:2056
+#: ../functions.php:1717 ../functions.php:2029 ../functions.php:2054
 #: ../admin/theme-options.php:871
 msgid "New Entry"
 msgstr ""
 
-#: ../functions.php:1729 ../functions.php:2151 ../functions.php:2178
+#: ../functions.php:1727 ../functions.php:2149 ../functions.php:2176
 #: ../admin/theme-options.php:835
 msgid "Related Entry"
 msgstr ""
 
-#: ../functions.php:2030 ../functions.php:2150 ../functions.php:2261
+#: ../functions.php:2028 ../functions.php:2148 ../functions.php:2259
 #, php-format
 msgid "It is a widget for the %s theme."
 msgstr ""
 
-#: ../functions.php:2030
+#: ../functions.php:2028
 msgid "The most recent posts on your site (with thumbnails)"
 msgstr ""
 
-#: ../functions.php:2031
+#: ../functions.php:2029
 msgid "(with thumbnails)"
 msgstr ""
 
-#: ../functions.php:2127 ../functions.php:2241 ../functions.php:2318
+#: ../functions.php:2125 ../functions.php:2239 ../functions.php:2316
 msgid "Title:"
 msgstr ""
 
-#: ../functions.php:2130 ../functions.php:2244
+#: ../functions.php:2128 ../functions.php:2242
 msgid "Number of posts to show:"
 msgstr ""
 
-#: ../functions.php:2134 ../functions.php:2248
+#: ../functions.php:2132 ../functions.php:2246
 msgid "Display post date?"
 msgstr ""
 
-#: ../functions.php:2137
+#: ../functions.php:2135
 msgid "Do not want to display the top page of the Web site."
 msgstr ""
 
-#: ../functions.php:2150
+#: ../functions.php:2148
 msgid "In the single page, and view the latest posts in the same category."
 msgstr ""
 
-#: ../functions.php:2261
+#: ../functions.php:2259
 msgid "View navigation menu to a fixed page that have a parent-child page"
 msgstr ""
 
-#: ../functions.php:2262
+#: ../functions.php:2260
 msgid "Fixed Page Menu"
 msgstr ""
 
-#: ../functions.php:2269
+#: ../functions.php:2267
 msgid "Page Navi"
 msgstr ""
 
-#: ../functions.php:2320
+#: ../functions.php:2318
 msgid "Sort by:"
 msgstr ""
 
-#: ../functions.php:2322
+#: ../functions.php:2320
 msgid "Page title"
 msgstr ""
 
-#: ../functions.php:2323
+#: ../functions.php:2321
 msgid "Page order"
 msgstr ""
 
-#: ../functions.php:2324
+#: ../functions.php:2322
 msgid "Page ID"
 msgstr ""
 

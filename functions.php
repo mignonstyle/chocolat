@@ -1436,8 +1436,6 @@ function chocolat_pagination() {
 		$mid_size = ( chocolat_is_mobile() ) ? 0 : 3 ;
 		echo '<div class="pagination clearfix">'."\n";
 		echo paginate_links( array(
-			'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-			'format'    => '?paged=%#%',
 			'current'   => max( 1, get_query_var( 'paged' ) ),
 			'total'     => $wp_query -> max_num_pages,
 			'mid_size'  => $mid_size,

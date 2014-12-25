@@ -181,6 +181,9 @@ I will write your name in the translator name in reaeme.txt.
 Changelog
 ------------------------------------ */
 
+v1.1.11
+* Bug fixes
+
 v1.1.10
 * Add current_user_can( 'edit_theme_options' )
 * Add add_theme_support( 'title-tag' )
