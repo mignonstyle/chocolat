@@ -1670,6 +1670,9 @@ function chocolat_post_list_number( $show_num = '' ) {
 		case '3':
 			$num_class = 'three-column';
 			break;
+		case '2':
+			$num_class = 'two-column';
+			break;
 	}
 	return $num_class;
 }
@@ -1710,7 +1713,7 @@ if ( ! function_exists( 'chocolat_post_list' ) ) :
 function chocolat_post_list( $show_tag ) {
 	$options = chocolat_get_option();
 	// If the value is 0, use the value of the default
-	$show_num = 10; 
+	$show_num = 5;
 	$num_class = 'five-column';
 
 	if ( $show_tag == 'new' ) {
@@ -1719,6 +1722,7 @@ function chocolat_post_list( $show_tag ) {
 		if ( ! empty( $options['new_posts_number'] ) ) {
 			$show_num = absint( $options['new_posts_number'] );
 			$num_class = chocolat_post_list_number( $show_num );
+			$show_num = absint( $options['new_posts_number'] * $options['new_posts_row'] );
 		}
 
 		$order = 'DESC';
@@ -1729,6 +1733,7 @@ function chocolat_post_list( $show_tag ) {
 		if ( ! empty( $options['related_number'] ) ) {
 			$show_num = absint( $options['related_number'] );
 			$num_class = chocolat_post_list_number( $show_num );
+			$show_num = absint( $options['related_number'] * $options['related_row'] );
 		}
 
 		if ( ! empty( $options['related_order_select'] ) ) {

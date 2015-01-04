@@ -93,7 +93,7 @@ smart phone style max-width: 640px
 }
 
 .header-links .search-box .search-field {
-	display: block;
+	display: none;
 	height: 45px;
 	line-height: 45px;
 	padding: 0;
@@ -128,6 +128,7 @@ smart phone style max-width: 640px
 
 div.globalnav {
 	background: #fff;
+	display: none;
 	font-size: 1em;
 	position: absolute;
 	right: 0;
@@ -427,6 +428,18 @@ div.globalnav > ul > .current-menu-ancestor > a:hover {
 
 .related-contents .three-column li:nth-child(3n),
 .new-contents .three-column li:nth-child(3n) {
+	margin-right: 0;
+}
+
+/* two-column */
+.related-contents .two-column li,
+.new-contents .two-column li {
+	margin-right: 1.6666%;
+	width: 49.1666%;
+}
+
+.related-contents .two-column li:nth-child(2n),
+.new-contents .two-column li:nth-child(2n) {
 	margin-right: 0;
 }
 

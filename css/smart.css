@@ -183,7 +183,7 @@ img.alignright {
 }
 
 #header #site-description {
-	margin: 0.5em;
+	margin: 0.5em 95px 0.5em 0;
 }
 
 #header #site-title img.logo {
@@ -462,4 +462,13 @@ section .section-bottom {
 
 #widget-footer {
 	padding-bottom: 1px;
+}
+
+/* ------------------------------------
+9.1 - jQuery FlexSlider
+------------------------------------ */
+
+/* Direction Nav */
+.flex-direction-nav {
+	display: none;
 }

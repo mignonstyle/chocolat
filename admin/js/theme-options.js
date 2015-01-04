@@ -43,7 +43,7 @@ jQuery(function($){
 	}
 
 	// radio button
-	function chocolat_options_radio(obj, obj_value, tar_obj01='', tar_obj02=''){
+	function chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02){
 		var input_value = $(obj+':checked').val();
 
 		if(input_value == obj_value){
@@ -103,7 +103,8 @@ jQuery(function($){
 		obj = 'input[name*="featured_crop"]';
 		obj_value = 'crop';
 		tar_obj01 = '#featured-crop-pos';
-		chocolat_options_radio(obj, obj_value, tar_obj01);
+		tar_obj02 = '';
+		chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02);
 	}
 
 	// Home page Featured Image Position radio button
@@ -131,7 +132,8 @@ jQuery(function($){
 			obj = 'input[name*="featured_home_crop"]';
 			obj_value = 'crop';
 			tar_obj01 = '#featured-home-crop-pos';
-			chocolat_options_radio(obj, obj_value, tar_obj01);
+			tar_obj02 = '';
+			chocolat_options_radio(obj, obj_value, tar_obj01, tar_obj02);
 		}
 	}
 

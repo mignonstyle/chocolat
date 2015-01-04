@@ -165,13 +165,15 @@ function chocolat_theme_default_options() {
 
 		'show_related'         => 0,
 		'related_title'        => '',
-		'related_number'       => 10,
+		'related_number'       => 5,
+		'related_row'          => 2,
 		'related_order_select' => 'desc',
 		'related_class_select' => 'category',
 
 		'show_new_posts'   => 0,
 		'new_posts_title'  => '',
-		'new_posts_number' => 10,
+		'new_posts_number' => 5,
+		'new_posts_row'    => 2,
 
 		'sidebar_radio' => 'right_sidebar',
 
@@ -840,11 +842,12 @@ function chocolat_theme_options_do_page() {
 									$option_text = __( 'View Related Posts after the content', 'chocolat' );
 									chocolat_checkbox( $options, $option_name, $option_text );
 								?>
-
 								<div class="theme-left-space hidebox"><?php
 									$option_name = 'related_title';
 									$option_label = __( 'Title', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
 									chocolat_textfield( $options, $option_name, $option_label );
+
+									echo '<table><tr><td>';
 
 									$option_name = 'related_number';
 									$option_label = __( 'Number of posts to show', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
@@ -852,6 +855,16 @@ function chocolat_theme_options_do_page() {
 									$option_class = 'small-text';
 									$label_after = __( 'posts', 'chocolat' );
 									chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+
+									echo '</td><td>' . __( 'x', 'chocolat' ) . '</td><td>';
+
+									$option_name = 'related_row';
+									$option_type = 'number';
+									$option_class = 'small-text';
+									$label_after = __( 'row', 'chocolat' );
+									chocolat_textfield( $options, $option_name, '', $option_type, $option_class, $label_after );
+
+									echo '</td></tr></table>';
 
 									$option_label = __( 'Alignment sequence', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
 									$option_array = chocolat_related_order_options();
@@ -881,12 +894,24 @@ function chocolat_theme_options_do_page() {
 									$option_label = __( 'Title', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
 									chocolat_textfield( $options, $option_name, $option_label );
 
+									echo '<table><tr><td>';
+
 									$option_name = 'new_posts_number';
 									$option_label = __( 'Number of posts to show', 'chocolat' ) . __( ':', 'chocolat' ) . '&nbsp;';
 									$option_type = 'number';
 									$option_class = 'small-text';
 									$label_after = __( 'posts', 'chocolat' );
 									chocolat_textfield( $options, $option_name, $option_label, $option_type, $option_class, $label_after );
+
+									echo '</td><td>' . __( 'x', 'chocolat' ) . '</td><td>';
+
+									$option_name = 'new_posts_row';
+									$option_type = 'number';
+									$option_class = 'small-text';
+									$label_after = __( 'row', 'chocolat' );
+									chocolat_textfield( $options, $option_name, '', $option_type, $option_class, $label_after );
+
+									echo '</td></tr></table>';
 								?></div>
 							</fieldset></td>
 						</tr>
@@ -1492,7 +1517,15 @@ function chocolat_theme_options_validate( $input ) {
 
 		$input['related_title'] = sanitize_text_field( $input['related_title'] );
 
+		if ( $input['related_number'] > 5 ) {
+			$input['related_row'] = absint( ceil( $input['related_number'] / 5 ) );
+			$input['related_number'] = 5;
+		}
 		$input['related_number'] = absint( $input['related_number'] );
+
+		if ( $input['related_row'] < 1 )
+			$input['related_row'] = 2;
+		$input['related_row'] = absint( $input['related_row'] );
 
 		if ( ! array_key_exists( $input['related_order_select'], chocolat_related_order_options() ) )
 			$input['related_order_select'] = null;
@@ -1507,7 +1540,15 @@ function chocolat_theme_options_validate( $input ) {
 
 		$input['new_posts_title'] = sanitize_text_field( $input['new_posts_title'] );
 
+		if ( $input['new_posts_number'] > 5 ) {
+			$input['new_posts_row'] = absint( ceil( $input['new_posts_number'] / 5 ) );
+			$input['new_posts_number'] = 5;
+		}
 		$input['new_posts_number'] = absint( $input['new_posts_number'] );
+
+		if ( $input['new_posts_row'] < 1 )
+			$input['new_posts_row'] = 2;
+		$input['new_posts_row'] = absint( $input['new_posts_row'] );
 
 		// Sidebar settings
 		if ( ! isset( $input['sidebar_radio'] ) )
