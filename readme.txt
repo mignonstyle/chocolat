@@ -181,6 +181,9 @@ I will write your name in the translator name in reaeme.txt.
 Changelog
 ------------------------------------ */
 
+v1.1.13
+* Bug fixes
+
 v1.1.12
 * Theme option fixes
 * CSS fixes

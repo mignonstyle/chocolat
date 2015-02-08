@@ -203,7 +203,7 @@ function chocolat_setup() {
 	// 2.1.5 - custom-background
 	$defaults = array(
 		'default-color' => 'f9f6ed',
-		'default-image' => '%s/img/base/bg_body.png',
+		'default-image' => get_template_directory_uri() . '/img/base/bg_body.png',
 	);
 	add_theme_support( 'custom-background', $defaults );
 
@@ -643,13 +643,25 @@ endif;
 
 if ( ! function_exists( 'chocolat_page_title' ) ) :
 function chocolat_page_title( $title, $sep = true, $seplocation = 'right' ) {
+	if ( is_feed() ) {
+		return $title;
+	}
+
 	global $paged, $page;
 	$sep = ' ' . $sep . ' ';
 
-	// page title
+	// If it's a search
 	if ( is_search() ) {
 		$title = sprintf( __( 'Search Results of " %s "', 'chocolat' ), get_search_query() ).$sep;
-	} elseif ( is_date() ) {
+	}
+
+	// If it's a 404 page
+	if ( is_404() ) {
+		$title = __( '404 Not found', 'chocolat' ).$sep;
+	}
+
+	// If there's a year
+	if ( is_date() ) {
 		if ( is_year() ) {
 			$title = get_the_time( __( 'Y', 'chocolat' ) ).$sep;
 		} elseif ( is_month() ) {
@@ -657,26 +669,24 @@ function chocolat_page_title( $title, $sep = true, $seplocation = 'right' ) {
 		} elseif ( is_day() ) {
 			$title = get_the_time( __( 'F j, Y', 'chocolat' ) ).$sep;
 		}
-	} elseif ( is_404() ) {
-		$title = __( '404 Not found', 'chocolat' ).$sep;
-	} else {
-		$title = $title;
 	}
 
-	// Add the blog name
-	$title .= apply_filters( 'chocolat_wp_title_name', get_bloginfo( 'name', 'display' ) );
+	if ( is_search() || is_404() || is_date() ) {
+		// Add the blog name
+		$title .= apply_filters( 'chocolat_wp_title_name', get_bloginfo( 'name', 'display' ) );
 
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title_desc = $sep.$site_description;
-		$title .= apply_filters( 'chocolat_wp_title_desc', $title_desc );
-	}
+		// Add the blog description for the home/front page.
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description && ( is_home() || is_front_page() ) ) {
+			$title_desc = $sep.$site_description;
+			$title .= apply_filters( 'chocolat_wp_title_desc', $title_desc );
+		}
 
-	// Add a page number if necessary:
-	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title_page = $sep.sprintf( __( 'Page %d', 'chocolat' ), max( $paged, $page) );
-		$title .= apply_filters( 'chocolat_wp_title_page', $title_page );
+		// Add a page number if necessary:
+		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+			$title_page = $sep.sprintf( __( 'Page %d', 'chocolat' ), max( $paged, $page) );
+			$title .= apply_filters( 'chocolat_wp_title_page', $title_page );
+		}
 	}
 
 	return $title;
