@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2015-02-08 10:28+0900\n"
-"PO-Revision-Date: 2015-02-08 10:28+0900\n"
+"POT-Creation-Date: 2015-03-04 02:53+0900\n"
+"PO-Revision-Date: 2015-03-04 02:53+0900\n"
 "Last-Translator: Raxa Kau\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: es_ES\n"
@@ -118,7 +118,7 @@ msgstr "Archivos"
 msgid "%d posts"
 msgstr "%d posts"
 
-#: ../footer.php:41
+#: ../footer.php:39
 msgid "PAGE TOP"
 msgstr "SUBIR"
 
@@ -1149,6 +1149,40 @@ msgstr "Salvar cambios"
 msgid "Reset Defaults"
 msgstr "Restablecer predeterminados"
 
+#: ../admin/theme-options.php:1360
+msgid "If you can not \"Save changes\" or \"reset\":"
+msgstr ""
+
+#: ../admin/theme-options.php:1360
+msgid "More detailed"
+msgstr ""
+
+#: ../admin/theme-options.php:1360
+#: ../admin/inc/class-tgm-plugin-activation.php:186
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../admin/theme-options.php:1361
+msgid ""
+"When WAF setting of the server is enabled, you can not \"Save changes\" or "
+"\"reset\"."
+msgstr ""
+
+#: ../admin/theme-options.php:1361
+msgid ""
+"Please save the settings of Chocolat after you disable the WAF configuration."
+msgstr ""
+
+#: ../admin/theme-options.php:1361
+msgid ""
+"Once you have save the settings of Chocolat, for security, please reenable "
+"the WAF setting."
+msgstr ""
+
+#: ../admin/theme-options.php:1361
+msgid "Please contact the server administrator for more information."
+msgstr ""
+
 #: ../admin/inc/class-tgm-plugin-activation.php:167
 msgid "Install Required Plugins"
 msgstr ""
@@ -1292,10 +1326,6 @@ msgstr[1] ""
 #: ../admin/inc/class-tgm-plugin-activation.php:185
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: ../admin/inc/class-tgm-plugin-activation.php:186
-msgid "Dismiss this notice"
 msgstr ""
 
 #: ../admin/inc/class-tgm-plugin-activation.php:538

@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: chocolat\n"
-"POT-Creation-Date: 2015-02-08 10:27+0900\n"
-"PO-Revision-Date: 2015-02-08 10:29+0900\n"
+"POT-Creation-Date: 2015-03-04 02:53+0900\n"
+"PO-Revision-Date: 2015-03-04 02:54+0900\n"
 "Last-Translator: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language-Team: Mignon Style <mignonxstyle@gmail.com>\n"
 "Language: Japanese\n"
@@ -119,7 +119,7 @@ msgstr "アーカイブ"
 msgid "%d posts"
 msgstr "%d 件"
 
-#: ../footer.php:41
+#: ../footer.php:39
 msgid "PAGE TOP"
 msgstr "PAGE TOP"
 
@@ -1123,6 +1123,44 @@ msgstr "変更を保存"
 msgid "Reset Defaults"
 msgstr "リセット"
 
+#: ../admin/theme-options.php:1360
+msgid "If you can not \"Save changes\" or \"reset\":"
+msgstr "「変更を保存」や「リセット」が出来ないときは："
+
+#: ../admin/theme-options.php:1360
+msgid "More detailed"
+msgstr "くわしく見る"
+
+#: ../admin/theme-options.php:1360
+#: ../admin/inc/class-tgm-plugin-activation.php:186
+msgid "Dismiss this notice"
+msgstr "お知らせを非表示"
+
+#: ../admin/theme-options.php:1361
+msgid ""
+"When WAF setting of the server is enabled, you can not \"Save changes\" or "
+"\"reset\"."
+msgstr ""
+"サーバーのWAF設定が有効になっていると「変更を保存」や「リセット」が出来ませ"
+"ん。"
+
+#: ../admin/theme-options.php:1361
+msgid ""
+"Please save the settings of Chocolat after you disable the WAF configuration."
+msgstr "サーバーのWAF設定を無効にしてからChocolatの設定を保存してください。"
+
+#: ../admin/theme-options.php:1361
+msgid ""
+"Once you have save the settings of Chocolat, for security, please reenable "
+"the WAF setting."
+msgstr ""
+"Chocolatの設定を保存したら、セキュリティの為にサーバーのWAF設定を「有効」にも"
+"どしてください。"
+
+#: ../admin/theme-options.php:1361
+msgid "Please contact the server administrator for more information."
+msgstr "詳しくはお使いのサーバーの管理者にお尋ね下さい。"
+
 #: ../admin/inc/class-tgm-plugin-activation.php:167
 msgid "Install Required Plugins"
 msgstr "テーマに必要なプラグインをインストール"
@@ -1283,10 +1321,6 @@ msgstr[1] "プラグインの有効化に成功しました。"
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr "プラグイン %1$s のインストールが完了し、有効化に成功しました。"
-
-#: ../admin/inc/class-tgm-plugin-activation.php:186
-msgid "Dismiss this notice"
-msgstr "お知らせを非表示"
 
 #: ../admin/inc/class-tgm-plugin-activation.php:538
 #: ../admin/inc/class-tgm-plugin-activation.php:2164

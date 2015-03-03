@@ -9,7 +9,7 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 Tags: brown, tan, white, light, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, fluid-layout, custom-background, custom-header, custom-menu, sticky-post, microformats, theme-options, threaded-comments, translation-ready
 Text Domain: chocolat
-Version: 1.1.13
+Version: 1.1.14
 ------------------------------------ */
 
 /* ------------------------------------
@@ -514,6 +514,10 @@ form {
 	color: #666;
 	margin: 0;
 	padding: 0;
+}
+
+form p {
+	margin: 1em 0;
 }
 
 fieldset {
@@ -1748,6 +1752,14 @@ section .section-bottom:before {
 	border-radius: 0 !important;
 }
 
+/* Audio button */
+.mejs-controls button,
+.mejs-controls input[type="button"],
+.mejs-controls input[type="reset"],
+.mejs-controls input[type="submit"] {
+	min-width: auto;
+}
+
 /* ------------------------------------
 5.6.  - attachment
 ------------------------------------ */
@@ -2078,6 +2090,7 @@ li.comment > .comment-respond {
 /* widget base */
 .widget {
 	overflow: hidden;
+	min-height: 120px;
 }
 
 .contactlink-side,
@@ -2415,39 +2428,72 @@ li.comment > .comment-respond {
 
 #pagetop {
 	font-size: 12px;
-	line-height: 1;
-	position: fixed;
-	bottom: 20px;
 	text-align: center;
-}
-
-#pagetop a,
-#pagetop a span.ro-off,
-#pagetop a span.ro-on {
-	background: url(img/base/page-top.png) no-repeat 0 0;
 }
 
 #pagetop a {
 	color: #fff;
 	display: block;
-	height: 85px;
-	width: 85px;
+	font-family: "Century Gothic", sans-serif;
 }
 
-#pagetop a span.ro-on {
-	background-position: -85px 0;
+#pagetop a:before,
+#pagetop .icon-up:before {
+	display: none;
 }
 
-#pagetop a:hover {
-	-webkit-transition: none;
-	-moz-transition:    none;
-	transition:         none;
+@media screen and (max-width: 640px) {
+	#pagetop a {
+		background: #ba8d65;
+		height: 30px;
+		line-height: 30px;
+		width: 100%;
+	}
+
+	#pagetop a:hover {
+		background: #f56993;
+	}
 }
 
-#pagetop a .icon-up {
-	display: block;
-	font-size: 18px;
-	padding: 18px 0 4px;
+@media screen and (min-width: 641px) {
+	#pagetop {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+	}
+
+	#pagetop a {
+		display: inline-block;
+		height: 85px;
+		width: 85px;
+	}
+
+	#pagetop a:before {
+		color: #ba8d65;
+		display: block;
+		font-size: 85px;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	#pagetop a:hover:before {
+		color: #f56993;
+	}
+
+	#pagetop a .icon-up {
+		font-size: 1em;
+		position: absolute;
+		top: 18px;
+		left: 0;
+		width: 85px;
+	}
+
+	#pagetop .icon-up:before {
+		display: block;
+		font-size: 18px;
+		padding-bottom: 4px;
+	}
 }
 
 /* ------------------------------------

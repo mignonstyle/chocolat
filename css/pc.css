@@ -31,14 +31,6 @@ section .entry-title a,
 	font-size: 0.85em;
 }
 
-/* ------------------------------------
-7.0 - Footer Style
------------------------------------- */
-
-#footer #footer-inner {
-	padding-right: 110px
-}
-
 /* ====================================
 PC and tablet only style max 800
 ==================================== */

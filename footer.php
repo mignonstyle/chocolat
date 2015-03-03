@@ -35,12 +35,9 @@
 	</div>
 </footer><!-- /footer -->
 
-<?php if ( ! chocolat_is_mobile() ) : ?>
-<!-- pagetop -->
-<div id="pagetop" class="rollover">
-	<a href="#top" class="pagetop-btn"><span class="icon-up"></span><?php _e( 'PAGE TOP', 'chocolat' ); ?></a>
+<div id="pagetop">
+	<a href="#top" class="pagetop-btn ms-fc icon-c-pagetop"><span class="icon-up"><?php _e( 'PAGE TOP', 'chocolat' ); ?></span></a>
 </div><!-- /pagetop -->
-<?php endif; ?>
 
 </div><!-- /#wrapper -->
 <?php wp_footer(); ?>

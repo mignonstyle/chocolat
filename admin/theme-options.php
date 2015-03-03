@@ -1350,9 +1350,15 @@ function chocolat_theme_options_do_page() {
 				?></td></tr>
 			</table>
 
-			<div id="submit-button">
+			<div id="submit-button" class="clearfix">
 				<?php submit_button( __( 'Save Changes', 'chocolat' ), 'primary', 'save' ); ?>
 				<?php submit_button( __( 'Reset Defaults', 'chocolat' ), 'secondary', 'reset' ); ?>
+			</div>
+
+			<!-- Notice Option -->
+			<div id="notice-option" class="update-nag clearfix">
+				<p class="notice-title"><?php _e( 'If you can not "Save changes" or "reset":', 'chocolat' ); ?><span class="notice-open"><?php _e( 'More detailed', 'chocolat' ); ?></span><span class="notice-close"><?php _e( 'Dismiss this notice', 'chocolat' ); ?></span></p>
+				<p class="notice-desc"><?php echo __( 'When WAF setting of the server is enabled, you can not "Save changes" or "reset".', 'chocolat' ) . ' ' . __( 'Please save the settings of Chocolat after you disable the WAF configuration.', 'chocolat' ); ?><br /><?php _e( 'Once you have save the settings of Chocolat, for security, please reenable the WAF setting.', 'chocolat' ); ?><br /><?php _e( 'Please contact the server administrator for more information.', 'chocolat' ); ?></p>
 			</div>
 		</form>
 	</div><!-- /.wrap -->

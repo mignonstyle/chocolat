@@ -19,6 +19,7 @@ Unless otherwise specified, all the theme files, scripts and images are licensed
 Scripts and Image was created by Mignon Style, Copyright 2014 Mignon Style
 All scripts in "/js" and "/admin/js" folder (Except html5.js and jquery.cookie.js)
 All images in "/img" and "/admin/img" folder
+All Fonts in "font/font-chocolat" folder
 
 /* ------------------------------------
 Chocolat WordPress Theme bundles 
@@ -162,6 +163,12 @@ A corresponding social link:
 Twitter, Facebook, Google+, Tumblr, Pinterest, Instagram, LinkedIn,
 Flickr, Dribbble, YouTube, Vimeo, GitHub, Viadeo, Bloglovin, pixiv
 
+If you can not "Save changes" or "reset":
+When WAF setting of the server is enabled, you can not "Save changes" or "reset".'
+Please save the settings of Chocolat after you disable the WAF configuration.
+Once you have save the settings of Chocolat, for security, please reenable the WAF setting.
+Please contact the server administrator for more information.
+
 /* ------------------------------------
 Translations
 ------------------------------------ */
@@ -180,6 +187,12 @@ I will write your name in the translator name in reaeme.txt.
 /* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.14
+* Add a description about WAF configuration of the server
+* Add Chocolat Original Font
+* CSS fixes
+* Bug fixes
 
 v1.1.13
 * Bug fixes

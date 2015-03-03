@@ -137,6 +137,29 @@ jQuery(function($){
 		}
 	}
 
+	// notice option
+	$('#notice-option .notice-close').hide();
+	$('#notice-option .notice-desc').hide();
+	notice_option();
+
+	function notice_option(){
+		$('#notice-option .notice-open').click(function(){
+			$('#notice-option .notice-desc').show();
+			$('#notice-option .notice-close').show();
+			$('#notice-option .notice-open').hide();
+		});
+
+		$('#notice-option .notice-close').click(function(){
+			$('#notice-option .notice-desc').hide();
+			$('#notice-option .notice-close').hide();
+			$('#notice-option .notice-open').show();
+		});
+	}
+
+	$('#notice-option input').change(function(){
+		notice_option();
+	});
+
 	/*
 	* CodeMirror
 	*/

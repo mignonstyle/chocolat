@@ -344,6 +344,29 @@ Theme Options Style
 }
 
 /* ------------------------------------
+8.0 - Option desc-option
+------------------------------------ */
+
+.appearance_page_theme_options #notice-option.update-nag {
+	display: block;
+	margin: 0;
+}
+
+.appearance_page_theme_options #notice-option input {
+	display: none;
+}
+
+.appearance_page_theme_options #notice-option .notice-title,
+.appearance_page_theme_options #notice-option span {
+	font-weight: bold;
+}
+
+.appearance_page_theme_options #notice-option span {
+	color: #0074a2;
+	cursor: pointer;
+}
+
+/* ------------------------------------
 9.0 - CodeMirror
 ------------------------------------ */
 
