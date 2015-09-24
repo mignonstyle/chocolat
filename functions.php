@@ -1168,7 +1168,7 @@ function chocolat_entry_dates() {
 			echo '<p class="entry-sticky icon-crown"><span>'.__( 'Attention', 'chocolat' ).'</span></p>';
 		}
 
-		echo '<time class="entry-date updated" datetime="'.get_the_date( 'Y-m-d' ).'">';
+		echo '<time class="entry-date updated" datetime="'.get_the_date( 'c' ).'">';
 		echo '<span class="entry-year">'.get_the_date( 'Y' ).'</span><span class="entry-month">'.get_the_date( 'm/d' ).'</span>';
 		echo '</time>';
 
