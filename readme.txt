@@ -185,8 +185,18 @@ Please write your name in the Last-Translator.
 I will write your name in the translator name in reaeme.txt.
 
 /* ------------------------------------
+Contributor
+------------------------------------ */
+
+Shinichi Nishikawa
+URL: https://profiles.wordpress.org/shinichin
+
+/* ------------------------------------
 Changelog
 ------------------------------------ */
+
+v1.1.15
+* Change the date format for the timedate attribute.
 
 v1.1.14
 * Add a description about WAF configuration of the server
