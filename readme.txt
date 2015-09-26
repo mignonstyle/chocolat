@@ -196,7 +196,9 @@ Changelog
 ------------------------------------ */
 
 v1.1.15
-* Change the date format for the timedate attribute.
+* Change the date format for the timedate attribute
+* Code fixes
+* Change the screenshot.png
 
 v1.1.14
 * Add a description about WAF configuration of the server

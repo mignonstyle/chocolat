@@ -39,7 +39,7 @@
 <div id="header-inner">
 	<div id="header-top" class="clearfix">
 		<div class="header-title">
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				<h1 id="site-title"><?php chocolat_site_title(); ?></h1>
 				<?php chocolat_site_description(); ?>
 			</a>

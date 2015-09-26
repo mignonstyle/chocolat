@@ -1129,7 +1129,7 @@ function chocolat_header_image() {
 		<div id="header-image" class="thumbnail">
 			<?php if ( ! empty( $options['show_header_link'] ) )
 				echo '<a class="home-link" href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" rel="home">';
-			?><img src="<?php header_image(); ?>" height="<?php echo get_custom_header() -> height; ?>" width="<?php echo get_custom_header() -> width; ?>" alt="<?php esc_attr_e( get_bloginfo( 'name', 'display' ) ); ?>" /><?php
+			?><img src="<?php header_image(); ?>" height="<?php echo get_custom_header() -> height; ?>" width="<?php echo get_custom_header() -> width; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /><?php
 			if ( ! empty( $options['show_header_link'] ) )
 				echo '</a>'; ?>
 		</div>
