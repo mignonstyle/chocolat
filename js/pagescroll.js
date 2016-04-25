@@ -57,7 +57,7 @@ jQuery(function($){
 	}
 
 	// page scroll
-	$('a[href^=#]').not('[href="#"]').click(function(e){
+	$('a[href^="#"]').not('[href="#"]').click(function(e){
 		var obj_hash = $(this.hash);
 		var hash_offset = obj_hash.offset().top;
 		$('html, body').animate({scrollTop: hash_offset}, 'swing');
